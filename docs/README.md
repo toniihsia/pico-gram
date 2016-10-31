@@ -1,5 +1,6 @@
 # PicoGram
 [Heroku Link][heroku]
+
 [Trello Link][trello]
 
 [heroku]: https://thisispicogram.herokuapp.com/
@@ -20,11 +21,11 @@ PicoGram is a web application inspired by Instagram. It is built using Ruby on R
 * [DB schema][schema]
 * [Sample State][sample-state]
 
-[wireframes]: docs/wireframes
-[components]: docs/component-hierarchy.md
-[sample-state]: docs/sample-state.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
+[wireframes]: wireframes
+[components]: component-hierarchy.md
+[sample-state]: sample-state.md
+[api-endpoints]: api-endpoints.md
+[schema]: schema.md
 
 ## Implementation Timeline
 ### Phase 1: Backend setup and Front End User Authentication (2 days)
@@ -44,7 +45,6 @@ PicoGram is a web application inspired by Instagram. It is built using Ruby on R
 - [ ] Seed database.
 - [ ] Create jBuilder views for posts.
 - [ ] Set up frontend.
-- [ ] Set up `APIUtil` to interact with API
 - [ ] Test API interaction in console.
 
 ### Phase 3: Frontend Profile and Photos (2 days)
