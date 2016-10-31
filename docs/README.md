@@ -15,7 +15,7 @@ PicoGram is a web application inspired by Instagram. It is built using Ruby on R
 
 ## Design Docs
 * [View Wireframes][wireframes]
-* [React Components][component-hierarchy]
+* [React Components][components]
 * [API endpoints][api-endpoints]
 * [DB schema][schema]
 * [Sample State][sample-state]
