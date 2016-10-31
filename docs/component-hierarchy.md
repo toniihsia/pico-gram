@@ -2,7 +2,7 @@
 
 Bolded routes are created by their associated routes, so the nesting of bolded components _**exactly**__ match the nesting of the routes.
 
-* ** App **
+* **App**
   * **SignIn Form**
   * **SignUp Form**
   * **PhotosIndex**
