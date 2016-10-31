@@ -6,12 +6,12 @@
 [trello]: https://trello.com/b/SSawsreK/picogram
 
 ## Minimum Viable Product
-PicoGram is a web application inspired by Instgram. It is built using Ruby on Rails and React/Redux. By the end of Week 9, this app will, at a minimum, satisfy the following criteria with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
-- [ ] Hosting on Heroku
-- [ ] New account creation, login, and guest/demo login
-- [ ] Photos
-- [ ] Infinite Scroll
-- [ ] Production README
+PicoGram is a web application inspired by Instagram. It is built using Ruby on Rails and React/Redux. By the end of Week 9, this app will, at a minimum, allow users to do the following:
+- [ ] Create new account, login, and guest/demo login.
+- [ ] Upload and display photos.
+- [ ] Create and delete comments on photos.
+- [ ] Follow users.
+- [ ] Like/unlike photos.
 
 ## Design Docs
 * [View Wireframes][wireframes]
@@ -31,8 +31,66 @@ PicoGram is a web application inspired by Instgram. It is built using Ruby on Ra
 
 ** Objective: ** Functioning rails project with front-end Authentication
 
-### Phase 2: Photos Model, API, and components (4 days)
+- [ ] Create new project.
+- [ ] Create `User` model.
+- [ ] Implement authentication.
+- [ ] Create functioning user sign up/sign in pages.
 
-** Objective: ** Photos can be uploaded with a caption, seen/read, edited, and destroyed through the API.
 
-### Phase 3:
+### Phase 2: Post Model, API, and basicAPIUtil (2 days)
+** Objective: ** Posts can be created, read, and destroyed via API.
+
+- [ ] Create `Post` model and controller.
+- [ ] Seed database.
+- [ ] Create jBuilder views for posts.
+- [ ] Set up frontend.
+- [ ] Set up `APIUtil` to interact with API
+- [ ] Test API interaction in console.
+
+### Phase 3: Frontend Profile and Photos (2 days)
+** Objective: ** Posts can be created with user interface and can display. Index of all photos should display. Upload form should work, with photos added via URL.
+
+### Phase 4: Page Layout (0.5 days)
+** Objective: ** Ensure current pages are easily navigated and generally aesthetic.
+
+### Phase 5: Proper Upload (1.5 days)
+** Objective: ** Allow users to upload photos versus entering a URL.
+- [ ] Set up Cloudinary
+
+### Phase 6: Comments (2 days)
+** Objective: ** Allow users to upload photos versus entering a URL.
+- [ ] create `Comment` model.
+- [ ] Build out API, flux loop, and components for:
+  - [ ] Comment CRUD
+  - [ ] Integrate Comment into `CommentBox`
+- [ ] Style new views.
+
+### Phase 7: User Search (1 day)
+** Objective: ** Allow users to upload photos versus entering a URL.
+- [ ] Allow users to search for other users.
+- [ ] Search results show users in drop-down menu with follow/unfollow buttons.
+
+### Phase 8: Follows (1 day)
+** Objective: ** Allow users to follow one another.
+- [ ] Create `Follow` model.
+- [ ] Build out API, Flux loop, and components.
+- Style new views.
+
+### Phase 11: Likes (1 day)
+** Objective: ** Allow users to upload photos versus entering a URL.
+- [ ] Create `Like` model.
+- [ ] Build out API, Flux loop, and components.
+- Style new views
+
+### Phase 12: Display Correct Posts (1 day)
+** Objective: ** Allow users to upload photos versus entering a URL.
+- [ ] Photo stream only shows photos of current user's followed users.
+
+### Phase 13: Infinite Scroll
+
+### Bonus Features
+- [ ] Infinite Scrolling
+- [ ] Show user profile when clicking usernames from front page.
+- [ ] Time stamps.
+- [ ] Clicking a photo's timestamp or clicking a photo from a user's profile brings up single photo view.
+- [ ] Profile photos.
