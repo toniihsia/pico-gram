@@ -58,35 +58,35 @@ PicoGram is a web application inspired by Instagram. It is built using Ruby on R
 - [ ] Set up Cloudinary
 
 ### Phase 6: Comments (2 days)
-**Objective:** Allow users to upload photos versus entering a URL.
+**Objective:** Allow users to comment on photos. Comments should appear immediately after submission.
 - [ ] create `Comment` model.
 - [ ] Build out API, flux loop, and components for:
   - [ ] Comment CRUD
   - [ ] Integrate Comment into `CommentBox`
 - [ ] Style new views.
 
-### Phase 7: User Search (1 day)
-**Objective:** Allow users to upload photos versus entering a URL.
-- [ ] Allow users to search for other users.
-- [ ] Search results show users in drop-down menu with follow/unfollow buttons.
-
-### Phase 8: Follows (1 day)
+### Phase 7: Follows (1 day)
 **Objective:** Allow users to follow one another.
 - [ ] Create `Follow` model.
 - [ ] Build out API, Flux loop, and components.
 - Style new views.
 
-### Phase 11: Likes (1 day)
-**Objective:** Allow users to upload photos versus entering a URL.
+### Phase 8: Likes (1 day)
+**Objective:** Allow users to like photos.
 - [ ] Create `Like` model.
 - [ ] Build out API, Flux loop, and components.
 - Style new views
 
-### Phase 12: Display Correct Posts (1 day)
+### Phase 9: User Search (1 day)
+**Objective:** Allow users to upload photos versus entering a URL.
+- [ ] Allow users to search for other users.
+- [ ] Search results show users in drop-down menu with follow/unfollow buttons.
+
+### Phase 10: Display Correct Posts (1 day)
 **Objective:** Allow users to upload photos versus entering a URL.
 - [ ] Photo stream only shows photos of current user's followed users.
 
-### Phase 13: Infinite Scroll
+### Phase 11: Infinite Scroll
 **Objective:** Allow users to scroll through stream infinitely.
 
 ### Bonus Features
