@@ -51,7 +51,7 @@ PicoGram is a web application inspired by Instagram. It is built using Ruby on R
 **Objective:** Posts can be created with user interface and can display. Index of all photos should display. Upload form should work, with photos added via URL.
 
 ### Phase 4: Page Layout (0.5 days)
-** Objective: ** Ensure current pages are easily navigated and generally aesthetic.
+**Objective:** Ensure current pages are easily navigated and generally aesthetic.
 
 ### Phase 5: Proper Upload (1.5 days)
 **Objective:** Allow users to upload photos versus entering a URL.
