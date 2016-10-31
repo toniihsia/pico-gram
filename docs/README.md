@@ -15,7 +15,7 @@ PicoGram is a web application inspired by Instagram. It is built using Ruby on R
 
 ## Design Docs
 * [View Wireframes][wireframes]
-* [React Components][components]
+* [React Components][component-hierarchy]
 * [API endpoints][api-endpoints]
 * [DB schema][schema]
 * [Sample State][sample-state]
@@ -87,6 +87,7 @@ PicoGram is a web application inspired by Instagram. It is built using Ruby on R
 - [ ] Photo stream only shows photos of current user's followed users.
 
 ### Phase 13: Infinite Scroll
+** Objective: ** Allow users to scroll through stream infinitely.
 
 ### Bonus Features
 - [ ] Infinite Scrolling
