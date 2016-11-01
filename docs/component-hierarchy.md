@@ -39,9 +39,9 @@ Bolded routes are created by their associated routes, so the nesting of bolded c
 | "/sign-up" | "AuthFormContainer" |
 | "/sign-in" | "AuthFormContainer" |
 | "/users/:userId" | "UserProfileContainer" |
-| "/users/:userId/photos/:photoId" | UserPostContainer |
+| "/users/:userId/photos/:photoId" | "UserPostContainer" |
 | "/posts" | "PhotosIndexContainer" |
-| "/posts/:postId" | PostFeedContainer |
-| "/new-post" | UploadPostContainer |
-| "/search" | SearchContainer |
+| "/posts/:postId" | "PostFeedContainer" |
+| "/new-post" | "UploadPostContainer" |
+| "/search" | "SearchContainer" |
 | "/tag-search" | "TagSearchContainer" |
