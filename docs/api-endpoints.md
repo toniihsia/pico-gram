@@ -14,7 +14,7 @@
 ### Users
 - `GET /api/users/:id`
 - `POST /api/users`
-- `PATCH /api/users`
+- `PATCH /api/users/:id`
 
 ### Follows
 - `POST /api/users/:id/follows`

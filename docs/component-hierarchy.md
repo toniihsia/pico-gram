@@ -3,15 +3,14 @@
 Bolded routes are created by their associated routes, so the nesting of bolded components _**exactly**__ match the nesting of the routes.
 
 * **App**
+  * NavBar
+    * IndexPageLink
+    * **SearchBar Container**
+    * **UploadPost Container**
   * **AuthFormContainer**
-    * Sign Up Form
-
-  * **PhotosIndexContainer**
-    * Navbar
-      * IndexPageLink
-      * SearchBar
-    * **PostFeedContainer**
-      * **PostFeedItem*Container**
+    * Sign Up/Sign In Form
+  * **PhotosFeedContainer**
+      * **PostFeedItems Component**
       * HeaderBar
         * UserInfo
         * DateStamp
@@ -21,16 +20,24 @@ Bolded routes are created by their associated routes, so the nesting of bolded c
       * Interactive Bar
         * LikeButton
         * AddCommentForm
+  * **PostShowContainer**
+    * HeaderBar
+      * UserInfo
+      * DateStamp
+    * Image
+    * LikesCounter
+    * CommentDisplay
+    * Interactive Bar
+      * LikeButton
+      * AddCommentForm
 * **UserProfileContainer**
-  * ProfileHeader
-    * Picture
-    * Information
-    * Following Status
-  * **UserPostContainer**
-    * Posts
-  * **UploadPostContainer**
-* **SearchContainer**
-* **TagsSearchContainer**
+  * **UserInfo Component**
+    * ProfileHeader
+      * Picture
+      * Information
+      * Following Status
+  * **UserPostIndex**
+    * Posts (which render PostIndexItem for each Post)
 
 ## Routes
 
@@ -39,9 +46,8 @@ Bolded routes are created by their associated routes, so the nesting of bolded c
 | "/sign-up" | "AuthFormContainer" |
 | "/sign-in" | "AuthFormContainer" |
 | "/users/:userId" | "UserProfileContainer" |
-| "/users/:userId/photos/:photoId" | "UserPostContainer" |
+| "/users/:userId/photos/:photoId" | "PostShowContainer" |
 | "/posts" | "PhotosIndexContainer" |
-| "/posts/:postId" | "PostFeedContainer" |
+| "/posts/:postId" | "PostShowContainer" |
 | "/new-post" | "UploadPostContainer" |
 | "/search" | "SearchContainer" |
-| "/tag-search" | "TagSearchContainer" |
