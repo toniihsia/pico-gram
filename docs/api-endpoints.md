@@ -5,17 +5,20 @@
 ### Root
 - `GET /` - loads React web app
 
-### Users
-- `GET /users/new`
-- `POST /users`
-- `PATCH /users`
+## JSON API
 
 ### Session
-- `GET /session/new`
-- `POST /session`
-- `DELETE /session`
+- `POST /api/session`
+- `DELETE /api/session`
 
-## JSON API
+### Users
+- `GET /api/users/:id`
+- `POST /api/users`
+- `PATCH /api/users`
+
+### Follows
+- `POST /api/users/:id/follows`
+- `DELETE /api/users/:id/follows`
 
 ### Posts
 - `GET /api/posts`
@@ -24,14 +27,11 @@
 - `PATCH api/posts/:id`
 - `DELETE /api/posts/:id`
 
-### Comments
-- `GET /api/posts/:id/comments`
-- `POST /api/posts/:id/comments`
-- `GET /api/posts/:id/comments/:id`
-- `PATCH /api/posts/:id/comments/:id`
-- `DELETE api/posts/:id/comments/:id`
-
 ### Likes
-- `GET /api/posts/:id/likes`
 - `POST /api/posts/:id/likes`
 - `DELETE /api/posts/:id/likes/:id`
+
+### Comments
+- `POST /api/posts/:id/comments`
+- `PATCH /api/posts/:id/comments/:id`
+- `DELETE api/posts/:id/comments/:id`
