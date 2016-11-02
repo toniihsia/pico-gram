@@ -31,14 +31,14 @@ column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 body            | string    | not null, indexed
-post_id        | integer   | not null, indexed
+post_id         | integer   | not null, indexed
 user_id         | integer   | not null, indexed
 
 ## likes
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-post_id        | integer   | not null, indexed
+post_id         | integer   | not null, indexed
 user_id         | integer   | not null, indexed
 
 ## tags (bonus)
