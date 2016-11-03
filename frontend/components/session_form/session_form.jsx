@@ -15,6 +15,7 @@ class SessionForm extends React.Component {
 		this.clearFields = this.clearFields.bind(this);
 	}
 
+	/// FORM HANDLERS: Updating, setStates, Redirects ///
 	componentDidUpdate() {
 		this.redirectIfLoggedIn();
 	}
@@ -37,16 +38,9 @@ class SessionForm extends React.Component {
     console.log(this.state);
 		this.props.formType === 'login' ? this.props.logIn({user}) : this.props.signUp({user});
 	}
+	//////////////////////////////////////////////////////
 
-	// navLink() {
-	// 	if (this.props.formType === "login") {
-	// 		return <Link to="/signup">sign up instead</Link>;
-	// 	} else {
-	// 		return <Link to="/login">log in instead</Link>;
-	// 	}
-	// }
-
-
+	/// GUEST LOG IN: Animations and Input ///
 	startUsernameAnimation(){
     if(this.state.username.length > 0 || this.state.password.length > 0){
       this.clearFields();
@@ -99,7 +93,9 @@ class SessionForm extends React.Component {
       );
     }
   }
+	//////////////////////////////////////////////////////
 
+	/// HELPER RENDER FUNCTIONS: Errors, LogIn/SignUp, GuestLogIn ///
 	renderErrors() {
 		return(
 			<ul>
@@ -153,7 +149,9 @@ class SessionForm extends React.Component {
 			</button>);
 		}
 	}
+	//////////////////////////////////////////////////////
 
+	/// ACTUAL RENDER: Log In/Sign Up Form ///
 	render() {
 		const text = this.props.formType === "login" ? "Log In" : "Sign Up";
 
@@ -198,7 +196,7 @@ class SessionForm extends React.Component {
 			</div>
 		);
 	}
-
+	//////////////////////////////////////////////////////
 }
 
 export default withRouter(SessionForm);
