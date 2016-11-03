@@ -10,14 +10,13 @@ import App from './app';
 // import BenchFormContainer from './bench_form/bench_form_container';
 // import BenchShowContainer from './bench_show/bench_show_container';
 // import ReviewFormContainer from './bench_show/review_form_container';
-import SessionFormContainer from './session_form/session_form_container'
+import SessionFormContainer from './session_form/session_form_container';
 import GreetingContainer from './greeting/greeting_container';
 
 const Root = ({ store }) => {
 
   const _ensureLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
-    debugger
     if (!currentUser) {
       replace('/login');
     }
