@@ -1,1 +1,1 @@
-json.extract! @user, :username, :id
+render "api/users/user", user: @user

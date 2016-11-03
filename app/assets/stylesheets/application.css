@@ -13,5 +13,109 @@
  *= require_tree .
  *= require_self
  */
+/* CSS Reset */
+html, section, article, label, h1, h2, p, strong, em, a, li{
+  margin: 0;
+  border: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font: inherit;
+  text-decoration: inherit;
+  text-align: inherit;
+  color: inherit;
+  background: transparent;
+  list-style: none;
+}
+
+* {
+  font-family: 'Dense', sans-serif;
+  font-weight: lighter;
+}
 
 /* Styling for Log In / Sign Up */
+.auth-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/a04cc143768649.57fc22ec03858.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.auth-form-container {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.8);
+  max-width: 350px;
+  margin: auto;
+  margin-top: 15%;
+  padding: 30px 45px 45px 45px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.auth-form {
+  margin: 0;
+}
+
+.auth-label-1 {
+  font-size: 45px;
+  margin: 0;
+}
+
+.auth-label-2 {
+  font-size: 45px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.auth-input {
+  outline: 0;
+  background: #f2f2f2;
+  background: white;
+  width: 80%;
+  border: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border: 1px solid lightgrey;
+  margin: 10px;
+}
+
+.auth-button {
+  outline: 0;
+  width: 80%;
+  padding: 10px;
+  border: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: black;
+  background-color: white;
+}
+
+.auth-button:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+  transition: 0.3s;
+}
+
+.auth-other {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.auth-link {
+  font-weight: bolder;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.auth-error {
+  font-size: 10px;
+  font-weight: bolder;
+}

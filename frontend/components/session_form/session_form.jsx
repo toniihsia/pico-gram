@@ -6,9 +6,13 @@ class SessionForm extends React.Component {
 		super(props);
 		this.state = {
 			username: "",
-			password: ""
+			password: "",
+			email: ""
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.startUsernameAnimation = this.startUsernameAnimation.bind(this);
+		this.startPasswordAnimation = this.startPasswordAnimation.bind(this);
+		this.clearFields = this.clearFields.bind(this);
 	}
 
 	componentDidUpdate() {
@@ -31,26 +35,67 @@ class SessionForm extends React.Component {
 		e.preventDefault();
 		const user = this.state;
     console.log(this.state);
-		this.props.processForm({user});
+		this.props.formType === 'login' ? this.props.logIn({user}) : this.props.signUp({user});
 	}
 
-	navLink() {
-		if (this.props.formType === "login") {
-			return <Link to="/signup">sign up instead</Link>;
-		} else {
-			return <Link to="/login">log in instead</Link>;
-		}
+	// navLink() {
+	// 	if (this.props.formType === "login") {
+	// 		return <Link to="/signup">sign up instead</Link>;
+	// 	} else {
+	// 		return <Link to="/login">log in instead</Link>;
+	// 	}
+	// }
+
+
+	startUsernameAnimation(){
+    if(this.state.username.length > 0 || this.state.password.length > 0){
+      this.clearFields();
+    }
+
+    const demoGuest = 'Guest';
+    let usernameID = setInterval(() => {
+      document.getElementById('username').focus();
+      let currLength = this.state.username.length;
+
+      if(currLength < demoGuest.length){
+          this.setState({username: this.state.username + demoGuest.slice(currLength, currLength + 1)});
+      } else{
+          clearInterval(usernameID);
+          this.startPasswordAnimation();
+      }
+    }, 100);
 	}
+
+  startPasswordAnimation(){
+    const demoPassword = 'password';
+    let passwordID = setInterval(() => {
+      document.getElementById('password').focus();
+      let currLength = this.state.password.length;
+
+      if(currLength < demoPassword.length){
+          this.setState({password: this.state.password + demoPassword.slice(currLength, currLength + 1)});
+      } else{
+          clearInterval(passwordID);
+          const user = this.state;
+          this.props.logIn({user});
+      }
+    }, 100);
+  }
+
+	clearFields(){
+		this.setState({username: '', password:''});
+	}
+
 
   emailField() {
     if (this.props.formType !== "login" ) {
       return (
-        <label>Email:
-          <input type="text"
-            value={this.state.email}
-            onChange={this.update("email")}
-            className="login-input" />
-        </label>
+	      <input type="text"
+	        value={this.state.email}
+	        onChange={this.update("email")}
+	        className="auth-input"
+					placeholder="Email"
+					/>
       );
     }
   }
@@ -59,7 +104,9 @@ class SessionForm extends React.Component {
 		return(
 			<ul>
 				{this.props.errors.map((error, i) => (
-					<li key={`error-${i}`}>
+					<li
+						className="auth-error"
+						key={`error-${i}`}>
 						{error}
 					</li>
 				))}
@@ -67,35 +114,89 @@ class SessionForm extends React.Component {
 		);
 	}
 
+	renderOtherOption() {
+		if (this.props.formType === "login") {
+			return (
+				<div className="auth-other">
+				Don't have an account?<br/>
+				<span>
+					<Link
+						className="auth-link"
+						to="/signup"
+						>Sign Up
+					</Link>
+				</span>
+			</div>);
+		} else {
+			return (
+				<div className="auth-other">
+				Already have an account?<br/>
+				<span>
+					<Link
+						className="auth-link"
+						to="/login">Log In
+					</Link>
+				</span>
+			</div>);
+		}
+	}
+
+	renderGuestLogIn() {
+		if (this.props.formType === "login") {
+			return (<button
+				className="auth-button"
+				id="button"
+				type="button"
+				name="button"
+				onClick={this.startUsernameAnimation}>
+				Guest Log In
+			</button>);
+		}
+	}
+
 	render() {
+		const text = this.props.formType === "login" ? "Log In" : "Sign Up";
+
 		return (
-			<div className="login-form-container">
-				<form onSubmit={this.handleSubmit} className="login-form-box">
-					Welcome to PicoGram!
-					<br/>
-					Please {this.props.formType} or {this.navLink()}
-					{this.renderErrors()}
-					<div className="login-form">
+			<div className="auth-wrapper">
+				<div className="auth-form-container">
+					<form onSubmit={this.handleSubmit} className="auth-form">
+						<label className="auth-label-1">Pico</label>
+						<label className="auth-label-2">Gram</label>
 						<br/>
-						<label> Username:
-							<input type="text"
-								value={this.state.username}
-								onChange={this.update("username")}
-								className="login-input" />
-						</label>
-						<br/>
-						<label> Password:
-							<input type="password"
-								value={this.state.password}
-								onChange={this.update("password")}
-								className="login-input" />
-						</label>
-            <br/>
-            {this.emailField()}
-						<br/>
-						<input type="submit" value="Submit" />
-					</div>
-				</form>
+						{this.renderErrors()}
+						<div className="auth-form">
+							<br/>
+								<input
+									className="auth-input"
+									type="text"
+									id="username"
+									value={this.state.username}
+									onChange={this.update("username")}
+									className="auth-input"
+									placeholder="Username"/>
+							<br/>
+								<input
+									className="auth-input"
+									type="password"
+									id="password"
+									value={this.state.password}
+									onChange={this.update("password")}
+									className="auth-input"
+									placeholder="Password"/>
+	            <br/>
+	            {this.emailField()}
+							<br/>
+							<input
+								className="auth-button"
+								type="submit"
+								value={text}
+								/>
+							{this.renderGuestLogIn()}
+							{this.renderOtherOption()}
+						</div>
+					</form>
+				</div>
 			</div>
 		);
 	}
