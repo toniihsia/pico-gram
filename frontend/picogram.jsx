@@ -23,5 +23,5 @@ document.addEventListener('DOMContentLoaded', () => {
       store = configureStore();
     }
     const rootEl = document.getElementById('root');
-    ReactDOM.render(<h1>hai</h1>, rootEl);
+    ReactDOM.render(<Root store={store} />, rootEl);
 });
