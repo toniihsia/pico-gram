@@ -9,7 +9,8 @@ class Api::PostsController < ApplicationController
     if @post.save
       render :create
     else
-      @post.errors.full_messages, status: 422
+      render json: @post.errors.full_messages, status: 422
+    end
   end
 
   def show
