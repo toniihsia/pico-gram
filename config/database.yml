@@ -78,8 +78,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: picogram_project_production
-  username: picogram_project
-  password: <%= ENV['PICOGRAM_PROJECT_DATABASE_PASSWORD'] %>
+# production:
+#   <<: *default
+#   database: picogram_project_production
+#   username: picogram_project
+#   password: <%= ENV['PICOGRAM_PROJECT_DATABASE_PASSWORD'] %>
