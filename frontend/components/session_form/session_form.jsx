@@ -165,8 +165,7 @@ class SessionForm extends React.Component {
 						<label className="auth-label-2">Gram</label>
 						<br/>
 						{this.renderErrors()}
-						<div className="auth-form">
-							<br/>
+
 								<input
 									className="auth-input"
 									type="text"
@@ -175,7 +174,7 @@ class SessionForm extends React.Component {
 									onChange={this.update("username")}
 									className="auth-input"
 									placeholder="Username"/>
-							<br/>
+
 								<input
 									className="auth-input"
 									type="password"
@@ -184,9 +183,9 @@ class SessionForm extends React.Component {
 									onChange={this.update("password")}
 									className="auth-input"
 									placeholder="Password"/>
-	            <br/>
+
 	            {this.emailField()}
-							<br/>
+
 							<input
 								className="auth-button"
 								type="submit"
@@ -194,7 +193,6 @@ class SessionForm extends React.Component {
 								/>
 							{this.renderGuestLogIn()}
 							{this.renderOtherOption()}
-						</div>
 					</form>
 				</div>
 			</div>

@@ -28,8 +28,9 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
 }
 
 * {
-  font-family: 'Dense', sans-serif;
-  font-weight: lighter;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  color: #383838;
 }
 
 /* Styling for Log In / Sign Up */
@@ -47,21 +48,18 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
 .auth-form-container {
   position: relative;
   z-index: 1;
-  background: rgba(255, 255, 255, 0.8);
-  max-width: 350px;
+  background: rgba(255, 255, 255, 0.85);
+  max-width: 475px;
   margin: auto;
   margin-top: 15%;
-  padding: 30px 45px 45px 45px;
+  padding: 50px 65px 65px 65px;
   text-align: center;
   border-radius: 5px;
 }
 
-.auth-form {
-  margin: 0;
-}
-
 .auth-label-1 {
   font-size: 45px;
+  font-weight: lighter;
   margin: 0;
 }
 
@@ -81,7 +79,7 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   box-sizing: border-box;
   font-size: 14px;
   border: 1px solid lightgrey;
-  margin: 10px;
+  margin-top: 10px;
 }
 
 .auth-button {
@@ -92,30 +90,37 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   box-shadow: none;
   box-sizing: border-box;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 500;
   margin-top: 10px;
-  color: black;
+  color: #383838;
   background-color: white;
 }
 
 .auth-button:hover {
   cursor: pointer;
-  background-color: lightgrey;
+  background-color: #3e3e3e;
   transition: 0.3s;
+  color: white;
 }
 
 .auth-other {
   margin-top: 15px;
-  font-size: 14px;
+  font-weight: 400;
+  font-size: 16px;
 }
 
 .auth-link {
-  font-weight: bolder;
+  font-weight: 500;
   font-size: 14px;
   margin-top: 10px;
 }
 
 .auth-error {
-  font-size: 10px;
-  font-weight: bolder;
+  font-size: 14px;
+  font-weight: 500;
+
+}
+
+.auth-inputs-container {
+  margin: 0
 }
