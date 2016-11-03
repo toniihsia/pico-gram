@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-guest = User.create(username: "guestuser", password: "password");
+guest = User.create(username: "Guest", password: "password");
 michael = User.create(username: "aelho_pak", password: "password");
 benjamin = User.create(username: "quarks0", password: "2malfor9");
 connor = User.create(username: "monnorcurphy", password: "password");
