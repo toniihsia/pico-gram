@@ -39,10 +39,6 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   width: 100%;
   height: 100%;
   background: url('https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/a04cc143768649.57fc22ec03858.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 }
 
 .auth-form-container {
