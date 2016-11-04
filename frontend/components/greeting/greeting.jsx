@@ -22,3 +22,8 @@ const Greeting = ({currentUser, logOut}) => (
 );
 
 export default Greeting;
+
+/// checking for path in greeting container to see whether you should
+/// render an empty div or not
+/// similar to helper functions for guest log in etc. in
+/// session form

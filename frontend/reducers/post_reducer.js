@@ -6,7 +6,6 @@ const PostsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   switch(action.type) {
     case RECEIVE_ALL_POSTS:
-      debugger
       return action.posts;
     case RECEIVE_POST:
       newState[action.post.id] = action.post;
