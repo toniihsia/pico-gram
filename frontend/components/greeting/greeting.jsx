@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const sessionLinks = () => (
-  <nav className="login-signup">
-      <Link to="/login" activeClassName="current">Login</Link>
-      <Link to="/signup" activeClassName="current">Sign up!</Link>
-  </nav>
-);
+// const sessionLinks = () => (
+//   <nav className="login-signup">
+//       <Link to="/login" activeClassName="current">Login</Link>
+//       <Link to="/signup" activeClassName="current">Sign up!</Link>
+//   </nav>
+// );
 
 const personalGreeting = (currentUser, logOut) => (
   <hgroup className="header-group">
@@ -17,9 +17,15 @@ const personalGreeting = (currentUser, logOut) => (
   </hgroup>
 );
 
-const Greeting = ({currentUser, logOut}) => (
-  currentUser ? personalGreeting(currentUser, logOut) : sessionLinks()
-);
+const Greeting = ({currentUser, logOut, renderState}) => {
+  if (renderState === "renderNone") {
+    return ( <div>ohhi</div>);
+  } else {
+    return (
+      personalGreeting(currentUser, logOut)
+    );
+  }
+};
 
 export default Greeting;
 
