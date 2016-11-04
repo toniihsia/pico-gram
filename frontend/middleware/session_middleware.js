@@ -8,6 +8,7 @@ import {
 } from '../actions/session_actions';
 
 import { logIn, signUp, logOut } from '../util/session_api_util';
+import { hashHistory } from 'react-router';
 
 export default ({getState, dispatch}) => next => action => {
   const successCallback = (currentUser) => dispatch(receiveCurrentUser(currentUser));

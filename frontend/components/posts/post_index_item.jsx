@@ -17,6 +17,7 @@ class PostIndexItem extends React.Component{
     let post = this.props.post;
     let author = post.user;
     let postAgeString = `~${post.age} ago`;
+    let caption = post.caption;
 
     return (
       <li>
@@ -24,7 +25,8 @@ class PostIndexItem extends React.Component{
         <Link to={`users/${author.id}`}>{postAgeString}</Link>
         <br/>
         <img src={post.image_url} alt={`${post.user}${post.id}`} />
-
+        <br/>
+        post.comments.map 
       </li>
     );
   }

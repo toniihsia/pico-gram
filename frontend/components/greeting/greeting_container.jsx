@@ -7,12 +7,8 @@ const mapStateToProps = ({session}) => ({
 });
 
 const mapDispatchToProps = dispatch => {
-  const pathName = location.pathname.slice(1);
-  const renderState = (pathName === "/login" || pathName === "/signup") ? "renderNone" : "renderBar";
-
   return {
-    logOut: () => dispatch(logOut()),
-    renderState
+    logOut: () => dispatch(logOut())
    };
 };
 

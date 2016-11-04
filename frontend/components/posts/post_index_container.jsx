@@ -3,7 +3,11 @@ import { fetchPosts, createPost } from '../../actions/post_actions';
 import PostIndex from './post_index';
 
 const mapStateToProps = (state) => {
-  return ({posts: Object.keys(state.posts).map(id => state.posts[id])});
+  return ({
+    posts: Object.keys(state.posts).map(id => state.posts[id]),
+    currentUser: state.session.currentUser
+  });
+
 };
 
 const mapDispatchToProps = dispatch => ({

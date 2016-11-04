@@ -1,4 +1,5 @@
 import React from 'react';
+import {hashHistory} from 'react-router';
 import PostIndexItem from './post_index_item';
 
 class PostIndex extends React.Component {
@@ -8,6 +9,12 @@ class PostIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchPosts();
+  }
+
+  componentDidUpdate() {
+    if (!this.props.currentUser) {
+      hashHistory.push("/login");
+    }
   }
 
   render () {
