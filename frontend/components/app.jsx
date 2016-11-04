@@ -1,9 +1,9 @@
 import React from 'react';
-import GreetingContainer from './greeting/greeting_container';
+import HeaderContainer from './header/header_container';
 
 const App = ({children}) => (
   <div>
-    <GreetingContainer />
+    <HeaderContainer />
     {children}
   </div>
 );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
 
-const personalGreeting = (currentUser, logOut) => {
+const headerItems = (currentUser, logOut) => {
   return (
   <div>
     <Link to="/" className="navbar-item">PicoGram</Link>
@@ -12,15 +12,14 @@ const personalGreeting = (currentUser, logOut) => {
   );
 };
 
-const Greeting = ({currentUser, logOut}) => {
-
+const Header = ({currentUser, logOut}) => {
   if (!currentUser) {
     return ( <div></div>);
   } else {
     return (
-      personalGreeting(currentUser, logOut)
+      headerItems(currentUser, logOut)
     );
   }
 };
 
-export default Greeting;
+export default Header;
