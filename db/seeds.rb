@@ -13,3 +13,6 @@ benjamin = User.create(username: "quarks0", password: "2malfor9", email: "benjam
 connor = User.create(username: "monnorcurphy", password: "password", email: "connor@email.com")
 lawrence = User.create(username: "lawrence_c", password: "password", email: "lawrence@email.com")
 zero = User.create(username: "aldnoah_zero", password: "password", email: "zero@email.com")
+
+
+photo_1 = Post.create(image_url: "https://res.cloudinary.com/dfrrpfeus/image/upload/v1478216466/seed_photo_1_k3agfk.jpg", caption: "pool lighting at dusk", user_id: 5)

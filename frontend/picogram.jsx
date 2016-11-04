@@ -6,14 +6,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 
-/// Tests ///
-import { logIn, signUp, logOut } from './actions/session_actions';
-window.store = configureStore();
-window.logIn = logIn;
-window.signUp = signUp;
-window.logOut = logOut;
-
-/// Actual Code ///
+/// Entry Code ///
 document.addEventListener('DOMContentLoaded', () => {
     let store;
     if (window.currentUser) {
@@ -22,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       store = configureStore();
     }
+    window.store = store;
     const rootEl = document.getElementById('root');
     ReactDOM.render(<Root store={store} />, rootEl);
 });

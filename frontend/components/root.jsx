@@ -12,6 +12,7 @@ import App from './app';
 // import ReviewFormContainer from './bench_show/review_form_container';
 import SessionFormContainer from './session_form/session_form_container';
 import GreetingContainer from './greeting/greeting_container';
+import PostIndexContainer from './posts/post_index_container';
 
 const Root = ({ store }) => {
 
@@ -43,6 +44,7 @@ const Root = ({ store }) => {
             <IndexRoute component={GreetingContainer} onEnter={_ensureLoggedIn}/>
             <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
             <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
+            <Route path="/posts" component={PostIndexContainer} />
         </Route>
       </Router>
     </Provider>

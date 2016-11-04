@@ -35,6 +35,7 @@ group :development, :test do
   gem 'byebug'
 end
 
+gem 'time_ago_in_words'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'pry-rails'
