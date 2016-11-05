@@ -11,7 +11,7 @@ import App from './app';
 // import BenchShowContainer from './bench_show/bench_show_container';
 // import ReviewFormContainer from './bench_show/review_form_container';
 import SessionFormContainer from './session_form/session_form_container';
-import GreetingContainer from './greeting/greeting_container';
+// import HeaderContainer from './header/header_container';
 import PostIndexContainer from './posts/post_index_container';
 
 const Root = ({ store }) => {

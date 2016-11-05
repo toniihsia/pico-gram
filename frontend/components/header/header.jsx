@@ -3,12 +3,25 @@ import { Link, hashHistory } from 'react-router';
 
 const headerItems = (currentUser, logOut) => {
   return (
-  <div>
-    <Link to="/" className="navbar-item">PicoGram</Link>
-    <Link to="/" className="navbar-item">Upload</Link>
-    <Link to="/" className="navbar-item">Profile</Link>
-    <div className="navbar-item" onClick={logOut}>Log Out</div>
-  </div>
+    <ul className="navbar-links">
+      <li className="navbar-logo">
+        <Link to="/" className="navbar-item">
+          <label className="home-button-1">Pico</label><label className="home-button-2">Gram</label>
+        </Link>
+      </li>
+
+      <li>
+        <Link to="/" className="navbar-item">Upload</Link>
+      </li>
+
+      <li>
+        <Link className="navbar-item" to="/">Profile</Link>
+      </li>
+
+      <li onClick={logOut}>
+        <Link className="navbar-item" to="/">Log Out</Link>
+      </li>
+    </ul>
   );
 };
 

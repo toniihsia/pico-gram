@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+
 /* CSS Reset */
 html, section, article, label, h1, h2, p, strong, em, a, li{
   margin: 0;
@@ -33,7 +35,7 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   color: #383838;
 }
 
-/* Styling for Log In / Sign Up */
+/* STYLING FOR LOG IN/SIGN UP */
 .auth-wrapper {
   position: absolute;
   width: 100%;
@@ -120,4 +122,68 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
 
 .auth-inputs-container {
   margin: 0
+}
+
+/* STYLING FOR HEADER/NAVBAR */
+/*.home-button {
+  margin-right: auto;
+  font-size: 26px;
+  padding: 16px 24px;
+}
+
+.home-button:hover {
+  background-color: #ff8080;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}*/
+/*
+.home-button:not(:hover) {
+  transition: 0.3s;
+}*/
+
+.navbar-item {
+  padding: 16px;
+  flex: right;
+}
+
+.navbar-logo {
+  margin-right: auto;
+  font-size: 26px;
+  padding: 16px 24px;
+}
+
+.navbar-links {
+  font-size: 16px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  color: #383838;
+}
+
+.navbar-item:hover {
+  border-bottom: solid #383838 2px;
+
+  cursor: pointer;
+  /*transition: 0.1s;*/
+  /* ben likes this commented out; will think about it */
+}
+
+.navbar-item:not(:hover) {
+  transition: 0.3s;
+}
+
+.home-button-1 {
+  font-size: 30px;
+  font-weight: lighter;
+  margin: 0;
+}
+
+.home-button-2 {
+  font-size: 30px;
+  margin: 0;
+  font-weight: bold;
 }
