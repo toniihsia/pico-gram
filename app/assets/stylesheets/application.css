@@ -125,23 +125,6 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
 }
 
 /* STYLING FOR HEADER/NAVBAR */
-/*.home-button {
-  margin-right: auto;
-  font-size: 26px;
-  padding: 16px 24px;
-}
-
-.home-button:hover {
-  background-color: #ff8080;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
-}*/
-/*
-.home-button:not(:hover) {
-  transition: 0.3s;
-}*/
-
 .navbar-item {
   padding: 16px;
   flex: right;
@@ -151,6 +134,10 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   margin-right: auto;
   font-size: 26px;
   padding: 16px 24px;
+}
+
+.navbar-logo:hover {
+  cursor: pointer;
 }
 
 .navbar-links {
@@ -182,8 +169,48 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   margin: 0;
 }
 
+.home-button-1:hover {
+  cursor: pointer;
+}
 .home-button-2 {
   font-size: 30px;
   margin: 0;
   font-weight: bold;
+}
+
+.home-button-2:hover {
+  cursor: pointer;
+}
+
+/* STYLING FOR POST INDEX ITEM */
+.individual-post {
+  font-size: 14px;
+  background-color: lightgray;
+  margin: 60px auto;
+  width: 800px;
+  border: 1px solid lightgray;
+  /*border-radius: 5px;*/
+}
+
+.disable-margin {
+  margin: 0px;
+}
+
+.post-header {
+  display: flex;
+
+  justify-content: center;
+  justify-content: space-between;
+  padding: 10px;
+
+}
+
+.post-author {
+  font-weight: bolder;
+}
+
+
+.index-photo {
+  width: 800px;
+  height: auto;
 }

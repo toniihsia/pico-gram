@@ -5,9 +5,11 @@ const headerItems = (currentUser, logOut) => {
   return (
     <ul className="navbar-links">
       <li className="navbar-logo">
-        <Link to="/" className="navbar-item">
-          <label className="home-button-1">Pico</label><label className="home-button-2">Gram</label>
-        </Link>
+        <div className="navbar-logo">
+          <Link to="/">
+            <label className="home-button-1">Pico</label><label className="home-button-2">Gram</label>
+          </Link>
+        </div>
       </li>
 
       <li>

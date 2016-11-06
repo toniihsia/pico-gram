@@ -18,15 +18,28 @@ class PostIndexItem extends React.Component{
     let author = post.user;
     let postAgeString = `~${post.age} ago`;
     let caption = post.caption;
+    let postClassName = location.hash.includes("users") ? "individual-post disable-margin" : "individual-post";
 
     return (
       <li>
-        <Link to={`users/${author.id}`}>{author.username}</Link>
-        <Link to={`users/${author.id}`}>{postAgeString}</Link>
-        <br/>
-        <img src={post.image_url} alt={`${post.user}${post.id}`} />
-        <br/>
-        post.comments.map 
+        <div className={postClassName}>
+          <div className="post-header">
+            <Link
+              className="post-author"
+              to={`users/${author.id}`}>
+              {author.username}
+            </Link>
+            <Link
+              className="post-age"
+              to={`users/${author.id}`}>
+              {postAgeString}
+            </Link>
+          </div>
+          <br/>
+          <img className="index-photo" src={post.image_url} alt={`${post.user}${post.id}`} />
+          <br/>
+          {post.comments}
+        </div>
       </li>
     );
   }
