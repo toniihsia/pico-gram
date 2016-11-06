@@ -128,6 +128,7 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
 .navbar-item {
   padding: 16px;
   flex: right;
+  font-size: 16px;
 }
 
 .navbar-logo {
@@ -149,6 +150,7 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   padding: 0;
   background-color: white;
   color: #383838;
+  border-bottom: solid #383838 2px;
 }
 
 .navbar-item:hover {
@@ -185,11 +187,11 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
 /* STYLING FOR POST INDEX ITEM */
 .individual-post {
   font-size: 14px;
-  background-color: lightgray;
+  background-color: white;
   margin: 60px auto;
   width: 800px;
   border: 1px solid lightgray;
-  /*border-radius: 5px;*/
+  border-radius: 5px;
 }
 
 .disable-margin {
@@ -198,11 +200,10 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
 
 .post-header {
   display: flex;
-
   justify-content: center;
   justify-content: space-between;
   padding: 10px;
-
+  margin: 0;
 }
 
 .post-author {
@@ -213,4 +214,5 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
 .index-photo {
   width: 800px;
   height: auto;
+  margin: 0;
 }

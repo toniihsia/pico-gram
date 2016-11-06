@@ -13,6 +13,7 @@ import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
 // import HeaderContainer from './header/header_container';
 import PostIndexContainer from './posts/post_index_container';
+import NewPostContainer from './posts/create_post_container';
 
 const Root = ({ store }) => {
 
@@ -37,6 +38,7 @@ const Root = ({ store }) => {
           <IndexRoute component={PostIndexContainer} onEnter={_ensureLoggedIn}/>
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
+          <Route path="/new-post" component={NewPostContainer} onEnter={_redirectIfLoggedIn} />
         </Route>
       </Router>
     </Provider>
