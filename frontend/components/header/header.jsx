@@ -146,7 +146,7 @@ class Header extends React.Component {
           <Modal isOpen={this.state.openModal}>
             <img className="photo-preview" src={this.state.cloudinaryUrl} alt="photo-preview"/>
             <input type="text" placeholder="Insert caption here..." onChange={this.update('caption')} />
-            <button onClick={this.handleSubmit}>Close</button>
+            <button onClick={this.handleSubmit}>Upload</button>
         </Modal>
       </div>
 
