@@ -38,7 +38,6 @@ const Root = ({ store }) => {
           <IndexRoute component={PostIndexContainer} onEnter={_ensureLoggedIn}/>
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
-          <Route path="/new-post" component={NewPostContainer} onEnter={_redirectIfLoggedIn} />
         </Route>
       </Router>
     </Provider>

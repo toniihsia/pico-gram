@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { logOut } from '../../actions/session_actions';
-import {createPost} from '../../actions/post_actions'
+import {createPost, fetchPosts} from '../../actions/post_actions';
 import Header from './header';
 
 const mapStateToProps = ({session}) => ({
@@ -10,7 +10,8 @@ const mapStateToProps = ({session}) => ({
 const mapDispatchToProps = dispatch => {
   return {
     logOut: () => dispatch(logOut()),
-    createPost: (post) => dispatch(createPost(post))
+    createPost: (post) => dispatch(createPost(post)),
+    fetchPosts: () => dispatch(fetchPosts())
   };
 };
 

@@ -91,7 +91,8 @@ class Header extends React.Component {
     this.setState({openModal: false});
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
     this.setState({openModal: false});
 
     this.props.createPost({
@@ -99,6 +100,8 @@ class Header extends React.Component {
       image_url: this.state.cloudinaryUrl,
       caption: this.state.caption
     });
+
+    this.props.fetchPosts();
   }
 
   headerItems() {
