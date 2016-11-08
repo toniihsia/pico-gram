@@ -1,6 +1,7 @@
 /// React ///
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Modal from 'react-modal';
 
 /// Components ///
 import configureStore from './store/store';
@@ -17,5 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     window.store = store;
     const rootEl = document.getElementById('root');
+    Modal.setAppElement(document.body);
     ReactDOM.render(<Root store={store} />, rootEl);
 });

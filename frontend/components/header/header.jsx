@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
-import { Modal } from 'react-modal';
+import Modal from 'react-modal';
+import CreatePostForm from '../posts/create_post_form';
 
 let style = {
   overlay: {
@@ -31,15 +32,23 @@ let style = {
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {openModal: false};
+    this.state = {
+      cloudinaryUrl: "",
+      caption: "",
+      openModal: false};
 
-    // this.closeModal = this.closeModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
     // this.openModal = this.openModal.bind(this);
     // this.onModalOpen = this.onModalOpen.bind(this);
     this.uploadPost = this.uploadPost.bind(this);
     this.redirectToUserProfile = this.redirectToUserProfile.bind(this);
     this.headerItems = this.headerItems.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  // getInitialState() {
+  //   return ({ modalOpen: false });
+  // }
 
   // closeModal() {
   //   this.setState({modalOpen: false});
@@ -65,11 +74,10 @@ class Header extends React.Component {
     e.preventDefault();
     cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function (error, results) {
       if (!error) {
-        let postData = {
-          user_id: this.props.currentUser.id,
-          image_url: results[0].url
-        };
-        this.props.createPost(postData);
+        this.setState({
+          cloudinaryUrl: results[0].url,
+          openModal: true
+        });
       }
     }.bind(this));
   }
@@ -79,30 +87,53 @@ class Header extends React.Component {
     hashHistory.push(`/users/${this.props.currentUser.id}`);
   }
 
+  closeModal() {
+    this.setState({openModal: false});
+  }
+
+  handleSubmit() {
+    this.setState({openModal: false});
+
+    this.props.createPost({
+      user_id: this.props.currentUser.id,
+      image_url: this.state.cloudinaryUrl,
+      caption: this.state.caption
+    });
+  }
+
   headerItems() {
     console.log('headerItems');
     return (
-      <ul className="navbar-links">
-        <li className="navbar-logo">
-          <div className="navbar-logo">
-            <Link to="/">
-              <label className="home-button-1">Pico</label><label className="home-button-2">Gram</label>
-            </Link>
-          </div>
-        </li>
+      <div>
+        <ul className="navbar-links">
+          <li className="navbar-logo">
+            <div className="navbar-logo">
+              <Link to="/">
+                <label className="home-button-1">Pico</label><label className="home-button-2">Gram</label>
+              </Link>
+            </div>
+          </li>
 
-        <li onClick={this.uploadPost}>
-          <Link to="/" className="navbar-item">Upload</Link>
-        </li>
+          <li onClick={this.uploadPost}>
+            <div className="navbar-item">Upload</div>
+          </li>
 
-        <li onClick={this.redirectToUserProfile}>
-          <Link className="navbar-item" to="/">Profile</Link>
-        </li>
+          <li onClick={this.redirectToUserProfile}>
+            <Link className="navbar-item" to="/">Profile</Link>
+          </li>
 
-        <li onClick={this.props.logOut}>
-          <Link className="navbar-item" to="/">Log Out</Link>
-        </li>
-      </ul>
+          <li onClick={this.props.logOut}>
+            <Link className="navbar-item" to="/">Log Out</Link>
+          </li>
+        </ul>
+
+          <Modal isOpen={this.state.openModal}>
+            <img className="photo-preview" src={this.state.cloudinaryUrl} alt="photo-preview"/>
+            <input type="text" placeholder="Insert caption here..." onChange={caption => this.setState({caption})} />
+            <button onClick={this.handleSubmit}>Close</button>
+        </Modal>
+      </div>
+
     );
   }
 
@@ -116,47 +147,5 @@ class Header extends React.Component {
     }
   }
 }
-// const headerItems = (currentUser, logOut, createPost) => {
-//
-//   let closeModal() {
-//     this.setState({ modalOpen: false });
-//
-//   }
-//
-//   return (
-//     <ul className="navbar-links">
-//       <li className="navbar-logo">
-//         <div className="navbar-logo">
-//           <Link to="/">
-//             <label className="home-button-1">Pico</label><label className="home-button-2">Gram</label>
-//           </Link>
-//         </div>
-//       </li>
-//
-//       <li>
-//         <Link to="/" className="navbar-item">Upload</Link>
-//       </li>
-//
-//       <li>
-//         <Link className="navbar-item" to="/">Profile</Link>
-//       </li>
-//
-//       <li onClick={logOut}>
-//         <Link className="navbar-item" to="/">Log Out</Link>
-//       </li>
-//     </ul>
-//   );
-// };
-//
-//
-// const Header = ({currentUser, logOut, createPost}) => {
-//   if (!currentUser) {
-//     return ( <div></div>);
-//   } else {
-//     return (
-//       headerItems(currentUser, logOut)
-//     );
-//   }
-// };
-//
+
 export default Header;

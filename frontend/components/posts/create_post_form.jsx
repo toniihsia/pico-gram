@@ -5,23 +5,33 @@ class CreatePostForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      image_url: "",
-      user_id: null
+      user_id: this.props.currentUser,
+      image_url: this.props.cloudinaryUrl,
+      caption: ""
     };
 
     this.uploadPart = this.uploadPart.bind(this);
     this.createPost = this.createPost.bind(this);
 
   }
-    uploadPart() {
-      let options = Object.assign({}, {inline_container: '.css-selector'}, window.CLOUDINARY_OPTIONS);
-      cloudinary.openUploadWidget(options, function (error, results) {
-        !error && this.setState({image_url: results[0].url, isLoading: false});
-      }.bind(this));
 
-      return (
-        <div className='css-selector'></div>
-      );
+  photoPreview() {
+    return (
+        <img src={this.props.cloudinaryUrl} alt="uploaded-photo"/>
+      )
+      // let options = Object.assign({}, {inline_container: '.css-selector'}, window.CLOUDINARY_OPTIONS);
+      // cloudinary.openUploadWidget(options, function (error, results) {
+      //   !error && this.setState({image_url: results[0].url, isLoading: false});
+      // }.bind(this));
+      //
+      // return (
+      //   <div className='css-selector'></div>
+      // );
+    }
+
+    handleSubmit() {
+      this.createPost();
+      this.props.closeModal();
     }
 
     createPost() {
@@ -32,9 +42,10 @@ class CreatePostForm extends React.Component {
     render() {
       return (
         <div>
-          {this.uploadPart()}
-          <input type="text" value={this.state.caption} onChange={caption => this.setState({caption})} />
-          <button onClick={this.createPost()}>Upload Your Post</button>
+          {this.photoPreview()}
+          <br/>
+          <input type="text" placeholder="Insert caption here..." onChange={caption => this.setState({caption})} />
+          <button onClick={this.handleSubmit}>Upload Your Post</button>
         </div>
       );
     }

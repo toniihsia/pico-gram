@@ -14,6 +14,7 @@ class PostIndexItem extends React.Component{
   }
 
   render() {
+    console.log(this.props);
     let post = this.props.post;
     let author = post.user;
     let postAgeString = `~${post.age} ago`;

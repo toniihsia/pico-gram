@@ -11,7 +11,7 @@ const PostsReducer = (oldState = {}, action) => {
       newState[action.post.id] = action.post;
       return newState;
     case CREATE_POST:
-      console.log('PostsReducer');
+      // console.log('PostsReducer');
     default:
       return oldState;
   }

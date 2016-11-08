@@ -216,3 +216,9 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   height: auto;
   margin: 0;
 }
+
+.photo-preview {
+  width: 1000px;
+  height: auto;
+  margin: 0;
+}
