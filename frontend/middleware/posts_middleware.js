@@ -17,13 +17,13 @@ const PostsMiddleware = ({getState, dispatch}) => next => action => {
 
   switch(action.type) {
     case FETCH_POSTS:
-      fetchPosts(receiveAllPostsSuccess);
+      fetchPosts(receiveAllPostsSuccess, error);
       return next(action);
     case FETCH_POST:
-      fetchPost(action.id, receivePostSuccess);
+      fetchPost(action.id, receivePostSuccess, error);
       return next(action);
     case CREATE_POST:
-      createPost(action.post, receivePostSuccess);
+      createPost(action.post, receivePostSuccess, error);
       return next(action);
     default:
       return next(action);

@@ -6,15 +6,10 @@ const PostsReducer = (oldState = [], action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_ALL_POSTS:
-      debugger
       return action.posts;
     case RECEIVE_POST:
-      console.log(newState);
       return [action.post, ...oldState]
-      console.log(newState);
       return newState;
-    // case CREATE_POST:
-      // console.log('PostsReducer');
     default:
       return oldState;
   }

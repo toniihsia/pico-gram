@@ -92,23 +92,15 @@ class Header extends React.Component {
   }
 
   handleSubmit(e) {
-    let poop = {
+    let newPhoto = {
       user_id: this.props.currentUser.id,
       image_url: this.state.cloudinaryUrl,
       caption: this.state.caption
     };
 
-    debugger
-
     e.preventDefault();
     this.setState({openModal: false});
-    this.props.createPost({
-      user_id: this.props.currentUser.id,
-      image_url: this.state.cloudinaryUrl,
-      caption: this.state.caption
-    });
-
-    // this.props.fetchPosts();
+    this.props.createPost(newPhoto);
   }
 
   update(field) {

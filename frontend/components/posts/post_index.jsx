@@ -8,7 +8,6 @@ class PostIndex extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     this.props.fetchPosts();
   }
 
@@ -18,12 +17,7 @@ class PostIndex extends React.Component {
     }
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   this.props.fetchPosts();
-  // }
-
   render () {
-    debugger
     return (
       <div>
         <ul className="post-index-container">

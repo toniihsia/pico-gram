@@ -4,6 +4,18 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
+  has_many :posts
+  has_many :comments
+  # has_many :likes
+
+  # has_many :followed_users,
+  #   foreign_key: :follower_id,
+  #   class_name: :Follow
+  #
+  # has_many :followers,
+  #   foreign_key: :followee_id,
+  #   class_name: :Follow
+
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)

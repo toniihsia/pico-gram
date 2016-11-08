@@ -24,6 +24,7 @@ class PostIndexItem extends React.Component{
     return (
       <li>
         <div className={postClassName}>
+
           <div className="post-header">
             <Link
               className="post-author"
@@ -37,9 +38,15 @@ class PostIndexItem extends React.Component{
             </Link>
           </div>
           <br/>
+
           <img className="index-photo" src={post.image_url} alt={`${post.user}${post.id}`} />
           <br/>
-          {post.caption}
+
+          <div>
+            <label className="post-author">{author.username} </label>
+            <label>{post.caption}</label>
+          </div>
+
         </div>
       </li>
     );
