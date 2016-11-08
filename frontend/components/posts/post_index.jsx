@@ -17,6 +17,10 @@ class PostIndex extends React.Component {
     }
   }
 
+  // componentWillReceiveProps(nextProps) {
+  //   this.props.fetchPosts();
+  // }
+
   render () {
     return (
       <div>

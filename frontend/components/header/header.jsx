@@ -3,31 +3,31 @@ import { Link, hashHistory } from 'react-router';
 import Modal from 'react-modal';
 import CreatePostForm from '../posts/create_post_form';
 
-let style = {
-  overlay: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(255, 255, 255, 0.75)'
-  },
-  content: {
-    position: 'fixed',
-    top: '20%',
-    width: '500px',
-    bottom: '20%',
-    margin: '0 auto',
-    border: '1px solid #ccc',
-    padding: '20px',
-    backgroundColor: 'snow',
-    background: '#fff',
-    outline: 'none',
-    opacity: '0',
-    transition: 'opacity 0.5s',
-    borderRadius: '15px'
-  }
-};
+// let style = {
+//   overlay: {
+//     position: 'fixed',
+//     top: 0,
+//     left: 0,
+//     right: 0,
+//     bottom: 0,
+//     backgroundColor: 'rgba(255, 255, 255, 0.75)'
+//   },
+//   content: {
+//     position: 'fixed',
+//     top: '20%',
+//     width: '500px',
+//     bottom: '20%',
+//     margin: '0 auto',
+//     border: '1px solid #ccc',
+//     padding: '20px',
+//     backgroundColor: 'snow',
+//     background: '#fff',
+//     outline: 'none',
+//     opacity: '0',
+//     transition: 'opacity 0.5s',
+//     borderRadius: '15px'
+//   }
+// };
 
 class Header extends React.Component {
   constructor(props) {
@@ -37,6 +37,7 @@ class Header extends React.Component {
       caption: "",
       openModal: false};
 
+    this.update = this.update.bind(this);
     this.closeModal = this.closeModal.bind(this);
     // this.openModal = this.openModal.bind(this);
     // this.onModalOpen = this.onModalOpen.bind(this);
@@ -92,16 +93,28 @@ class Header extends React.Component {
   }
 
   handleSubmit(e) {
+    let poop = {
+      user_id: this.props.currentUser.id,
+      image_url: this.state.cloudinaryUrl,
+      caption: this.state.caption
+    };
+
+    debugger
+
+
     e.preventDefault();
     this.setState({openModal: false});
-
     this.props.createPost({
       user_id: this.props.currentUser.id,
       image_url: this.state.cloudinaryUrl,
       caption: this.state.caption
     });
 
-    this.props.fetchPosts();
+    // this.props.fetchPosts();
+  }
+
+  update(field) {
+    return (e) => { this.setState({ [field]: e.target.value }); };
   }
 
   headerItems() {
@@ -132,7 +145,7 @@ class Header extends React.Component {
 
           <Modal isOpen={this.state.openModal}>
             <img className="photo-preview" src={this.state.cloudinaryUrl} alt="photo-preview"/>
-            <input type="text" placeholder="Insert caption here..." onChange={caption => this.setState({caption})} />
+            <input type="text" placeholder="Insert caption here..." onChange={this.update('caption')} />
             <button onClick={this.handleSubmit}>Close</button>
         </Modal>
       </div>

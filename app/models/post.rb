@@ -1,7 +1,7 @@
 include ActionView::Helpers::DateHelper
 
 class Post < ActiveRecord::Base
-  validates :user_id, :image_url, presence: true
+  validates :user_id, :image_url, :caption, presence: true
 
 
   def age

@@ -39,7 +39,6 @@ class PostIndexItem extends React.Component{
           <br/>
           <img className="index-photo" src={post.image_url} alt={`${post.user}${post.id}`} />
           <br/>
-          {post.comments}
         </div>
       </li>
     );

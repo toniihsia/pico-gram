@@ -3,8 +3,9 @@ import { logOut } from '../../actions/session_actions';
 import {createPost, fetchPosts} from '../../actions/post_actions';
 import Header from './header';
 
-const mapStateToProps = ({session}) => ({
-  currentUser: session.currentUser
+const mapStateToProps = ({session, posts}) => ({
+  currentUser: session.currentUser,
+  posts
 });
 
 const mapDispatchToProps = dispatch => {
