@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
 import Modal from 'react-modal';
-import CreatePostForm from '../posts/create_post_form';
 
 // let style = {
 //   overlay: {
@@ -101,7 +100,6 @@ class Header extends React.Component {
 
     debugger
 
-
     e.preventDefault();
     this.setState({openModal: false});
     this.props.createPost({
@@ -147,6 +145,7 @@ class Header extends React.Component {
             <img className="photo-preview" src={this.state.cloudinaryUrl} alt="photo-preview"/>
             <input type="text" placeholder="Insert caption here..." onChange={this.update('caption')} />
             <button onClick={this.handleSubmit}>Upload</button>
+            <button onClick={this.closeModal}>Cancel</button>
         </Modal>
       </div>
 

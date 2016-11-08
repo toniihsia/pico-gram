@@ -8,7 +8,10 @@ const PostsReducer = (oldState = {}, action) => {
     case RECEIVE_ALL_POSTS:
       return action.posts;
     case RECEIVE_POST:
-      return merge({}, oldState, {[action.post.id]: action.post});
+      console.log(newState);
+      newState[action.post.id] = action.post;
+      console.log(newState);
+      return newState;
     // case CREATE_POST:
       // console.log('PostsReducer');
     default:

@@ -13,7 +13,6 @@ import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
 // import HeaderContainer from './header/header_container';
 import PostIndexContainer from './posts/post_index_container';
-import NewPostContainer from './posts/create_post_container';
 
 const Root = ({ store }) => {
 
