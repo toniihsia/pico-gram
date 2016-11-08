@@ -108,7 +108,6 @@ class Header extends React.Component {
   }
 
   headerItems() {
-    console.log('headerItems');
     return (
       <div>
         <ul className="navbar-links">

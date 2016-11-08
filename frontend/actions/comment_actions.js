@@ -7,12 +7,13 @@ export const createComment = (comment) => ({
   comment
 });
 
-export const removeComment = (id) => ({
-  type: DELETE_COMMENT,
-  id
-});
 
 export const receiveComment = (comment) => ({
   type: RECEIVE_COMMENT,
   comment
+});
+
+export const removeComment = (id) => ({
+  type: DELETE_COMMENT,
+  id
 });

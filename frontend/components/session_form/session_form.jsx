@@ -35,7 +35,6 @@ class SessionForm extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		const user = this.state;
-    console.log(this.state);
 		this.props.formType === 'login' ? this.props.logIn({user}) : this.props.signUp({user});
 	}
 	//////////////////////////////////////////////////////
