@@ -5,15 +5,13 @@ import {
   FETCH_POST,
   CREATE_POST
 } from '../actions/post_actions';
+import { CREATE_COMMENT, DELETE_COMMENT } from '../actions/comment_actions';
+import { CREATE_LIKE, DELETE_LIKE } from '../actions/like_actions';
 
 import { fetchPosts, fetchPost, createPost } from '../util/post_api_util';
-
+import { createLike, deleteLike } from '../util/like_api_util';
 import { createComment, deleteComment } from '../util/comment_api_util';
 
-import {
-  CREATE_COMMENT,
-  DELETE_COMMENT
-} from '../actions/comment_actions';
 
 
 const PostsMiddleware = ({getState, dispatch}) => next => action => {
@@ -39,6 +37,12 @@ const PostsMiddleware = ({getState, dispatch}) => next => action => {
       return next(action);
     case DELETE_COMMENT:
       deleteComment(action.id, receivePostSuccess);
+      return next(action);
+    case CREATE_LIKE:
+      createLike(action.like, receivePostSuccess, error);
+      return next(action);
+    case DELETE_LIKE:
+      deleteLike(action.id, receivePostSuccess);
       return next(action);
     default:
       return next(action);

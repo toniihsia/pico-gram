@@ -4,7 +4,15 @@ json.user do
   json.username post.user.username
 end
 
-json.likes_count post.likes_count
+json.like_count post.like_count
+
+json.likes do
+  post.likes.each do |like|
+    json.set! like.id do
+      json.extract! like, :id, :post_id, :user_id
+    end
+  end
+end
 
 json.age post.age
 

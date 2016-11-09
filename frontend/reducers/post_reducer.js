@@ -12,6 +12,7 @@ const PostsReducer = (oldState = {}, action) => {
       let postId = parseInt(Object.keys(action.post)[0]);
       newState[postId] = action.post[postId];
       newState[postId].comments = action.post[postId].comments;
+      newState[postId].like_count = action.post[postId].like_count;
       return newState;
     default:
       return oldState;
