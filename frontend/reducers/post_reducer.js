@@ -1,5 +1,5 @@
 import merge from 'lodash/merge';
-import { RECEIVE_ALL_POSTS, RECEIVE_POST } from '../actions/post_actions';
+import { RECEIVE_ALL_POSTS, RECEIVE_POST, REMOVE_COMMENT } from '../actions/post_actions';
 
 const PostsReducer = (oldState = {}, action) => {
 
@@ -9,9 +9,17 @@ const PostsReducer = (oldState = {}, action) => {
     case RECEIVE_ALL_POSTS:
       return action.posts;
     case RECEIVE_POST:
+      debugger
       newState[action.post.id] = action.post;
+      newState[action.post.id].comments = action.post.comments;
+      debugger
       return newState;
-      // [action.post, ...oldState];
+      // newState[action.post.id] = action.post;
+      // return newState;
+    // case REMOVE_COMMENT:
+    //   let post = newState[action.id.post_id];
+    //   let comments = post.coments;
+    //
     default:
       return oldState;
   }
