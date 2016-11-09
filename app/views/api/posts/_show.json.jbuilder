@@ -3,7 +3,9 @@ json.user do
   json.id post.user.id
   json.username post.user.username
 end
-# json.likes post.likes.count
+
+json.likes_count post.likes_count
+
 json.age post.age
 
 json.comments do
