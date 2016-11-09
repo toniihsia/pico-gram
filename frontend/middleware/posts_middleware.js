@@ -34,13 +34,13 @@ const PostsMiddleware = ({getState, dispatch}) => next => action => {
     //   fetchPost(action.id, receivePostSuccess, error);
     //   return next(action);
     case CREATE_POST:
-      debugger
       createPost(action.post, receivePostSuccess, error);
       return next(action);
     case CREATE_COMMENT:
       createComment(action.comment, receivePostSuccess);
       return next(action);
     case DELETE_COMMENT:
+      debugger
       deleteComment(action.id, receivePostSuccess);
       return next(action);
     default:

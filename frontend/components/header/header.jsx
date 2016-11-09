@@ -66,7 +66,6 @@ class Header extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger
     let newPhoto = {
       user_id: this.props.currentUser.id,
       image_url: this.state.cloudinaryUrl,

@@ -7,14 +7,11 @@ const PostsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_ALL_POSTS:
-      // debugger
       return action.posts;
     case RECEIVE_POST:
-      debugger
       let postId = parseInt(Object.keys(action.post)[0]);
       newState[postId] = action.post[postId];
       newState[postId].comments = action.post.comments;
-      // debugger
       return newState;
       // newState[action.post.id] = action.post;
       // return newState;

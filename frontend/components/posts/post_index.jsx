@@ -23,7 +23,6 @@ class PostIndex extends React.Component {
     for (var i = keys.length - 1; i >= 0; i--) {
       postArray.push(this.props.posts[i]);
     }
-    debugger
     return (
       <div>
         <ul className="post-index-container">

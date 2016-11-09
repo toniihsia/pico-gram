@@ -4,15 +4,15 @@ import Comment from '../comments/comment';
 
 class PostIndexItem extends React.Component{
   constructor(props) {
+    debugger
     super(props);
-
-    // this.state = {
-    //   comment: {
-    //     body: '',
-    //     post_id: this.props.post.id,
-    //     user_id: this.props.post.user.id
-    //   }
-    // };
+    this.state = {
+      comment: {
+        body: '',
+        post_id: this.props.post.id,
+        user_id: this.props.post.user.id
+      }
+    };
 
     this.redirectUser = this.redirectUser.bind(this);
     this.renderDelete = this.renderDelete.bind(this);
@@ -27,12 +27,6 @@ class PostIndexItem extends React.Component{
     hashHistory.push(url);
   }
 
-  handleDelete(id) {
-    return (e) => {
-      e.preventDefault();
-      this.props.deleteComment(id);
-    };
-  }
 
   addComment(e) {
     e.preventDefault();
@@ -44,12 +38,14 @@ class PostIndexItem extends React.Component{
     debugger
     if (this.props.currentUser.id === commentAuthorId) {
       return (
-        <button onClick={this.handleDelete(comment.id)}>
+        <button onClick={this.props.deleteComment}>
           x
         </button>
       );
     }
   }
+
+  //
 
   renderComments() {
     if (this.props.post.comments) {
@@ -83,10 +79,11 @@ class PostIndexItem extends React.Component{
     let author = post.user;
     let postAgeString = `~${post.age} ago`;
     let caption = post.caption;
-    debugger
     let postClassName = location.hash.includes("users") ? "individual-post disable-margin" : "individual-post";
 
     // when uploading the state gets all fucked up
+    // jk i fixed it hahahha yes
+
     return (
       <li>
         <div className={postClassName}>
