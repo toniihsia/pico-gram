@@ -14,6 +14,7 @@ const SessionReducer = (oldState = _nullUser, action) => {
       const currentUser = action.currentUser;
       return merge({}, _nullUser, {currentUser});
     case REMOVE_CURRENT_USER:
+      // debugger
       return merge({}, _nullUser);
     case RECEIVE_ERRORS:
       const errors = action.errors;

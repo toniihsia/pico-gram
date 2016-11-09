@@ -7,12 +7,16 @@ import {
   SIGN_UP
 } from '../actions/session_actions';
 
-import { logIn, signUp, logOut } from '../util/session_api_util';
 import { hashHistory } from 'react-router';
+import { logIn, signUp, logOut } from '../util/session_api_util';
 
 export default ({getState, dispatch}) => next => action => {
   const successCallback = (currentUser) => dispatch(receiveCurrentUser(currentUser));
-  const successLogOutCallback = () => dispatch(removeCurrentUser());
+  const successLogOutCallback = () => {
+    dispatch(removeCurrentUser());
+    debugger
+    hashHistory.push('/login');
+  };
 
   const errorCallback = xhr => dispatch(receiveErrors(xhr.responseJSON));
 
