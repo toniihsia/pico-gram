@@ -7,11 +7,9 @@ class PostIndexItem extends React.Component{
     debugger
     super(props);
     this.state = {
-      comment: {
         body: '',
         post_id: this.props.post.id,
         user_id: this.props.post.user.id
-      }
     };
 
     this.redirectUser = this.redirectUser.bind(this);
@@ -31,7 +29,8 @@ class PostIndexItem extends React.Component{
   addComment(e) {
     e.preventDefault();
     debugger
-    this.props.createComment(this.state.comment);
+    this.props.createComment(this.state);
+    // rails server  is not getting hit -- ajax request isn't happening
   }
 
   renderDelete(comment, commentAuthorId) {
@@ -46,6 +45,10 @@ class PostIndexItem extends React.Component{
   }
 
   //
+
+  update(field) {
+    return (e) => { this.setState( {[field]: e.target.value}); };
+  }
 
   renderComments() {
     if (this.props.post.comments) {
@@ -113,7 +116,7 @@ class PostIndexItem extends React.Component{
 
           {this.renderComments()}
           <form>
-            <input type="text" placeholder="Add a comment..." />
+            <input type="text" placeholder="Add a comment..." onChange={this.update('body')}/>
             <button type="submit" onClick={this.addComment} className='comment-submission'>Add Comment</button>
           </form>
         </div>
