@@ -1,5 +1,6 @@
 import React from 'react';
 import { hashHistory, Link } from 'react-router';
+// import Comments from './comments';
 
 class PostIndexItem extends React.Component{
   constructor(props) {
@@ -45,7 +46,6 @@ class PostIndexItem extends React.Component{
             <label className="post-author">{author.username} </label>
             <label>{post.caption}</label>
           </div>
-
         </div>
       </li>
     );

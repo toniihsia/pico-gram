@@ -5,8 +5,7 @@ import CommentsMiddleware from './comments_middleware';
 
 const RootMiddleware = applyMiddleware(
   SessionMiddleware,
-  PostsMiddleware,
-  CommentsMiddleware
+  PostsMiddleware
 );
 
 export default RootMiddleware;

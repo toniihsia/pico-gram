@@ -11,14 +11,14 @@ const CommentsMiddleware = ({getState, dispatch}) => next => action => {
   let success;
   let error = (e) => console.log(e.responseJSON);
   let receiveCommentSuccess = (comment) => dispatch(receiveComment(comment));
-  let removeCommentSuccess = (comment) => dispatch(removeComment(comment));
+  let deleteCommentSuccess = (comment) => dispatch(removeComment(comment));
 
   switch(action.type) {
     case CREATE_COMMENT:
-      createComment(action.comment, receiveCommentSuccess);
+      createComment(action.comment, receivePostSuccess);
       return next(action);
     case DELETE_COMMENT:
-      deleteComment(action.id, removeCommentSuccess);
+      deleteComment(action.comment, deleteCommentSuccess);
       return next(action);
     default:
       return next(action);

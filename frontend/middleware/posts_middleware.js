@@ -8,12 +8,23 @@ import {
 
 import { fetchPosts, fetchPost, createPost } from '../util/post_api_util';
 
+import {
+  CREATE_COMMENT,
+  DELETE_COMMENT,
+  REMOVE_COMMENT,
+  createComment,
+  deleteComment,
+  removeComment
+} from '../actions/comment_actions';
+
 
 const PostsMiddleware = ({getState, dispatch}) => next => action => {
   let success;
   let error = (e) => console.log(e.responseJSON);
   let receiveAllPostsSuccess = (posts) => dispatch(receiveAllPosts(posts));
   let receivePostSuccess = (post) => dispatch(receivePost(post));
+
+  let deleteCommentSuccess = (comment) => dispatch(removeComment(comment));
 
   switch(action.type) {
     case FETCH_POSTS:
@@ -24,6 +35,12 @@ const PostsMiddleware = ({getState, dispatch}) => next => action => {
       return next(action);
     case CREATE_POST:
       createPost(action.post, receivePostSuccess, error);
+      return next(action);
+    case CREATE_COMMENT:
+      createComment(action.comment, receivePostSuccess);
+      return next(action);
+    case DELETE_COMMENT:
+      deleteComment(action.comment, deleteCommentSuccess);
       return next(action);
     default:
       return next(action);
