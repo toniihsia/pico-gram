@@ -14,7 +14,6 @@ export default ({getState, dispatch}) => next => action => {
   const successCallback = (currentUser) => dispatch(receiveCurrentUser(currentUser));
   const successLogOutCallback = () => {
     dispatch(removeCurrentUser());
-    debugger
     hashHistory.push('/login');
   };
 
