@@ -30,11 +30,11 @@ const PostsMiddleware = ({getState, dispatch}) => next => action => {
     case FETCH_POSTS:
       fetchPosts(receiveAllPostsSuccess, error);
       return next(action);
-    case FETCH_POST:
-      fetchPost(action.id, receivePostSuccess, error);
-      return next(action);
+    // case FETCH_POST:
+    //   fetchPost(action.id, receivePostSuccess, error);
+    //   return next(action);
     case CREATE_POST:
-      debugger
+      // debugger
       createPost(action.post, receivePostSuccess, error);
       return next(action);
     case CREATE_COMMENT:

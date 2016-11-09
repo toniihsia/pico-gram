@@ -26,8 +26,14 @@ zero = User.create(username: "aldnoah_zero", password: "password", email: "zero@
 
 
 photo_1 = Post.create(image_url: "https://res.cloudinary.com/dfrrpfeus/image/upload/v1478216466/seed_photo_1_k3agfk.jpg", caption: "pool lighting at dusk", user_id: 5)
-photo_2 = Post.create(image_url: "https://res.cloudinary.com/dfrrpfeus/image/upload/v1478380772/seed_photo_07_gknun8.jpg", caption: "chinese typography project", user_id: 5)
-photo_3 = Post.create(image_url: "https://res.cloudinary.com/dfrrpfeus/image/upload/v1478380771/seed_photo_08_lsl9wg.jpg", caption: "ARTIFICIAL branding project", user_id: 1)
-photo_4 = Post.create(image_url: "https://res.cloudinary.com/dfrrpfeus/image/upload/v1478380750/seed_photo_04_zg6btw.jpg", caption: "red chinese typography", user_id: 3)
+comment1 = Comment.create(user_id: 1, post_id: 1, body: "this is a comment wauwauwau")
 
-comment1 = Comment.create(user_id: 1, post_id: 2, body: "this is a comment wauwauwau")
+
+photo_2 = Post.create(image_url: "https://res.cloudinary.com/dfrrpfeus/image/upload/v1478380772/seed_photo_07_gknun8.jpg", caption: "chinese typography project", user_id: 5)
+comment2 = Comment.create(user_id: 1, post_id: 2, body: "this is a comment wauwauwau")
+
+photo_3 = Post.create(image_url: "https://res.cloudinary.com/dfrrpfeus/image/upload/v1478380771/seed_photo_08_lsl9wg.jpg", caption: "ARTIFICIAL branding project", user_id: 1)
+comment3 = Comment.create(user_id: 1, post_id: 3, body: "this is a comment wauwauwau")
+
+photo_4 = Post.create(image_url: "https://res.cloudinary.com/dfrrpfeus/image/upload/v1478380750/seed_photo_04_zg6btw.jpg", caption: "red chinese typography", user_id: 3)
+comment4 = Comment.create(user_id: 1, post_id: 4, body: "this is a comment wauwauwau")

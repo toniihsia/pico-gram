@@ -1,6 +1,6 @@
 import React from 'react';
 import { hashHistory, Link } from 'react-router';
-// import Comments from './comments';
+import Comment from '../comments/comment';
 
 class PostIndexItem extends React.Component{
   constructor(props) {
@@ -14,11 +14,34 @@ class PostIndexItem extends React.Component{
     hashHistory.push(url);
   }
 
+  renderComments() {
+    let commentsObject = this.props.post.comments;
+    let commentsArray = Object.keys(commentsObject).map(id => commentsObject[id]);
+    // debugger
+    if (commentsObject) {
+      return (
+        <div className="comments-container">
+          {commentsArray.map(comment => (
+            <div className="comment" key={`comment${comment.id}`}>
+              <Link
+                className="post-author"
+                to={`users/${comment.user_id}`}>
+                {comment.username }
+              </Link>
+              {` ${comment.body}`}
+            </div>
+          ))}
+        </div>
+      );
+    }
+  }
+
   render() {
     let post = this.props.post;
     let author = post.user;
     let postAgeString = `~${post.age} ago`;
     let caption = post.caption;
+    // debugger
     let postClassName = location.hash.includes("users") ? "individual-post disable-margin" : "individual-post";
 
     return (
@@ -46,6 +69,11 @@ class PostIndexItem extends React.Component{
             <label className="post-author">{author.username} </label>
             <label>{post.caption}</label>
           </div>
+          {this.renderComments()}
+          <form>
+            <input type="text" placeholder="Add a comment..." />
+            <button type="submit" onClick={this.addComment} className='comment-submission'>Add Comment</button>
+          </form>
         </div>
       </li>
     );
