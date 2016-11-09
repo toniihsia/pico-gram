@@ -38,37 +38,11 @@ class Header extends React.Component {
 
     this.update = this.update.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    // this.openModal = this.openModal.bind(this);
-    // this.onModalOpen = this.onModalOpen.bind(this);
     this.uploadPost = this.uploadPost.bind(this);
     this.redirectToUserProfile = this.redirectToUserProfile.bind(this);
     this.headerItems = this.headerItems.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
-  // getInitialState() {
-  //   return ({ modalOpen: false });
-  // }
-
-  // closeModal() {
-  //   this.setState({modalOpen: false});
-  //   style.content.opacity = 0;
-  //   this.props.fetchPosts();
-  //   if (!location.hash.includes('users')) {
-  //     history.push({
-  //       pathname: '/',
-  //       query: {r: true}
-  //     });
-  //   }
-  // }
-  //
-  // openModal() {
-  //   this.setState({modalOpen: true});
-  // }
-  //
-  // onModalOpen() {
-  //   style.content.opacity = 100;
-  // }
 
   uploadPost(e) {
     e.preventDefault();
@@ -92,6 +66,7 @@ class Header extends React.Component {
   }
 
   handleSubmit(e) {
+    debugger
     let newPhoto = {
       user_id: this.props.currentUser.id,
       image_url: this.state.cloudinaryUrl,

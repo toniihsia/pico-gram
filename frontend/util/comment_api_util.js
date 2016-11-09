@@ -7,10 +7,11 @@ export const createComment = (comment, success) => {
   });
 };
 
-export const deleteComment = (comment, success) => {
+export const deleteComment = (id, success) => {
   $.ajax({
     type: 'DELETE',
-    url: `api/comments/${comment.id}`,
+    url: `api/comments/${id}`,
+    data: id,
     success
   });
 };

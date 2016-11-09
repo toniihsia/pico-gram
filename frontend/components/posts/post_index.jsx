@@ -19,11 +19,11 @@ class PostIndex extends React.Component {
 
   render () {
     let postArray = [];
-    let keys = Object.keys(this.props.posts)
+    let keys = Object.keys(this.props.posts);
     for (var i = keys.length - 1; i >= 0; i--) {
-      postArray.push(this.props.posts[i])
+      postArray.push(this.props.posts[i]);
     }
-    
+    debugger
     return (
       <div>
         <ul className="post-index-container">
@@ -31,8 +31,9 @@ class PostIndex extends React.Component {
             postArray.map( post => <PostIndexItem
               key={post.id}
               post={post}
+              currentUser={this.props.currentUser}
               createComment={this.props.createComment}
-              removeComment={this.props.removeComment}/> )
+              deleteComment={this.props.deleteComment}/> )
           }
         </ul>
       </div>

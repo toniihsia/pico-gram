@@ -5,6 +5,19 @@ import Comment from '../comments/comment';
 class PostIndexItem extends React.Component{
   constructor(props) {
     super(props);
+
+    // this.state = {
+    //   comment: {
+    //     body: '',
+    //     post_id: this.props.post.id,
+    //     user_id: this.props.post.user.id
+    //   }
+    // };
+
+    this.redirectUser = this.redirectUser.bind(this);
+    this.renderDelete = this.renderDelete.bind(this);
+    this.renderComments = this.renderComments.bind(this);
+    this.addComment = this.addComment.bind(this);
   }
 
 
@@ -14,26 +27,55 @@ class PostIndexItem extends React.Component{
     hashHistory.push(url);
   }
 
-  renderComments() {
-    let commentsObject = this.props.post.comments;
-    let commentsArray = Object.keys(commentsObject).map(id => commentsObject[id]);
-    // debugger
-    if (commentsObject) {
+  handleDelete(id) {
+    return (e) => {
+      e.preventDefault();
+      this.props.deleteComment(id);
+    };
+  }
+
+  addComment(e) {
+    e.preventDefault();
+    debugger
+    this.props.createComment(this.state.comment);
+  }
+
+  renderDelete(comment, commentAuthorId) {
+    debugger
+    if (this.props.currentUser.id === commentAuthorId) {
       return (
-        <div className="comments-container">
-          {commentsArray.map(comment => (
-            <div className="comment" key={`comment${comment.id}`}>
-              <Link
-                className="post-author"
-                to={`users/${comment.user_id}`}>
-                {comment.username }
-              </Link>
-              {` ${comment.body}`}
-            </div>
-          ))}
-        </div>
+        <button onClick={this.handleDelete(comment.id)}>
+          x
+        </button>
       );
     }
+  }
+
+  renderComments() {
+    if (this.props.post.comments) {
+      let commentsObject = this.props.post.comments;
+      let commentsArray = Object.keys(commentsObject).map(id => commentsObject[id]);
+      if (commentsObject) {
+        return (
+          <div className="comments-container">
+            {commentsArray.map(comment => (
+              <div className="comment" key={`comment${comment.id}`}>
+                <Link
+                  className="post-author"
+                  to={`users/${comment.user_id}`}>
+                  {comment.username }
+                </Link>
+                {` ${comment.body}`}
+                {this.renderDelete(comment, comment.user_id)}
+              </div>
+            ))}
+          </div>
+        );
+      }
+    } else {
+      return (<div></div>);
+    }
+
   }
 
   render() {
@@ -41,9 +83,10 @@ class PostIndexItem extends React.Component{
     let author = post.user;
     let postAgeString = `~${post.age} ago`;
     let caption = post.caption;
-    // debugger
+    debugger
     let postClassName = location.hash.includes("users") ? "individual-post disable-margin" : "individual-post";
 
+    // when uploading the state gets all fucked up
     return (
       <li>
         <div className={postClassName}>
@@ -69,6 +112,8 @@ class PostIndexItem extends React.Component{
             <label className="post-author">{author.username} </label>
             <label>{post.caption}</label>
           </div>
+
+
           {this.renderComments()}
           <form>
             <input type="text" placeholder="Add a comment..." />

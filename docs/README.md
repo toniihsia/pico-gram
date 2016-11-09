@@ -55,13 +55,13 @@ PicoGram is a web application inspired by Instagram. It is built using Ruby on R
 
 ### Phase 5: Proper Upload (1.5 days)
 **Objective:** Allow users to upload photos versus entering a URL.
-- [ ] Set up Cloudinary
+- [x] Set up Cloudinary
 
 ### Phase 6: Comments (2 days)
 **Objective:** Allow users to comment on photos. Comments should appear immediately after submission.
-- [ ] create `Comment` model.
-- [ ] Build out API, flux loop, and components for:
-  - [ ] Comment CRUD
+- [x] create `Comment` model.
+- [x] Build out API, flux loop, and components for:
+  - [x] Comment CRUD
   - [ ] Integrate Comment into `CommentBox`
 - [ ] Style new views.
 

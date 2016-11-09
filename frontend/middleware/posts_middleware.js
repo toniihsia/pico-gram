@@ -24,7 +24,7 @@ const PostsMiddleware = ({getState, dispatch}) => next => action => {
   let receiveAllPostsSuccess = (posts) => dispatch(receiveAllPosts(posts));
   let receivePostSuccess = (post) => dispatch(receivePost(post));
 
-  let deleteCommentSuccess = (comment) => dispatch(removeComment(comment));
+  // let deleteCommentSuccess = (comment) => dispatch(removeComment(comment));
 
   switch(action.type) {
     case FETCH_POSTS:
@@ -34,14 +34,14 @@ const PostsMiddleware = ({getState, dispatch}) => next => action => {
     //   fetchPost(action.id, receivePostSuccess, error);
     //   return next(action);
     case CREATE_POST:
-      // debugger
+      debugger
       createPost(action.post, receivePostSuccess, error);
       return next(action);
     case CREATE_COMMENT:
       createComment(action.comment, receivePostSuccess);
       return next(action);
     case DELETE_COMMENT:
-      deleteComment(action.comment, deleteCommentSuccess);
+      deleteComment(action.id, receivePostSuccess);
       return next(action);
     default:
       return next(action);

@@ -10,9 +10,10 @@ const PostsReducer = (oldState = {}, action) => {
       // debugger
       return action.posts;
     case RECEIVE_POST:
-      // debugger
-      newState[action.post.id] = action.post;
-      newState[action.post.id].comments = action.post.comments;
+      debugger
+      let postId = parseInt(Object.keys(action.post)[0]);
+      newState[postId] = action.post[postId];
+      newState[postId].comments = action.post.comments;
       // debugger
       return newState;
       // newState[action.post.id] = action.post;
