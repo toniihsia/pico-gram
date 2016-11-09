@@ -1,1 +1,3 @@
-render "api/users/user", user: @user
+json.currentUser do
+  json.partial! "api/users/user", user: @user
+end

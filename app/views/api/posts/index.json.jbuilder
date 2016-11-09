@@ -13,8 +13,30 @@
 #   end
 # end
 
+# @posts.each do |post|
+#   json.set! post.id do
+#     json.extract! post, :id, :user_id, :image_url, :caption
+#
+#     json.user do
+#       json.username post.user.username
+#       json.user_id post.user.id
+#     end
+#
+#     json.age post.age
+#
+#     json.comments do
+#       post.comments.each do |comment|
+#         json.set! comment.id do
+#           json.extract! comment, :id, :body
+#           json.extract! comment.user, :username, :id
+#         end
+#       end
+#     end
+#   end
+# end
+
 @posts.each do |post|
   json.set! post.id do
-    json.partial! 'post', post: post
+    json.partial! 'api/posts/show', post: post
   end
 end

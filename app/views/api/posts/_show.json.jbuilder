@@ -1,15 +1,15 @@
-json.extract! post, :id, :user_id, :image_url, :caption
-json.age post.age
-
+json.extract! post, :id, :caption, :image_url
 json.user do
+  json.id post.user.id
   json.username post.user.username
-  json.user_id post.user.id
 end
+# json.likes post.likes.count
 
 json.comments do
   post.comments.each do |comment|
     json.set! comment.id do
       json.extract! comment, :id, :body
-      json.extract! comment.user, :username, :id
+      json.extract! comment.user, :username
     end
+  end
 end
