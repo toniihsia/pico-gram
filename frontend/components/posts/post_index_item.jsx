@@ -4,7 +4,6 @@ import Comment from '../comments/comment';
 
 class PostIndexItem extends React.Component{
   constructor(props) {
-    debugger
     super(props);
     this.state = {
         body: '',
@@ -28,16 +27,14 @@ class PostIndexItem extends React.Component{
 
   addComment(e) {
     e.preventDefault();
-    debugger
     this.props.createComment(this.state);
-    // rails server  is not getting hit -- ajax request isn't happening
+    this.setState( {body: ''});
   }
 
   renderDelete(comment, commentAuthorId) {
-    debugger
     if (this.props.currentUser.id === commentAuthorId) {
       return (
-        <button onClick={this.props.deleteComment}>
+        <button className="comment-delete-button"onClick={this.props.deleteComment.bind(this, comment.id)}>
           x
         </button>
       );
@@ -115,8 +112,9 @@ class PostIndexItem extends React.Component{
 
 
           {this.renderComments()}
+
           <form>
-            <input type="text" placeholder="Add a comment..." onChange={this.update('body')}/>
+            <input type="text" placeholder="Add a comment..." onChange={this.update('body')} value={this.state.body}/>
             <button type="submit" onClick={this.addComment} className='comment-submission'>Add Comment</button>
           </form>
         </div>

@@ -8,13 +8,11 @@ import {
 
 import { fetchPosts, fetchPost, createPost } from '../util/post_api_util';
 
+import { createComment, deleteComment } from '../util/comment_api_util';
+
 import {
   CREATE_COMMENT,
-  DELETE_COMMENT,
-  REMOVE_COMMENT,
-  createComment,
-  deleteComment,
-  removeComment
+  DELETE_COMMENT
 } from '../actions/comment_actions';
 
 
@@ -38,7 +36,7 @@ const PostsMiddleware = ({getState, dispatch}) => next => action => {
       return next(action);
     case CREATE_COMMENT:
       debugger
-      createComment(action.comment, receivePostSuccess);
+      createComment(action.comment, receivePostSuccess, error);
       return next(action);
     case DELETE_COMMENT:
       debugger
