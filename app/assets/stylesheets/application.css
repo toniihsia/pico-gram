@@ -255,3 +255,26 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   bottom: 0;
   background-color: lightgrey;
 }
+
+.unfilled-like-button {
+  background-image: url('https://res.cloudinary.com/dfrrpfeus/image/upload/v1478756528/unfilled-heart-icon_tcxcze.png');
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+}
+
+.filled-like-button {
+  background-image: url('https://res.cloudinary.com/dfrrpfeus/image/upload/v1478756523/filled-heart-icon_umf3hi.png');
+
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+}

@@ -14,8 +14,8 @@ class PostIndexItem extends React.Component{
     this.renderDelete = this.renderDelete.bind(this);
     this.renderComments = this.renderComments.bind(this);
     this.addComment = this.addComment.bind(this);
+    this.likeToggler = this.likeToggler.bind(this);
   }
-
 
   redirectUser(e) {
     let userId = this.props.user.id;
@@ -23,11 +23,34 @@ class PostIndexItem extends React.Component{
     hashHistory.push(url);
   }
 
+  update(field) {
+    return (e) => { this.setState( {[field]: e.target.value}); };
+  }
 
   addComment(e) {
     e.preventDefault();
     this.props.createComment(this.state);
     this.setState( {body: ''});
+  }
+
+  likeToggler() {
+    debugger
+    let post = this.props.post;
+    let userIdLikes = post.user_likes;
+    let likesObject = Object.keys(post.likes).map(id => post.likes[id]);
+    let likeIdx;
+
+    if (userIdLikes.includes(currentUser.id)) {
+      for (var i = 0; i < likesObject.length; i++) {
+        if (likesObject[i].user_id === currentUser.id) {
+          likeIdx = likesObject[i].id;
+          break;
+        }
+      }
+      this.props.deleteLike(likeIdx);
+    } else {
+      this.props.createLike({user_id: this.props.currentUser.id, post_id: post.id});
+    }
   }
 
   renderDelete(comment, commentAuthorId) {
@@ -38,12 +61,6 @@ class PostIndexItem extends React.Component{
         </button>
       );
     }
-  }
-
-  //
-
-  update(field) {
-    return (e) => { this.setState( {[field]: e.target.value}); };
   }
 
   renderComments() {
@@ -82,12 +99,28 @@ class PostIndexItem extends React.Component{
     }
   }
 
+  renderLikeButton() {
+    // debugger
+    let post = this.props.post;
+    let likedPost = post.user_likes.includes(this.props.currentUser.id);
+    let likeFill;
+
+    if (likedPost) {
+      likeFill = "filled-like-button";
+    } else {
+      likeFill = "unfilled-like-button";
+    }
+
+    return (<button className={likeFill} onClick={this.likeToggler}></button>);
+  }
   render() {
 
     let post = this.props.post;
     let author = post.user;
     let postAgeString = `~${post.age} ago`;
     let caption = post.caption;
+    let likedPost = (post.user_likes.includes(post.id));
+
     let postClassName = location.hash.includes("users") ? "individual-post disable-margin" : "individual-post";
 
     // when uploading the state gets all fucked up
@@ -121,7 +154,12 @@ class PostIndexItem extends React.Component{
 
 
           {this.renderComments()}
-          <div>{`${post.like_count} likes`}</div>
+          <div>
+            {this.renderLikeButton()}
+            {`${post.like_count} likes`}
+          </div>
+
+
           <form>
             <input type="text" placeholder="Add a comment..." onChange={this.update('body')} value={this.state.body}/>
             <button type="submit" onClick={this.addComment} className='comment-submission'>Add Comment</button>

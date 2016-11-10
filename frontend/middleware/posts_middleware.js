@@ -18,7 +18,7 @@ const PostsMiddleware = ({getState, dispatch}) => next => action => {
   let success;
   let error = (e) => console.log(e.responseJSON);
   let receiveAllPostsSuccess = (posts) => dispatch(receiveAllPosts(posts));
-  let receivePostSuccess = (post) => dispatch(receivePost(post));
+  let receivePostSuccess = (id) => dispatch(receivePost(id));
 
   // let deleteCommentSuccess = (comment) => dispatch(removeComment(comment));
 

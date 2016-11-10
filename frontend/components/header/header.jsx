@@ -31,7 +31,6 @@ import Modal from 'react-modal';
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    debugger
     this.state = {
       cloudinaryUrl: "",
       caption: "",
