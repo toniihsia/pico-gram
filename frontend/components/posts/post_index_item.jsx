@@ -33,22 +33,6 @@ class PostIndexItem extends React.Component{
     this.setState( {body: ''});
   }
 
-  // likeToggler() {
-  //   debugger
-  //
-  //   let post = this.props.post;
-  //   let userIdLikes = post.user_likes;
-  //
-  //   if (userIdLikes.includes(this.props.currentUser.id)) {
-  //
-  //   }
-  //   let likesObject = Object.keys(post.likes).map(id => post.likes[id]);
-  //   let likesIds = likesObject.map(post => post.user_id);
-  //   let likeIdx =  likesArray.indexOf(this.props.currentUser.id);
-  //
-
-  // }
-
   findLikeId(likesArray) {
     for (var i = 0; i < likesArray.length; i++) {
       if (likesArray[i].user_id === this.props.currentUser.id) {
@@ -61,8 +45,6 @@ class PostIndexItem extends React.Component{
     let post = this.props.post;
     let userIdLikes = post.user_likes;
     let likesArray = post.likes ? Object.keys(post.likes).map(id => post.likes[id]) : [];
-    // let likesArray = Object.keys(post.likes).map(id => post.likes[id]);
-
 
     if (userIdLikes.includes(this.props.currentUser.id)) {
       const likeId = this.findLikeId(likesArray);
@@ -174,13 +156,14 @@ class PostIndexItem extends React.Component{
 
 
           {this.renderComments()}
+
           <div>
             {this.renderLikeButton()}
             {`${post.like_count} likes`}
           </div>
 
 
-          <form>
+          <form className="comment-form">
             <input type="text" placeholder="Add a comment..." onChange={this.update('body')} value={this.state.body}/>
             <button type="submit" onClick={this.addComment} className='comment-submission'>Add Comment</button>
           </form>
