@@ -33,21 +33,41 @@ class PostIndexItem extends React.Component{
     this.setState( {body: ''});
   }
 
+  // likeToggler() {
+  //   debugger
+  //
+  //   let post = this.props.post;
+  //   let userIdLikes = post.user_likes;
+  //
+  //   if (userIdLikes.includes(this.props.currentUser.id)) {
+  //
+  //   }
+  //   let likesObject = Object.keys(post.likes).map(id => post.likes[id]);
+  //   let likesIds = likesObject.map(post => post.user_id);
+  //   let likeIdx =  likesArray.indexOf(this.props.currentUser.id);
+  //
+
+  // }
+
+  findLikeId(likesArray) {
+    for (var i = 0; i < likesArray.length; i++) {
+      if (likesArray[i].user_id === this.props.currentUser.id) {
+        return likesArray[i].id;
+      }
+    }
+  }
+
   likeToggler() {
-    debugger
     let post = this.props.post;
     let userIdLikes = post.user_likes;
-    let likesObject = Object.keys(post.likes).map(id => post.likes[id]);
-    let likeIdx;
+    let likesArray = post.likes ? Object.keys(post.likes).map(id => post.likes[id]) : [];
+    // let likesArray = Object.keys(post.likes).map(id => post.likes[id]);
 
-    if (userIdLikes.includes(currentUser.id)) {
-      for (var i = 0; i < likesObject.length; i++) {
-        if (likesObject[i].user_id === currentUser.id) {
-          likeIdx = likesObject[i].id;
-          break;
-        }
-      }
-      this.props.deleteLike(likeIdx);
+
+    if (userIdLikes.includes(this.props.currentUser.id)) {
+      const likeId = this.findLikeId(likesArray);
+      // debugger
+      this.props.deleteLike(likeId);
     } else {
       this.props.createLike({user_id: this.props.currentUser.id, post_id: post.id});
     }

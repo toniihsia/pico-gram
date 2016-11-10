@@ -24,6 +24,7 @@ const PostsMiddleware = ({getState, dispatch}) => next => action => {
 
   // let deleteLikeSuccess = (id) => dispatch(receivePost(post));
 
+  // debugger
   switch(action.type) {
     case FETCH_POSTS:
       fetchPosts(receiveAllPostsSuccess, error);

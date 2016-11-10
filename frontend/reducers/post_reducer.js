@@ -1,7 +1,9 @@
 import merge from 'lodash/merge';
 import { RECEIVE_ALL_POSTS, RECEIVE_POST } from '../actions/post_actions';
 
+const emptyPost = { id: null, likes: {}, comments: {}};
 const PostsReducer = (oldState = {}, action) => {
+
 
   const newState = merge({}, oldState);
   Object.freeze(oldState);
@@ -10,12 +12,7 @@ const PostsReducer = (oldState = {}, action) => {
       return action.posts;
     case RECEIVE_POST:
       let postId = parseInt(Object.keys(action.post)[0]);
-      newState[postId] = action.post[postId];
-      if (action.post[postId].comments) {
-        newState[postId].comments = action.post[postId].comments;
-      }
-      // newState[postId].comments = action.post[postId].comments;
-      newState[postId].like_count = action.post[postId].like_count;
+      newState[postId] = merge({}, emptyPost, action.post[postId]);
       return newState;
     default:
       return oldState;
