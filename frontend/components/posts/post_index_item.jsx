@@ -8,7 +8,6 @@ class PostIndexItem extends React.Component{
     this.state = {
         body: '',
         post_id: this.props.post.id,
-        user_id: this.props.currentUser.id
     };
 
     this.redirectUser = this.redirectUser.bind(this);
@@ -51,7 +50,6 @@ class PostIndexItem extends React.Component{
     if (this.props.post.comments) {
       let commentsObject = this.props.post.comments;
       let commentsArray = Object.keys(commentsObject).map(id => commentsObject[id]);
-      debugger
       if (commentsObject) {
         return (
           <div className="comments-container">
@@ -85,6 +83,7 @@ class PostIndexItem extends React.Component{
   }
 
   render() {
+
     let post = this.props.post;
     let author = post.user;
     let postAgeString = `~${post.age} ago`;
