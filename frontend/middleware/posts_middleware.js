@@ -11,7 +11,7 @@ import { CREATE_LIKE, DELETE_LIKE } from '../actions/like_actions';
 import { fetchPosts, fetchPost, createPost } from '../util/post_api_util';
 import { createLike, deleteLike } from '../util/like_api_util';
 import { createComment, deleteComment } from '../util/comment_api_util';
-
+import { receiveCurrentUser } from '../actions/session_actions';
 
 
 const PostsMiddleware = ({getState, dispatch}) => next => action => {
@@ -21,6 +21,8 @@ const PostsMiddleware = ({getState, dispatch}) => next => action => {
   let receivePostSuccess = (post) => dispatch(receivePost(post));
 
   // let deleteCommentSuccess = (comment) => dispatch(removeComment(comment));
+
+  // let deleteLikeSuccess = (id) => dispatch(receivePost(post));
 
   switch(action.type) {
     case FETCH_POSTS:

@@ -5,6 +5,7 @@ json.user do
 end
 
 json.like_count post.like_count
+json.user_likes post.user_likes.map(&:id)
 
 json.likes do
   post.likes.each do |like|
