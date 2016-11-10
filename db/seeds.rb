@@ -27,7 +27,9 @@ zero = User.create(username: "aldnoah_zero", password: "password", email: "zero@
 
 photo_1 = Post.create(image_url: "https://res.cloudinary.com/dfrrpfeus/image/upload/v1478216466/seed_photo_1_k3agfk.jpg", caption: "pool lighting at dusk", user_id: 5)
 comment1 = Comment.create(user_id: 1, post_id: 1, body: "this is a comment wauwauwau")
-
+like1 = Like.create(user_id: 2, post_id: 1)
+like2 = Like.create(user_id: 3, post_id: 1)
+like3 = Like.create(user_id: 4, post_id: 1)
 
 photo_2 = Post.create(image_url: "https://res.cloudinary.com/dfrrpfeus/image/upload/v1478380772/seed_photo_07_gknun8.jpg", caption: "chinese typography project", user_id: 5)
 comment2 = Comment.create(user_id: 1, post_id: 2, body: "this is a comment wauwauwau")

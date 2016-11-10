@@ -160,10 +160,9 @@ class SessionForm extends React.Component {
 					<form onSubmit={this.handleSubmit} className="auth-form">
 						<label className="auth-label-1">Pico</label>
 						<label className="auth-label-2">Gram</label>
-						<br/>
-						{this.renderErrors()}
-
-								<input
+						<div className="auth-subheader">
+							a lightweight photo sharing app
+								</div>{this.renderErrors()}<input
 									className="auth-input"
 									type="text"
 									id="username"

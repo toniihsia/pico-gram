@@ -32,7 +32,10 @@ class PostIndex extends React.Component {
               post={post}
               currentUser={this.props.currentUser}
               createComment={this.props.createComment}
-              deleteComment={this.props.deleteComment}/> )
+              deleteComment={this.props.deleteComment}
+              createLike={this.props.createLike}
+              deleteLike={this.props.deleteLike}
+              /> )
           }
         </ul>
       </div>
