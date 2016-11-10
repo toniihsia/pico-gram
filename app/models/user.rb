@@ -12,13 +12,21 @@ class User < ActiveRecord::Base
     through: :likes,
     source: :post
 
-  # has_many :followed_users,
-  #   foreign_key: :follower_id,
-  #   class_name: :Follow
-  #
-  # has_many :followers,
-  #   foreign_key: :followee_id,
-  #   class_name: :Follow
+  has_many :incoming_follows,
+    foreign_key: :followee_id,
+    class_name: :Follow
+
+  has_many :outgoing_follows,
+    foreign_key: :follower_id,
+    class_name: :Follow
+
+  has_many :followers,
+    through: :incoming_follows,
+    source: :follower
+
+  has_many :followees,
+    through: :outgoing_follows,
+    source: :followee
 
   after_initialize :ensure_session_token
 
