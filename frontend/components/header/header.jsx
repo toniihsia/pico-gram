@@ -1,30 +1,30 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
 import Modal from 'react-modal';
-
+//
 // let style = {
-//   overlay: {
-//     position: 'fixed',
-//     top: 0,
-//     left: 0,
-//     right: 0,
-//     bottom: 0,
-//     backgroundColor: 'rgba(255, 255, 255, 0.75)'
+  // overlay: {
+    // position: 'fixed',
+    // top: 0,
+    // left: 0,
+    // right: 0,
+    // bottom: 0,
+    // backgroundColor: 'rgba(255, 255, 255, 0.75)'
 //   },
 //   content: {
-//     position: 'fixed',
-//     top: '20%',
-//     width: '500px',
-//     bottom: '20%',
-//     margin: '0 auto',
-//     border: '1px solid #ccc',
-//     padding: '20px',
-//     backgroundColor: 'snow',
-//     background: '#fff',
-//     outline: 'none',
-//     opacity: '0',
-//     transition: 'opacity 0.5s',
-//     borderRadius: '15px'
+    // position: 'fixed',
+    // top: '20%',
+    // width: '500px',
+    // bottom: '20%',
+    // margin: '0 auto',
+    // border: '1px solid #ccc',
+    // padding: '20px',
+    // backgroundColor: 'snow',
+    // background: '#fff',
+    // outline: 'none',
+    // opacity: '0',
+    // transition: 'opacity 0.5s',
+    // borderRadius: '15px'
 //   }
 // };
 
@@ -106,7 +106,11 @@ class Header extends React.Component {
           </li>
         </ul>
 
-          <Modal isOpen={this.state.openModal}>
+          <Modal
+            isOpen={this.state.openModal}
+            overlayClassName="overlay"
+            className="modal"
+            >
             <img className="photo-preview" src={this.state.cloudinaryUrl} alt="photo-preview"/>
             <input type="text" value={this.state.caption} placeholder="Insert caption here..." onChange={this.update('caption')} />
             <button onClick={this.handleSubmit}>Upload</button>

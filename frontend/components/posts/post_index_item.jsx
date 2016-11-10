@@ -121,7 +121,7 @@ class PostIndexItem extends React.Component{
 
 
           {this.renderComments()}
-
+          <div>{`${post.like_count} likes`}</div>
           <form>
             <input type="text" placeholder="Add a comment..." onChange={this.update('body')} value={this.state.body}/>
             <button type="submit" onClick={this.addComment} className='comment-submission'>Add Comment</button>

@@ -39,15 +39,9 @@
 
 ## Sample State on Feed ##
 {
-  currentUser: {
-    id: 1,
-    username: "toniathehuman",
-  },
-
-  forms: {
-    signUp : { errors: [] },
-    logIn: { errors: [] },
-    createPost: { errors: ["You must choose a photo to upload."]}
+  session: {
+    currentUser: {username: toniathehuman},
+    userId: "1",
   },
 
   posts: {

@@ -223,7 +223,35 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
 }
 
 .photo-preview {
-  width: 1000px;
+  width: 450px;
   height: auto;
   margin: 0;
+}
+
+/*.overlay:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -.25em;
+}*/
+
+
+.modal {
+  position: absolute;
+  top: 300px;
+  left: 300px;
+  right: 300px;
+  bottom: 300px;
+  background-color: white;
+  outline: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: lightgrey;
 }
