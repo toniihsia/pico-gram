@@ -4,11 +4,11 @@
 
 PicoGram is a lightweight photo sharing web-application modeled after Instagram.
 
-![Image of PicoGram][docs/production-rm-photos/pico-gram.png]
+![Image of PicoGram](docs/production-rm-photos/pico-gram.png)
 PicoGram uses PostgreSQL for its database, Ruby on Rails for its backend, and React.js with a Redux architectural framework on the frontend.
 
 ## Features & Implementation
-![Image of PostIndexItem][docs/production-rm-photos/post-index-item.png]
+![Image of PostIndexItem](docs/production-rm-photos/post-index-item.png)
 ### Photo Feed
 PicoGram's core function is its post feed. Post feeds are catered to the current user and only display posts of users they follow and/or their own posts.
 
