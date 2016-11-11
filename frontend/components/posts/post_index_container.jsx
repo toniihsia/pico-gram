@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { fetchPosts, createPost } from '../../actions/post_actions';
 import { createComment, deleteComment } from '../../actions/comment_actions';
 import { createLike, deleteLike } from '../../actions/like_actions';
+import { createFollow, deleteFollow } from '../../actions/follow_actions';
 
 import PostIndex from './post_index';
 
@@ -20,7 +21,10 @@ const mapDispatchToProps = dispatch => ({
   createComment: (comment) => dispatch(createComment(comment)),
   deleteComment: (id) => dispatch(deleteComment(id)),
   createLike: (like) => dispatch(createLike(like)),
-  deleteLike: (id) => dispatch(deleteLike(id))
+  deleteLike: (id) => dispatch(deleteLike(id)),
+  ////////////////////////////////////
+  createFollow: (follow) => dispatch(createFollow(follow)),
+  deleteFollow: (id) => dispatch(deleteFollow(id))
 });
 
 export default connect(

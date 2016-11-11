@@ -35,6 +35,8 @@ class PostIndex extends React.Component {
               deleteComment={this.props.deleteComment}
               createLike={this.props.createLike}
               deleteLike={this.props.deleteLike}
+              createFollow={this.props.createFollow}
+              deleteFollow={this.props.deleteFollow}
               /> )
           }
         </ul>

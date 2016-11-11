@@ -7,12 +7,13 @@ import {
 } from '../actions/post_actions';
 import { CREATE_COMMENT, DELETE_COMMENT } from '../actions/comment_actions';
 import { CREATE_LIKE, DELETE_LIKE } from '../actions/like_actions';
+import { CREATE_FOLLOW, DELETE_FOLLOW, RECEIVE_FOLLOW, receiveFollow } from '../actions/follow_actions';
+import { receiveCurrentUser } from '../actions/session_actions';
 
 import { fetchPosts, fetchPost, createPost } from '../util/post_api_util';
 import { createLike, deleteLike } from '../util/like_api_util';
 import { createComment, deleteComment } from '../util/comment_api_util';
-import { receiveCurrentUser } from '../actions/session_actions';
-
+import { createFollow, deleteFollow } from '../util/follow_api_util';
 
 const PostsMiddleware = ({getState, dispatch}) => next => action => {
   let success;
@@ -20,11 +21,8 @@ const PostsMiddleware = ({getState, dispatch}) => next => action => {
   let receiveAllPostsSuccess = (posts) => dispatch(receiveAllPosts(posts));
   let receivePostSuccess = (id) => dispatch(receivePost(id));
 
-  // let deleteCommentSuccess = (comment) => dispatch(removeComment(comment));
+  let receiveFollowSuccess = (follow) => dispatch(receiveFollow(follow));
 
-  // let deleteLikeSuccess = (id) => dispatch(receivePost(post));
-
-  // debugger
   switch(action.type) {
     case FETCH_POSTS:
       fetchPosts(receiveAllPostsSuccess, error);
@@ -47,6 +45,11 @@ const PostsMiddleware = ({getState, dispatch}) => next => action => {
     case DELETE_LIKE:
       deleteLike(action.id, receivePostSuccess);
       return next(action);
+    /// these should be changed to a separate middleware when i have time
+    case CREATE_FOLLOW:
+      createFollow(action.follow, receivePostSuccess);
+    case DELETE_FOLLOW:
+      deleteFollow(action.id, receivePostSuccess);
     default:
       return next(action);
   }

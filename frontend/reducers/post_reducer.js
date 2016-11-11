@@ -1,7 +1,7 @@
 import merge from 'lodash/merge';
 import { RECEIVE_ALL_POSTS, RECEIVE_POST } from '../actions/post_actions';
 
-const emptyPost = { id: null, likes: {}, comments: {}};
+const emptyPost = { id: null, likes: {}, comments: {}, user: {followers: {}, followees: {}}};
 const PostsReducer = (oldState = {}, action) => {
 
 

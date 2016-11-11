@@ -15,6 +15,15 @@ class PostIndexItem extends React.Component{
     this.renderComments = this.renderComments.bind(this);
     this.addComment = this.addComment.bind(this);
     this.likeToggler = this.likeToggler.bind(this);
+    this.followToggler = this.followToggler.bind(this);
+  }
+
+  shouldComponentUpdate(newProps, oldProps) {
+    if (!newProps.currentUser) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   redirectUser(e) {
@@ -93,13 +102,6 @@ class PostIndexItem extends React.Component{
   }
 
 
-  shouldComponentUpdate(newProps, oldProps) {
-    if (!newProps.currentUser) {
-      return false;
-    } else {
-      return true;
-    }
-  }
 
   renderLikeButton() {
     // debugger
@@ -115,6 +117,50 @@ class PostIndexItem extends React.Component{
 
     return (<button className={likeFill} onClick={this.likeToggler}></button>);
   }
+
+  renderFollowButton() {
+    let postAuthorFollowers = this.props.post.user.follower_ids;
+    if (postAuthorFollowers.includes(this.props.currentUser.id)) {
+      return (<button className="follow-button" onClick={this.followToggler}>Unfollow</button>)
+    } else {
+      return (<button className="follow-button" onClick={this.followToggler}>Follow</button>)
+    }
+  }
+
+  followToggler() {
+    debugger
+    let currentUser = this.props.currentUser;
+    let author = this.props.post.user;
+    let currentFolloweeIds = currentUser.followees ? Object.keys(currentUser.followees).map(followee => followee.id) : [];
+    // let currentFolloweesArray = currentUser.followees ? Object.keys(currentFollowees).map(id => currentFollowees[id]) : []
+
+    if (currentFolloweeIds.includes(author.id)) {
+      this.props.deleteFollow({followee_id: author.id, follower_id: currentUser.id});
+    } else {
+      this.props.createFollow({followee_id: author.id, follower_id: currentUser.id})
+    }
+
+    // let author = this.props.post.user
+    // let postAuthorFollowers = author.follower_ids;
+    // let followsArray = author.followers ? Object.keys(author.followers).map(id => author.followers[id]) : [];
+    //
+    // if (postAuthorFollowers.includes(this.props.currentUser.id)) {
+    //   const followId = this.findFollowId(followsArray);
+    //   this.props.deleteFollow(followId);
+    // } else {
+    //   this.props.createFollow({followee_id: author.id})
+    // }
+  }
+
+  // findFollowId(followsArray) {
+  //   for (var i = 0; i < followsArray.length; i++) {
+  //     if (followsArray[i].user_id === this.props.currentUser.id) {
+  //       return followsArray[i].id;
+  //     }
+  //   }
+  // }
+
+
   render() {
 
     let post = this.props.post;
@@ -143,6 +189,7 @@ class PostIndexItem extends React.Component{
               to={`users/${author.id}`}>
               {postAgeString}
             </Link>
+            {this.renderFollowButton()}
           </div>
           <br/>
 
