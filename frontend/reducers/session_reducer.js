@@ -17,7 +17,6 @@ const SessionReducer = (oldState = _nullUser, action) => {
       const currentUser = action.currentUser;
       return merge({}, _nullUser, {currentUser});
     case REMOVE_CURRENT_USER:
-      // debugger
       return merge({}, _nullUser);
     case RECEIVE_FOLLOW:
       newState.currentUser.followees = [...oldState, action.follow.followee_id];
@@ -27,10 +26,7 @@ const SessionReducer = (oldState = _nullUser, action) => {
       let followeeIdToDelete = action.follow.followee_id;
       let deleteIdx = followeesArray.indexOf(followeeIdToDelete);
       followeesArray.splice(deleteIdx, 1);
-      // debugger
       newState.currentUser.followees = followeesArray;
-      // newState.currentUser.follwees.splice(newState.currentUser.followees.indexOf(action.follow.followee_id), 1);
-      debugger
       return newState;
     case RECEIVE_ERRORS:
       const errors = action.errors;
