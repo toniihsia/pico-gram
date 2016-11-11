@@ -391,3 +391,41 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   box-shadow: none;
   outline: none;
 }
+
+.comments-container {
+  padding-top: 0px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+
+}
+
+.comment {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-delete-container {
+  flex: right;
+}
+
+.comment-delete-button {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background: transparent;
+  margin-bottom: 3px;
+}
+
+.comment-delete-button:hover {
+  cursor: pointer;
+}
+
+.comment-author {
+  font-weight: bolder;
+  flex: left;
+  margin-right: 5px;
+}
+.comment {
+  flex: right;
+}

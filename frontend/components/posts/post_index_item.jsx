@@ -68,7 +68,7 @@ class PostIndexItem extends React.Component{
     if (this.props.currentUser.id === commentAuthorId) {
       return (
         <button className="comment-delete-button"onClick={this.props.deleteComment.bind(this, comment.id)}>
-          x
+          X
         </button>
       );
     }
@@ -83,13 +83,15 @@ class PostIndexItem extends React.Component{
           <div className="comments-container">
             {commentsArray.map(comment => (
               <div className="comment" key={`comment${comment.id}`}>
-                <Link
-                  className="post-author"
-                  to={`users/${comment.user_id}`}>
-                  {comment.username }
-                </Link>
-                {` ${comment.body}`}
-                {this.renderDelete(comment, comment.user_id)}
+                <div className="user-info">
+                  <Link
+                    className="comment-author"
+                    to={`users/${comment.user_id}`}>
+                    {comment.username }
+                  </Link>
+                  {` ${comment.body}`}
+                </div>
+                <div className="delete-container">{this.renderDelete(comment, comment.user_id)}</div>
               </div>
             ))}
           </div>
