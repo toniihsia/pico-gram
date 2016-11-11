@@ -138,7 +138,7 @@ class PostIndexItem extends React.Component{
       debugger
       this.props.deleteFollow(author.id);
     } else {
-      this.props.createFollow({followee_id: author.id})
+      this.props.createFollow({followee_id: author.id});
     }
 
     // let author = this.props.post.user
@@ -163,61 +163,65 @@ class PostIndexItem extends React.Component{
 
 
   render() {
-    // debugger
-    let post = this.props.post;
-    let author = post.user;
-    let postAgeString = `~${post.age} ago`;
-    let caption = post.caption;
-    let likedPost = (post.user_likes.includes(post.id));
+    if (!this.props.post.user_likes) {
+      return (<div></div>)
+    } else {
+      // debugger
+      let post = this.props.post;
+      let author = post.user;
+      let postAgeString = `~${post.age} ago`;
+      let caption = post.caption;
+      let likedPost = (post.user_likes.includes(post.id));
 
-    let postClassName = location.hash.includes("users") ? "individual-post disable-margin" : "individual-post";
+      let postClassName = location.hash.includes("users") ? "individual-post disable-margin" : "individual-post";
 
-    // when uploading the state gets all fucked up
-    // jk i fixed it hahahha yes
+      // when uploading the state gets all fucked up
+      // jk i fixed it hahahha yes
 
-    return (
-      <li>
-        <div className={postClassName}>
+      return (
+        <li>
+          <div className={postClassName}>
 
-          <div className="post-header">
-            <Link
-              className="post-author"
-              to={`users/${author.id}`}>
-              {author.username}
-            </Link>
-            <Link
-              className="post-age"
-              to={`users/${author.id}`}>
-              {postAgeString}
-            </Link>
-            {this.renderFollowButton()}
+            <div className="post-header">
+              <Link
+                className="post-author"
+                to={`users/${author.id}`}>
+                {author.username}
+              </Link>
+              <Link
+                className="post-age"
+                to={`users/${author.id}`}>
+                {postAgeString}
+              </Link>
+              {this.renderFollowButton()}
+            </div>
+            <br/>
+
+            <img className="index-photo" src={post.image_url} alt={`${post.user}${post.id}`} />
+            <br/>
+
+            <div>
+              <label className="post-author">{author.username} </label>
+              <label>{post.caption}</label>
+            </div>
+
+
+            {this.renderComments()}
+
+            <div>
+              {this.renderLikeButton()}
+              {`${post.like_count} likes`}
+            </div>
+
+
+            <form className="comment-form">
+              <input type="text" placeholder="Add a comment..." onChange={this.update('body')} value={this.state.body}/>
+              <button type="submit" onClick={this.addComment} className='comment-submission'>Add Comment</button>
+            </form>
           </div>
-          <br/>
-
-          <img className="index-photo" src={post.image_url} alt={`${post.user}${post.id}`} />
-          <br/>
-
-          <div>
-            <label className="post-author">{author.username} </label>
-            <label>{post.caption}</label>
-          </div>
-
-
-          {this.renderComments()}
-
-          <div>
-            {this.renderLikeButton()}
-            {`${post.like_count} likes`}
-          </div>
-
-
-          <form className="comment-form">
-            <input type="text" placeholder="Add a comment..." onChange={this.update('body')} value={this.state.body}/>
-            <button type="submit" onClick={this.addComment} className='comment-submission'>Add Comment</button>
-          </form>
-        </div>
-      </li>
-    );
+        </li>
+      );
+    }
   }
 }
 

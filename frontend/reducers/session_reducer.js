@@ -5,15 +5,14 @@ import { RECEIVE_FOLLOW } from '../actions/follow_actions';
 
 const _nullUser = Object.freeze({
   currentUser: {
-    followers: {},
-    followees: {}
+    followers: [],
+    followees: []
   },
   errors: []
 });
 
 const SessionReducer = (oldState = _nullUser, action) => {
   Object.freeze(oldState);
-  debugger
   let newState = merge({}, oldState);
 
   switch(action.type) {
@@ -23,7 +22,8 @@ const SessionReducer = (oldState = _nullUser, action) => {
     case REMOVE_CURRENT_USER:
       return merge({}, _nullUser);
     case RECEIVE_FOLLOW:
-      newState.followees[action.follow.followee_id] = action.follow;
+
+      newState.currentUser.followees = [...oldState, action.follow.followee_id];
       return newState;
     case RECEIVE_ERRORS:
       const errors = action.errors;

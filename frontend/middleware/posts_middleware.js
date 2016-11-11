@@ -7,7 +7,7 @@ import {
 } from '../actions/post_actions';
 import { CREATE_COMMENT, DELETE_COMMENT } from '../actions/comment_actions';
 import { CREATE_LIKE, DELETE_LIKE } from '../actions/like_actions';
-import { CREATE_FOLLOW, DELETE_FOLLOW, RECEIVE_FOLLOW, receiveFollow } from '../actions/follow_actions';
+import { CREATE_FOLLOW, DELETE_FOLLOW, RECEIVE_FOLLOW, receiveFollow, removeFollow } from '../actions/follow_actions';
 import { receiveCurrentUser } from '../actions/session_actions';
 
 import { fetchPosts, fetchPost, createPost } from '../util/post_api_util';
@@ -22,6 +22,7 @@ const PostsMiddleware = ({getState, dispatch}) => next => action => {
   let receivePostSuccess = (id) => dispatch(receivePost(id));
 
   let receiveFollowSuccess = (follow) => dispatch(receiveFollow(follow));
+  let receiveDeleteSuccess = (follow) => dispatch(removeFollow(follow));
 
   switch(action.type) {
     case FETCH_POSTS:
@@ -47,10 +48,10 @@ const PostsMiddleware = ({getState, dispatch}) => next => action => {
       return next(action);
     /// these should be changed to a separate middleware when i have time
     case CREATE_FOLLOW:
-      createFollow(action.follow, receivePostSuccess);
+      createFollow(action.follow, receiveFollowSuccess);
       return next(action);
     case DELETE_FOLLOW:
-      deleteFollow(action.id, receivePostSuccess);
+      deleteFollow(action.id, receiveDeleteSuccess);
       return next(action);
     default:
       return next(action);
