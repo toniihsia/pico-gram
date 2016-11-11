@@ -256,7 +256,113 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   background-color: lightgrey;
 }
 
+
+.user-info {
+  display: flex;
+}
+
+.follow-button {
+  flex: right;
+  border-radius: 5px;
+  outline: 0;
+  width: 100%;
+  padding: 5px, 20px, 5px, 20px;
+  margin-left: 10px;
+  border: 1px solid #3e3e3e;
+  box-shadow: none;
+  box-sizing: border-box;
+  font-size: 10px;
+  font-weight: 500;
+  color: #383838;
+  background-color: white;
+}
+
+.following-button {
+  flex: right;
+  border-radius: 5px;
+  outline: 0;
+  width: 100%;
+  padding: 5px, 20px, 5px, 20px;
+  margin-left: 10px;
+  border: 1px solid #3e3e3e;
+  box-shadow: none;
+  box-sizing: border-box;
+  font-size: 10px;
+  font-weight: 500;
+  color: white;
+  background-color: #383838;
+}
+
+.post-author {
+  flex: left;
+}
+
+.follow-button:hover {
+  cursor: pointer;
+  background-color: #3e3e3e;
+  transition: 0.3s;
+  color: white;
+}
+
+/*.following-button:hover {
+  cursor: pointer;
+  background-color: white;
+  transition: 0.3s;
+  color: #383838;
+}*/
+
+/*.post-header {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 0;
+}*/
+.caption-box {
+  padding-top: 0px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+.like-count {
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.comment-section {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid lightgrey;
+}
+
+.comment-form {
+  display: inline-block;
+}
+
+.comment-input {
+  outline: 0;
+  background: #f2f2f2;
+  background: white;
+  /*height: 40%;*/
+  /*width: 100%;*/
+  border: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+  resize: none;
+}
+
+.comment-submit-button {
+  height: 0px;
+  width: 0px;
+  border: none;
+  padding: 0px;
+}
+
 .unfilled-like-button {
+  margin-right: 10px;
   background-image: url('https://res.cloudinary.com/dfrrpfeus/image/upload/v1478756528/unfilled-heart-icon_tcxcze.png');
   width: 30px;
   height: 30px;
@@ -265,9 +371,14 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   background-size: contain;
   border: none;
   cursor: pointer;
+  box-shadow: none;
+  outline: none;
+
 }
 
 .filled-like-button {
+  flex: left;
+  margin-right: 10px;
   background-image: url('https://res.cloudinary.com/dfrrpfeus/image/upload/v1478756523/filled-heart-icon_umf3hi.png');
 
   width: 30px;
@@ -277,4 +388,6 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   background-size: contain;
   border: none;
   cursor: pointer;
+  box-shadow: none;
+  outline: none;
 }

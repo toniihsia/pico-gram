@@ -125,7 +125,7 @@ class PostIndexItem extends React.Component{
     }
 
     if (this.props.currentUser.followees.includes(this.props.post.user.id)) {
-      return (<button className="follow-button" onClick={this.followToggler}>Unfollow</button>);
+      return (<button className="following-button" onClick={this.followToggler}>Following</button>);
     } else {
       return (<button className="follow-button" onClick={this.followToggler}>Follow</button>);
     }
@@ -164,41 +164,49 @@ class PostIndexItem extends React.Component{
           <div className={postClassName}>
 
             <div className="post-header">
-              <Link
+              <div className="user-info"><Link
                 className="post-author"
                 to={`users/${author.id}`}>
                 {author.username}
               </Link>
-              <Link
+              {this.renderFollowButton()}
+            </div><Link
                 className="post-age"
                 to={`users/${author.id}`}>
                 {postAgeString}
               </Link>
-              {this.renderFollowButton()}
             </div>
-            <br/>
-
             <img className="index-photo" src={post.image_url} alt={`${post.user}${post.id}`} />
             <br/>
+            <div className="like-count">{`${post.like_count} likes`}</div>
 
-            <div>
+            <div className="caption-box">
               <label className="post-author">{author.username} </label>
               <label>{post.caption}</label>
+              <div className="caption-border"></div>
             </div>
 
 
             {this.renderComments()}
 
-            <div>
-              {this.renderLikeButton()}
-              {`${post.like_count} likes`}
+            <div className="comment-section">
+
+              {this.renderLikeButton()}<form
+                className="comment-form">
+                  <input
+                    type="text"
+                    className="comment-input"
+                    placeholder="Add a comment..."
+                    onChange={this.update('body')}
+                    value={this.state.body}
+                  />
+                  <button
+                    type="submit" onClick={this.addComment}
+                    className='comment-submission'
+                    className="comment-submit-button">
+                  </button>
+                </form>
             </div>
-
-
-            <form className="comment-form">
-              <input type="text" placeholder="Add a comment..." onChange={this.update('body')} value={this.state.body}/>
-              <button type="submit" onClick={this.addComment} className='comment-submission'>Add Comment</button>
-            </form>
           </div>
         </li>
       );
