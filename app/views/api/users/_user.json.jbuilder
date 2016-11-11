@@ -8,6 +8,13 @@ json.set! :followees do
   json.array! user.followees.map(&:id)
 end
 
+json.set! :posts do
+  user.posts.each do |post|
+    json.set! post.id do
+      json.extract! post, :id, :image_url, :caption
+    end
+  end
+end
 # json.followers do
 #   user.followers.each do |follower|
 #     json.set! follower.id do

@@ -1,6 +1,22 @@
 class Api::PostsController < ApplicationController
   def index
-    @posts = Post.all.order('created_at DESC')
+    @posts = [];
+    current_user.followees.each do |followee|
+      followee.posts.each do |post|
+        @posts.push(post)
+      end
+    end
+    # @posts
+    # @posts = Post.all.order('created_at DESC')
+    # @filtered_posts = []
+    #
+    #   current_user.followees.each do |followee|
+    #     followee.posts.each do |post|
+    #       @filtered_posts.push(post)
+    #     end
+    #   end
+    #
+    # @filtered_posts = @filtered_posts.all.order('created_at DESC')
   end
 
   def create
