@@ -1,7 +1,7 @@
 import merge from 'lodash/merge';
 import { RECEIVE_CURRENT_USER, REMOVE_CURRENT_USER, RECEIVE_ERRORS }
   from '../actions/session_actions';
-import { RECEIVE_FOLLOW } from '../actions/follow_actions';
+import { RECEIVE_FOLLOW, REMOVE_FOLLOW, receiveFollow, removeFollow } from '../actions/follow_actions';
 
 const _nullUser = Object.freeze({
   currentUser: null,
@@ -21,6 +21,16 @@ const SessionReducer = (oldState = _nullUser, action) => {
       return merge({}, _nullUser);
     case RECEIVE_FOLLOW:
       newState.currentUser.followees = [...oldState, action.follow.followee_id];
+      return newState;
+    case REMOVE_FOLLOW:
+      let followeesArray = newState.currentUser.followees;
+      let followeeIdToDelete = action.follow.followee_id
+      let deleteIdx = followeesArray.indexOf(followeeIdToDelete)
+      followeesArray.splice(deleteIdx, 1)
+      debugger
+      newState.currentUser.followees = followeesArray;
+      // newState.currentUser.follwees.splice(newState.currentUser.followees.indexOf(action.follow.followee_id), 1);
+      debugger
       return newState;
     case RECEIVE_ERRORS:
       const errors = action.errors;

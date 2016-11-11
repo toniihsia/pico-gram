@@ -21,8 +21,8 @@ const PostsMiddleware = ({getState, dispatch}) => next => action => {
   let receiveAllPostsSuccess = (posts) => dispatch(receiveAllPosts(posts));
   let receivePostSuccess = (id) => dispatch(receivePost(id));
 
-  let receiveFollowSuccess = (follow) => dispatch(receiveFollow(follow));
-  let receiveDeleteSuccess = (follow) => dispatch(removeFollow(follow));
+  // let receiveFollowSuccess = (follow) => dispatch(receiveFollow(follow));
+  // let receiveDeleteSuccess = (follow) => dispatch(removeFollow(follow));
 
   switch(action.type) {
     case FETCH_POSTS:
@@ -47,12 +47,12 @@ const PostsMiddleware = ({getState, dispatch}) => next => action => {
       deleteLike(action.id, receivePostSuccess);
       return next(action);
     /// these should be changed to a separate middleware when i have time
-    case CREATE_FOLLOW:
-      createFollow(action.follow, receiveFollowSuccess);
-      return next(action);
-    case DELETE_FOLLOW:
-      deleteFollow(action.id, receiveDeleteSuccess);
-      return next(action);
+    // case CREATE_FOLLOW:
+    //   createFollow(action.follow, receiveFollowSuccess);
+    //   return next(action);
+    // case DELETE_FOLLOW:
+    //   deleteFollow(action.id, receiveDeleteSuccess);
+    //   return next(action);
     default:
       return next(action);
   }

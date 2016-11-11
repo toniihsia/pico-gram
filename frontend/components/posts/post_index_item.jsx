@@ -137,8 +137,10 @@ class PostIndexItem extends React.Component{
     if (currentUser.followees.includes(author.id)) {
       debugger
       this.props.deleteFollow(author.id);
+      this.forceUpdate();
     } else {
       this.props.createFollow({followee_id: author.id});
+      this.forceUpdate();
     }
 
     // let author = this.props.post.user
@@ -150,7 +152,7 @@ class PostIndexItem extends React.Component{
     //   this.props.deleteFollow(followId);
     // } else {
     //   this.props.createFollow({followee_id: author.id})
-    // }
+    // }w to
   }
 
   // findFollowId(followsArray) {
