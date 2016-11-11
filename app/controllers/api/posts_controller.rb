@@ -6,7 +6,7 @@ class Api::PostsController < ApplicationController
         @posts.push(post)
       end
     end
-    # @posts
+    @posts.concat(current_user.posts)
     # @posts = Post.all.order('created_at DESC')
     # @filtered_posts = []
     #
