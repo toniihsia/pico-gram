@@ -24,10 +24,10 @@ const SessionReducer = (oldState = _nullUser, action) => {
       return newState;
     case REMOVE_FOLLOW:
       let followeesArray = newState.currentUser.followees;
-      let followeeIdToDelete = action.follow.followee_id
-      let deleteIdx = followeesArray.indexOf(followeeIdToDelete)
-      followeesArray.splice(deleteIdx, 1)
-      debugger
+      let followeeIdToDelete = action.follow.followee_id;
+      let deleteIdx = followeesArray.indexOf(followeeIdToDelete);
+      followeesArray.splice(deleteIdx, 1);
+      // debugger
       newState.currentUser.followees = followeesArray;
       // newState.currentUser.follwees.splice(newState.currentUser.followees.indexOf(action.follow.followee_id), 1);
       debugger

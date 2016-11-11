@@ -120,10 +120,15 @@ class PostIndexItem extends React.Component{
 
   renderFollowButton() {
     let postAuthorFollowers = this.props.post.user.follower_ids;
-    if (postAuthorFollowers.includes(this.props.currentUser.id)) {
-      return (<button className="follow-button" onClick={this.followToggler}>Unfollow</button>)
+    if (this.props.post.user.id === this.props.currentUser.id) {
+      return (<div></div>);
+    }
+
+    debugger
+    if (this.props.currentUser.followees.includes(this.props.post.user.id)) {
+      return (<button className="follow-button" onClick={this.followToggler}>Unfollow</button>);
     } else {
-      return (<button className="follow-button" onClick={this.followToggler}>Follow</button>)
+      return (<button className="follow-button" onClick={this.followToggler}>Follow</button>);
     }
   }
 
