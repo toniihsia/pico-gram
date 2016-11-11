@@ -29,7 +29,7 @@ comment1 = Comment.create(user_id: 1, post_id: 1, body: "hey, this is a really c
 like1 = Like.create(user_id: 2, post_id: 1)
 like2 = Like.create(user_id: 3, post_id: 1)
 like3 = Like.create(user_id: 4, post_id: 1)
-comment_11 = Comment.create(user_id: 8, post_id: 1, body: 'how did you get the colors to turn out like that?')
+comment_11 = Comment.create(user_id: 8, post_id: 2, body: 'how did you get the colors to turn out like that?')
 
 
 
@@ -39,7 +39,7 @@ connor = User.create(username: "monnorcurphy", password: "password", email: "con
 #### USER 5 ####
 lawrence = User.create(username: "lawrence_c", password: "password", email: "lawrence@email.com")
 photo_2 = Post.create(image_url: "https://res.cloudinary.com/dfrrpfeus/image/upload/v1478380772/seed_photo_07_gknun8.jpg", caption: "chinese typography project", user_id: 5)
-comment2 = Comment.create(user_id: 4, post_id: 2, body: "i didn't know you knew how to write chinese")
+# comment2 = Comment.create(user_id: 4, post_id: 2, body: "i didn't know you knew how to write chinese")
 
 photo_4 = Post.create(image_url: "https://res.cloudinary.com/dfrrpfeus/image/upload/v1478380750/seed_photo_04_zg6btw.jpg", caption: "red chinese typography", user_id: 5)
 comment4 = Comment.create(user_id: 2, post_id: 4, body: "more typography?")

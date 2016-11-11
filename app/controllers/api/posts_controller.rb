@@ -43,3 +43,7 @@ class Api::PostsController < ApplicationController
   # def count
   # end
 end
+
+
+### take in a user_id or whatever soething liek that
+### such that you can know which posts you want to filter by
