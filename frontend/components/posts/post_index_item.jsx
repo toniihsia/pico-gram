@@ -136,7 +136,7 @@ class PostIndexItem extends React.Component{
 
     if (currentUser.followees.includes(author.id)) {
       debugger
-      this.props.deleteFollow({followee_id: author.id});
+      this.props.deleteFollow(author.id);
     } else {
       this.props.createFollow({followee_id: author.id})
     }
