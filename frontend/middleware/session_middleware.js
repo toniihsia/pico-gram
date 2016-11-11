@@ -24,6 +24,7 @@ export default ({getState, dispatch}) => next => action => {
       logIn(action.user, successCallback, errorCallback);
       return next(action);
     case LOG_OUT:
+      debugger
       logOut(successLogOutCallback, errorCallback);
       return next(action);
     case SIGN_UP:
