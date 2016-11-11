@@ -48,8 +48,10 @@ const PostsMiddleware = ({getState, dispatch}) => next => action => {
     /// these should be changed to a separate middleware when i have time
     case CREATE_FOLLOW:
       createFollow(action.follow, receivePostSuccess);
+      return next(action);
     case DELETE_FOLLOW:
       deleteFollow(action.id, receivePostSuccess);
+      return next(action);
     default:
       return next(action);
   }

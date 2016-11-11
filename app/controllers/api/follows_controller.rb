@@ -2,7 +2,7 @@ class Api::FollowsController < ApplicationController
 
   def create
     @follow = Follow.new(follow_params)
-    debugger
+    # debugger
     @follow.follower_id = current_user.id
 
     if @follow.save

@@ -4,13 +4,16 @@ import { RECEIVE_CURRENT_USER, REMOVE_CURRENT_USER, RECEIVE_ERRORS }
 import { RECEIVE_FOLLOW } from '../actions/follow_actions';
 
 const _nullUser = Object.freeze({
-  currentUser: null,
+  currentUser: {
+    followers: {},
+    followees: {}
+  },
   errors: []
 });
 
 const SessionReducer = (oldState = _nullUser, action) => {
   Object.freeze(oldState);
-
+  debugger
   let newState = merge({}, oldState);
 
   switch(action.type) {

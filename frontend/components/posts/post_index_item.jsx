@@ -128,16 +128,17 @@ class PostIndexItem extends React.Component{
   }
 
   followToggler() {
-    debugger
+    // debugger
     let currentUser = this.props.currentUser;
     let author = this.props.post.user;
-    let currentFolloweeIds = currentUser.followees ? Object.keys(currentUser.followees).map(followee => followee.id) : [];
+    // let currentFolloweeIds = currentUser.followees ? Object.keys(currentUser.followees).map(followee => followee.id) : [];
     // let currentFolloweesArray = currentUser.followees ? Object.keys(currentFollowees).map(id => currentFollowees[id]) : []
 
-    if (currentFolloweeIds.includes(author.id)) {
-      this.props.deleteFollow({followee_id: author.id, follower_id: currentUser.id});
+    if (currentUser.followees.includes(author.id)) {
+      debugger
+      this.props.deleteFollow({followee_id: author.id});
     } else {
-      this.props.createFollow({followee_id: author.id, follower_id: currentUser.id})
+      this.props.createFollow({followee_id: author.id})
     }
 
     // let author = this.props.post.user
@@ -162,7 +163,7 @@ class PostIndexItem extends React.Component{
 
 
   render() {
-
+    // debugger
     let post = this.props.post;
     let author = post.user;
     let postAgeString = `~${post.age} ago`;
