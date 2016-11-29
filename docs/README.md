@@ -9,10 +9,10 @@
 ## Minimum Viable Product
 PicoGram is a web application inspired by Instagram. It is built using Ruby on Rails and React/Redux. By the end of Week 9, this app will, at a minimum, allow users to do the following:
 - [x] Create new account, login, and guest/demo login.
-- [ ] Upload and display photos.
-- [ ] Create and delete comments on photos.
-- [ ] Follow users.
-- [ ] Like/unlike photos.
+- [x] Upload and display photos.
+- [x] Create and delete comments on photos.
+- [x] Follow users.
+- [x] Like/unlike photos.
 
 ## Design Docs
 * [View Wireframes][wireframes]
