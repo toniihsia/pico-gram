@@ -11,6 +11,12 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+
+    if @user.nil?
+      render json: @user.errors.full_messages, status: 404
+    else
+      render "api/users/profile", status: 200
+    end
   end
 
   private
