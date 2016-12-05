@@ -1,4 +1,4 @@
-import { merge } from 'lodash/merge';
+import merge from 'lodash/merge';
 import { RECEIVE_PROFILE } from '../actions/user_actions';
 
 const _nullProfile = {

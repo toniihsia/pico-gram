@@ -1,7 +1,7 @@
 import { FETCH_PROFILE, receiveProfile } from '../actions/user_actions';
-import { fetchProfile } from '../util/users_api/util';
+import { fetchProfile } from '../util/users_api_util';
 
-export default ({ getState, dispatch }) => next => action => {
+const UsersMiddleware = ({ getState, dispatch }) => next => action => {
   const fetchProfileSuccess = (profile) => (dispatch(receiveProfile(profile)));
   const fetchProfileError = () => (console.log("FAILURE"));
 
@@ -13,3 +13,5 @@ export default ({ getState, dispatch }) => next => action => {
       return next(action);
   }
 };
+
+export default UsersMiddleware;

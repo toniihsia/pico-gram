@@ -13,6 +13,8 @@ import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
 // import HeaderContainer from './header/header_container';
 import PostIndexContainer from './posts/post_index_container';
+import ProfileContainer from './profile/profile_container';
+import { fetchProfile } from '../actions/user_actions';
 
 const Root = ({ store }) => {
 
@@ -30,6 +32,10 @@ const Root = ({ store }) => {
     }
   };
 
+  const _fetchProfile = (nextState) => (
+    store.dispatch(fetchProfile(nextState.params.userId))
+  );
+
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
@@ -37,6 +43,7 @@ const Root = ({ store }) => {
           <IndexRoute component={PostIndexContainer} onEnter={_ensureLoggedIn}/>
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
+          <Route path="users/:userId" component={ProfileContainer} onEnter={_fetchProfile} />
         </Route>
       </Router>
     </Provider>
