@@ -1,4 +1,4 @@
-json.extract! user, :username, :id
+json.extract! user, :username, :id, :image_url
 
 json.set! :followers do
   json.array! user.followers.map(&:id)

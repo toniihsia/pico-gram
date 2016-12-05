@@ -9,7 +9,7 @@ import Profile from './profile';
 const mapStateToProps = (state) => {
   return ({
     currentUser: state.session.currentUser,
-    profile: state.userProfile,
+    profile: state.profile,
     posts: Object.keys(state.posts).map(id => state.posts[id]),
     state: state
   });
