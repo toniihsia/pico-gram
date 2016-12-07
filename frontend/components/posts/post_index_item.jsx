@@ -2,17 +2,18 @@ import React from 'react';
 import { hashHistory, Link } from 'react-router';
 import Comment from '../comments/comment';
 
-class PostIndexItem extends React.Component{
+class PostIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
         body: '',
-        post_id: this.props.post.id,
+        post_id: this.props.post.id
     };
 
     this.redirectUser = this.redirectUser.bind(this);
     this.renderDelete = this.renderDelete.bind(this);
     this.renderComments = this.renderComments.bind(this);
+    this.renderFollowButton = this.renderFollowButton.bind(this);
     this.addComment = this.addComment.bind(this);
     this.likeToggler = this.likeToggler.bind(this);
     this.followToggler = this.followToggler.bind(this);

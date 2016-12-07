@@ -429,3 +429,128 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
 .comment {
   flex: right;
 }
+
+/* * * P R O F I L E   S T Y L I N G * *  */
+.profile {
+  max-width: 930px;
+  margin: auto;
+}
+.header-info-container {
+  display: flex;
+  margin: auto;
+  align-self: center;
+  justify-content: center;
+  padding: 30px;
+  border-bottom: solid #383838 0.5px
+}
+
+.header-info {
+  flex-direction: column;
+  align-self: center;
+}
+
+.profile-pic {
+  border-radius: 300px;
+}
+
+.profile-username {
+  display: block;
+  font-size: 25px;
+}
+.profile-pic {
+  margin-right: 30px;
+}
+
+.profile-info {
+  display: flex;
+}
+
+.profile-title {
+  flex: left;
+  font-weight: 600;
+  margin-right: 20px;
+  font-size: 18px;
+}
+
+.profile-content {
+  font-weight: 400;
+}
+.user-posts {
+  /*margin-top: 30px;*/
+}
+.user-post-index {
+  display: flex;
+  padding: 0;
+  margin-top: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.user-post {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  margin: 5px;
+  background: black;
+}
+
+.user-post-photo {
+  height: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.user-post-photo:hover {
+  opacity: 0.6;
+  transition: 0.1s;
+  cursor: pointer;
+}
+.photo-underlay {
+  background-color: black;
+}
+
+.profile-follow-button {
+  flex: right;
+  border-radius: 20px;
+  outline: 0;
+  width: 40%;
+  margin-top: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid #3e3e3e;
+  box-shadow: none;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 500;
+  color: #383838;
+  background-color: white;
+}
+
+.profile-follow-button:hover {
+  cursor: pointer;
+  background-color: #3e3e3e;
+  transition: 0.3s;
+  color: white;
+}
+
+.profile-following-button {
+  flex: right;
+  border-radius: 20px;;
+  outline: 0;
+  width: 40%;
+  margin-top: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid #3e3e3e;
+  box-shadow: none;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  background-color: #383838;
+}
