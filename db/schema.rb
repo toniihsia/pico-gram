@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161110182918) do
+ActiveRecord::Schema.define(version: 20161207224839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,23 +49,23 @@ ActiveRecord::Schema.define(version: 20161110182918) do
   add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
-    t.string   "image_url",  null: false
-    t.string   "caption",    null: false
-    t.string   "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "image_url",               null: false
+    t.string   "caption",    default: "", null: false
+    t.string   "user_id",                 null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",                                                                                                                    null: false
-    t.string   "email",                                                                                                                       null: false
-    t.string   "password_digest",                                                                                                             null: false
-    t.string   "session_token",                                                                                                               null: false
-    t.string   "image_url",       default: "https://pixabay.com/static/uploads/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", null: false
-    t.datetime "created_at",                                                                                                                  null: false
-    t.datetime "updated_at",                                                                                                                  null: false
+    t.string   "username",                                                                                                               null: false
+    t.string   "email",                                                                                                                  null: false
+    t.string   "password_digest",                                                                                                        null: false
+    t.string   "session_token",                                                                                                          null: false
+    t.string   "image_url",       default: "http://res.cloudinary.com/dfrrpfeus/image/upload/v1481151098/default-profile-01_affz2k.png", null: false
+    t.datetime "created_at",                                                                                                             null: false
+    t.datetime "updated_at",                                                                                                             null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
