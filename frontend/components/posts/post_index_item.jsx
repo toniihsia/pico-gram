@@ -101,7 +101,6 @@ class PostIndexItem extends React.Component {
     } else {
       return (<div></div>);
     }
-
   }
 
 
