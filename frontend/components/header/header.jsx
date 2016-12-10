@@ -42,6 +42,7 @@ class Header extends React.Component {
     this.redirectToUserProfile = this.redirectToUserProfile.bind(this);
     this.headerItems = this.headerItems.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.redirectToIndex = this.redirectToIndex.bind(this);
   }
 
   uploadPost(e) {
@@ -58,9 +59,13 @@ class Header extends React.Component {
 
   redirectToUserProfile(e) {
     e.preventDefault();
-    hashHistory.push(`/users/${this.props.currentUser.id}`);
+    hashHistory.replace(`/users/${this.props.currentUser.id}`);
   }
 
+  redirectToIndex(e) {
+    e.preventDefault();
+    hashHistory.replace('/');
+  }
   closeModal() {
     this.setState({openModal: false});
   }
@@ -86,15 +91,13 @@ class Header extends React.Component {
       <div>
         <ul className="navbar-links">
           <li className="navbar-logo">
-            <div className="navbar-logo">
-              <Link to="/">
+            <div className="navbar-logo" onClick={this.redirectToIndex}>
                 <label className="home-button-1">Pico</label><label className="home-button-2">Gram</label>
-              </Link>
             </div>
           </li>
 
-          <li onClick={this.uploadPost}>
-            <div className="navbar-item">Upload</div>
+          <li className="upload-item" onClick={this.uploadPost}>
+            <div>Upload</div>
           </li>
 
           <li onClick={this.redirectToUserProfile}>

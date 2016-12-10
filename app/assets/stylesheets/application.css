@@ -27,6 +27,7 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   color: inherit;
   background: transparent;
   list-style: none;
+  cursor: inherit;
 }
 
 * {
@@ -136,6 +137,17 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   font-size: 16px;
 }
 
+.upload-item {
+  padding: 16px;
+  border-bottom: solid white 2px;
+}
+
+.upload-item:hover {
+  padding: 16px;
+  border-bottom: solid #383838 2px;
+  cursor: pointer;
+}
+
 .navbar-logo {
   margin-right: auto;
   font-size: 26px;
@@ -175,19 +187,20 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   font-weight: lighter;
   margin: 0;
 }
-
+/*
 .home-button-1:hover {
   cursor: pointer;
-}
+}*/
+
 .home-button-2 {
   font-size: 30px;
   margin: 0;
   font-weight: bold;
 }
 
-.home-button-2:hover {
+/*.home-button-2:hover {
   cursor: pointer;
-}
+}*/
 
 /* STYLING FOR POST INDEX ITEM */
 .individual-post {
