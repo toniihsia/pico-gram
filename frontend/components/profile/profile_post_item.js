@@ -72,6 +72,9 @@ class ProfilePostItem extends React.Component {
             src={post.image_url}
             alt={profile.username + post.id + post.caption}
           />
+          <div className="photo-overlay">
+            {post.like_count}
+          </div>
         </div>
 
         <Modal
@@ -81,6 +84,7 @@ class ProfilePostItem extends React.Component {
           >
           <img className="modal-photo" src={post.image_url} alt="modal-photo" />
           {this.renderComments()}
+          <button onClick={this.closeModal}>Get me out.</button>
 
         </Modal>
       </li>

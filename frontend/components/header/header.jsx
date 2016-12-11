@@ -96,16 +96,16 @@ class Header extends React.Component {
             </div>
           </li>
 
-          <li className="upload-item" onClick={this.uploadPost}>
+          <li className="navbar-item" onClick={this.uploadPost}>
             <div>Upload</div>
           </li>
 
-          <li onClick={this.redirectToUserProfile}>
-            <Link className="navbar-item" to="/">Profile</Link>
+          <li onClick={this.redirectToUserProfile} className="navbar-item">
+            <Link to="/">Profile</Link>
           </li>
 
-          <li onClick={this.props.logOut}>
-            <Link className="navbar-item" to="/">Log Out</Link>
+          <li onClick={this.props.logOut} className="navbar-item">
+            <Link to="/">Log Out</Link>
           </li>
         </ul>
 

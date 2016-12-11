@@ -133,16 +133,10 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
 /* STYLING FOR HEADER/NAVBAR */
 .navbar-item {
   padding: 16px;
-  flex: right;
-  font-size: 16px;
-}
-
-.upload-item {
-  padding: 16px;
   border-bottom: solid white 2px;
 }
 
-.upload-item:hover {
+.navbar-item:hover {
   padding: 16px;
   border-bottom: solid #383838 2px;
   cursor: pointer;
@@ -170,16 +164,8 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   border-bottom: solid #383838 2px;
 }
 
-.navbar-item:hover {
-  border-bottom: solid #383838 2px;
-
-  cursor: pointer;
-  /*transition: 0.1s;*/
-  /* ben likes this commented out; will think about it */
-}
-
 .navbar-item:not(:hover) {
-  transition: 0.3s;
+  transition: 0.09s;
 }
 
 .home-button-1 {
@@ -276,10 +262,10 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
 
 .follow-button {
   flex: right;
-  border-radius: 5px;
+  border-radius: 20px;
   outline: 0;
   width: 100%;
-  padding: 5px, 20px, 5px, 20px;
+  padding: 5px, 30px, 5px, 30px;
   margin-left: 10px;
   border: 1px solid #3e3e3e;
   box-shadow: none;
@@ -292,10 +278,10 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
 
 .following-button {
   flex: right;
-  border-radius: 5px;
+  border-radius: 20px;
   outline: 0;
   width: 100%;
-  padding: 5px, 20px, 5px, 20px;
+  padding: 5px, 35px, 5px, 35px;
   margin-left: 10px;
   border: 1px solid #3e3e3e;
   box-shadow: none;
@@ -317,12 +303,12 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   color: white;
 }
 
-/*.following-button:hover {
+.following-button:hover {
   cursor: pointer;
   background-color: white;
   transition: 0.3s;
   color: #383838;
-}*/
+}
 
 /*.post-header {
   display: flex;
@@ -352,6 +338,10 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
 
 .comment-form {
   display: inline-block;
+}
+
+.comment-form input {
+  width: 700px;
 }
 
 .comment-input {
@@ -523,6 +513,10 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   background-color: black;
 }
 
+.photo-overlay {
+  color: white;
+}
+
 .profile-follow-button {
   flex: right;
   border-radius: 20px;
@@ -544,10 +538,11 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
 
 .profile-follow-button:hover {
   cursor: pointer;
-  background-color: #3e3e3e;
+  background-color: #0aaccc;
   transition: 0.3s;
   color: white;
 }
+
 
 .profile-following-button {
   flex: right;

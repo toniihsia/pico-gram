@@ -133,6 +133,10 @@ class PostIndexItem extends React.Component {
     }
   }
 
+  // how far along does the information need to be passed down?
+  // can you decipher what needs to be done earlier
+  // being more declarative
+
   followToggler() {
     let currentUser = this.props.currentUser;
     let author = this.props.post.user;
@@ -148,7 +152,7 @@ class PostIndexItem extends React.Component {
 
   render() {
     if (!this.props.post.user_likes) {
-      return (<div></div>)
+      return (<div></div>);
     } else {
       let post = this.props.post;
       let author = post.user;
