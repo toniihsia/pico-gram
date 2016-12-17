@@ -60,9 +60,15 @@ class ProfilePostItem extends React.Component {
     }
   }
 
+// destructuring assignment:
+// tighter syntax for pulling multiple things off of the same Object
+//  a, b, c, = 1, 2, 3
+//  ES6 you can do that
+
   render() {
     let post = this.props.post;
     let profile = this.props.profile;
+
     return (
       <li className="user-post-li">
         <div className="user-post" onClick={this.openModal}>
