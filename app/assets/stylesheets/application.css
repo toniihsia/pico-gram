@@ -224,40 +224,19 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
 .photo-preview {
   width: 450px;
   height: auto;
-  margin: 0;
+  margin: auto;
 }
 
-/*.overlay:before {
-  content: '';
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-  margin-right: -.25em;
-}*/
-
-
-.modal {
-  position: absolute;
-  top: 300px;
-  left: 300px;
-  right: 300px;
-  bottom: 300px;
-  background-color: white;
-  outline: none;
+.upload-modal {
+  text-align: center;
 }
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: lightgrey;
-}
-
 
 .user-info {
   display: flex;
+}
+
+.caption {
+  width: 300px;
 }
 
 .follow-button {

@@ -1,32 +1,6 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
 import Modal from 'react-modal';
-//
-// let style = {
-  // overlay: {
-    // position: 'fixed',
-    // top: 0,
-    // left: 0,
-    // right: 0,
-    // bottom: 0,
-    // backgroundColor: 'rgba(255, 255, 255, 0.75)'
-//   },
-//   content: {
-    // position: 'fixed',
-    // top: '20%',
-    // width: '500px',
-    // bottom: '20%',
-    // margin: '0 auto',
-    // border: '1px solid #ccc',
-    // padding: '20px',
-    // backgroundColor: 'snow',
-    // background: '#fff',
-    // outline: 'none',
-    // opacity: '0',
-    // transition: 'opacity 0.5s',
-    // borderRadius: '15px'
-//   }
-// };
 
 class Header extends React.Component {
   constructor(props) {
@@ -87,6 +61,32 @@ class Header extends React.Component {
   }
 
   headerItems() {
+    const style = {
+  overlay : {
+    position          : 'fixed',
+    top               : 0,
+    left              : 0,
+    right             : 0,
+    bottom            : 0,
+    backgroundColor   : 'rgba(62, 62, 62, 0.6)'
+  },
+  content : {
+    position                   : 'fixed',
+    top                        : '5%',
+    left                       : '5%',
+    right                      : '20%',
+    bottom                     : '20%',
+    border                     : '1px solid #ccc',
+    background                 : '#fff',
+    overflow                   : 'auto',
+    WebkitOverflowScrolling    : 'touch',
+    borderRadius               : '4px',
+    outline                    : 'none',
+    padding                    : '20px'
+  }
+};
+
+
     return (
       <div>
         <ul className="navbar-links">
@@ -111,13 +111,26 @@ class Header extends React.Component {
 
           <Modal
             isOpen={this.state.openModal}
-            overlayClassName="overlay"
             className="modal"
+            style={style}
             >
-            <img className="photo-preview" src={this.state.cloudinaryUrl} alt="photo-preview"/>
-            <input type="text" value={this.state.caption} placeholder="Insert caption here..." onChange={this.update('caption')} />
-            <button onClick={this.handleSubmit}>Upload</button>
-            <button onClick={this.closeModal}>Cancel</button>
+            <div className="upload-modal">
+              <img className="photo-preview" src={this.state.cloudinaryUrl} alt="photo-preview"/>
+              <br />
+              <input type="text" value={this.state.caption} placeholder="Insert caption here..." onChange={this.update('caption')}
+              className="comment-input"
+              />
+              <button
+                onClick={this.handleSubmit}
+                className="upload">
+                Upload
+              </button>
+              <button
+                onClick={this.closeModal}
+                className="cancel">
+                Cancel
+              </button>
+            </div>
         </Modal>
       </div>
 
