@@ -158,7 +158,7 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   justify-content: flex-end;
   align-items: center;
   margin: 0;
-  padding: 0;
+  padding-left: 24px;
   background-color: white;
   color: #383838;
   border-bottom: solid #383838 2px;
@@ -172,6 +172,13 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   font-size: 30px;
   font-weight: lighter;
   margin: 0;
+  margin-bottom: 50px;
+}
+
+.main-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
 }
 /*
 .home-button-1:hover {
@@ -189,7 +196,11 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
 }*/
 
 /* STYLING FOR POST INDEX ITEM */
+.post-index-container {
+  margin-top: 150px;
+}
 .individual-post {
+  margin
   font-size: 14px;
   background-color: white;
   margin: 60px auto;
@@ -416,6 +427,7 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
 .profile {
   max-width: 930px;
   margin: auto;
+  padding-top: 100px;
 }
 .header-info-container {
   display: flex;

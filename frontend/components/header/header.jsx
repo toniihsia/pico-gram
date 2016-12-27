@@ -62,33 +62,33 @@ class Header extends React.Component {
 
   headerItems() {
     const style = {
-  overlay : {
-    position          : 'fixed',
-    top               : 0,
-    left              : 0,
-    right             : 0,
-    bottom            : 0,
-    backgroundColor   : 'rgba(62, 62, 62, 0.6)'
-  },
-  content : {
-    position                   : 'fixed',
-    top                        : '5%',
-    left                       : '5%',
-    right                      : '20%',
-    bottom                     : '20%',
-    border                     : '1px solid #ccc',
-    background                 : '#fff',
-    overflow                   : 'auto',
-    WebkitOverflowScrolling    : 'touch',
-    borderRadius               : '4px',
-    outline                    : 'none',
-    padding                    : '20px'
-  }
-};
+      overlay : {
+        position          : 'fixed',
+        top               : 0,
+        left              : 0,
+        right             : 0,
+        bottom            : 0,
+        backgroundColor   : 'rgba(62, 62, 62, 0.6)'
+      },
+      content : {
+        position                   : 'fixed',
+        top                        : '5%',
+        left                       : '5%',
+        right                      : '20%',
+        bottom                     : '20%',
+        border                     : '1px solid #ccc',
+        background                 : '#fff',
+        overflow                   : 'auto',
+        WebkitOverflowScrolling    : 'touch',
+        borderRadius               : '4px',
+        outline                    : 'none',
+        padding                    : '20px'
+      }
+    };
 
 
     return (
-      <div>
+      <div className="main-header">
         <ul className="navbar-links">
           <li className="navbar-logo">
             <div className="navbar-logo" onClick={this.redirectToIndex}>
