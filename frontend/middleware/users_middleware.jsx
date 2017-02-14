@@ -5,7 +5,6 @@ const UsersMiddleware = ({ getState, dispatch }) => next => action => {
   const fetchProfileSuccess = (profile) => (dispatch(receiveProfile(profile)));
   const fetchProfileError = () => (console.log("FAILURE"));
 
-  console.log(action);
   switch(action.type) {
     case FETCH_PROFILE:
       fetchProfile(action.id, fetchProfileSuccess, fetchProfileError);

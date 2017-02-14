@@ -5,6 +5,9 @@ import PostIndexItem from './post_index_item';
 class PostIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { updateIndex: false };
+
+    this._childUpdatesIndex = this._childUpdatesIndex.bind(this);
   }
 
   componentDidMount() {
@@ -17,7 +20,17 @@ class PostIndex extends React.Component {
     }
   }
 
+  _childUpdatesIndex() {
+    let newUpdateIndex = !this.state.updateIndex;
+    // console.log(this.state.updateIndex);
+    // console.log(!this.state.updateIndex);
+    this.props.fetchPosts();
+    this.setState({ updateIndex: newUpdateIndex });
+  }
+
   render () {
+    console.log(this.state.updateIndex);
+    console.log(this.props);
     let postArray = [];
     let keys = Object.keys(this.props.posts);
     for (var i = keys.length - 1; i >= 0; i--) {
@@ -36,6 +49,7 @@ class PostIndex extends React.Component {
             postArray.map( post => <PostIndexItem
               key={post.id}
               post={post}
+              updateIndex={this._childUpdatesIndex.bind(this)}
               currentUser={this.props.currentUser}
               createComment={this.props.createComment}
               deleteComment={this.props.deleteComment}

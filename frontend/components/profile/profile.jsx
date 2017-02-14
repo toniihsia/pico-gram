@@ -18,7 +18,6 @@ class Profile extends React.Component {
       // debugger
       for (let i = postKeys.length - 1; i >= 0; i--) {
         postsArr.push(posts[postKeys[i]]);
-        console.log(postsArr);
       }
     } else {
         return [];
@@ -63,17 +62,20 @@ class Profile extends React.Component {
     let authorId = this.props.profile.id;
 
     if (currentUser.followees.includes(authorId)) {
-      this.props.deleteFollow(author.id);
+      this.props.deleteFollow({followee_id: authorId});
+      this.props.fetchPosts();
+      this.props.updateIndex();
     } else {
       this.props.createFollow({followee_id: authorId});
+      this.props.fetchPosts();
+      this.props.updateIndex();
+
     }
   }
 
   render() {
-    console.log(this.props)
     let userProfile = this.props.profile;
     let userPosts = this.userPostsObjToArray(this.props.profile.posts);
-    // console.log(userPosts);
     let numUserPosts = userPosts.length;
     let numUserFollowees = this.numUserFollowees(userProfile.followees);
     let numUserFollowers = this.numUserFollowers(userProfile.followers);

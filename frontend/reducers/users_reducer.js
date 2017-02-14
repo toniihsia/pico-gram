@@ -9,7 +9,6 @@ const _nullProfile = {
 
 const UsersReducer = (oldState = _nullProfile, action) => {
   Object.freeze(oldState);
-  console.log(action);
   switch (action.type) {
     case RECEIVE_PROFILE:
       return action.profile.userProfile;

@@ -109,6 +109,7 @@ comment_29 = Comment.create(user_id: 9, post_id: 22, body: "this is a beautiful 
 comment_29 = Comment.create(user_id: 14, post_id: 22, body: "wouldn't mind these showing up on my doorstep")
 comment_29 = Comment.create(user_id: 13, post_id: 23, body: "interesting choice to leave out florals")
 comment_29 = Comment.create(user_id: 12, post_id: 23, body: "i almost like these more than the photo with flowers")
+comment_30 = Comment.create(user_id: 20, post_id: 23, body: "maybe i could help deliver these flower boxes!")
 
 # Likes
 like_1 = Like.create(user_id: 1, post_id: 1)

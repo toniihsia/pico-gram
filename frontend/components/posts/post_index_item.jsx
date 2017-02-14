@@ -7,7 +7,8 @@ class PostIndexItem extends React.Component {
     super(props);
     this.state = {
         body: '',
-        post_id: this.props.post.id
+        post_id: this.props.post.id,
+        follow_change: false
     };
 
     this.redirectUser = this.redirectUser.bind(this);
@@ -137,14 +138,18 @@ class PostIndexItem extends React.Component {
   // can you decipher what needs to be done earlier
   // being more declarative
 
-  followToggler() {
+  followToggler(e) {
+    console.log(this.props);
+
     let currentUser = this.props.currentUser;
     let author = this.props.post.user;
-
+    let newFollowChange = !this.state.follow_change;
     if (currentUser.followees.includes(author.id)) {
       this.props.deleteFollow(author.id);
+      this.props.updateIndex();
     } else {
       this.props.createFollow({followee_id: author.id});
+      this.props.updateIndex();
     }
   }
 
@@ -187,7 +192,11 @@ class PostIndexItem extends React.Component {
             <div className="like-count">{`${post.like_count} likes`}</div>
 
             <div className="caption-box">
-              <label className="post-author">{author.username} </label>
+              <Link
+                className="post-author"
+                to={`users/${author.id}`}>
+                {author.username}
+              </Link>
               <label>{post.caption}</label>
               <div className="caption-border"></div>
             </div>

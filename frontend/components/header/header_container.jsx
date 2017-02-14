@@ -2,9 +2,11 @@ import { connect } from 'react-redux';
 import { logOut } from '../../actions/session_actions';
 import {createPost, fetchPosts} from '../../actions/post_actions';
 import Header from './header';
+import { _childUpdatesIndex } from '../posts/post_index';
 
 const mapStateToProps = ({session, posts}) => ({
   currentUser: session.currentUser,
+  updateIndex: _childUpdatesIndex,
   posts
 });
 
