@@ -160,6 +160,7 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   align-items: center;
   margin: 0;
   padding-left: 24px;
+  padding-right: 24px;
   background-color: white;
   color: #383838;
   border-bottom: solid #383838 2px;
