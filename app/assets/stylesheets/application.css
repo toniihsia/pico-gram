@@ -74,6 +74,7 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   font-weight: 300;
   margin-top: 2px;
 }
+
 .auth-input {
   outline: 0;
   background: #f2f2f2;
@@ -127,7 +128,7 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
 }
 
 .auth-inputs-container {
-  margin: 0
+  margin: 0;
 }
 
 /* STYLING FOR HEADER/NAVBAR */
