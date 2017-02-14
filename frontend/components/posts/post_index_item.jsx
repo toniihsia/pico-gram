@@ -139,8 +139,6 @@ class PostIndexItem extends React.Component {
   // being more declarative
 
   followToggler(e) {
-    console.log(this.props);
-
     let currentUser = this.props.currentUser;
     let author = this.props.post.user;
     let newFollowChange = !this.state.follow_change;

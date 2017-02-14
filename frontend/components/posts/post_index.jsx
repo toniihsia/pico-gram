@@ -22,15 +22,11 @@ class PostIndex extends React.Component {
 
   _childUpdatesIndex() {
     let newUpdateIndex = !this.state.updateIndex;
-    // console.log(this.state.updateIndex);
-    // console.log(!this.state.updateIndex);
     this.props.fetchPosts();
     this.setState({ updateIndex: newUpdateIndex });
   }
 
   render () {
-    console.log(this.state.updateIndex);
-    console.log(this.props);
     let postArray = [];
     let keys = Object.keys(this.props.posts);
     for (var i = keys.length - 1; i >= 0; i--) {

@@ -59,7 +59,6 @@ class Profile extends React.Component {
 
   followToggler() {
     let currentUser = this.props.currentUser;
-    console.log(this.props.profile.id);
     let authorId = this.props.profile.id;
 
     if (currentUser.followees.includes(authorId)) {
