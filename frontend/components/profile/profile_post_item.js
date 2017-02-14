@@ -60,74 +60,72 @@ class ProfilePostItem extends React.Component {
 
   renderComments() {
     let author = this.props.profile;
-    if (this.props.post.comments) {
-      let postAgeString = `~${this.props.post.age} ago`;
-      let commentsObject = this.props.post.comments;
-      let commentsArray = Object.keys(commentsObject).map(id => commentsObject[id]);
-      if (commentsObject) {
-        return (
-          <div className="inner-comments-container">
-            <button className="comment-delete-button" onClick={this.closeModal}>X</button>
-            <div className="post-header">
-              <div className="user-info">
-                <img className="profile-pic-prev" src={this.props.profile.profile_pic} /><Link
-                className="inner-post-author"
-                to={`users/${author.id}`}>
-                {author.username}
-              </Link>
-            </div><Link
-                className="inner-post-age"
-                to={`users/${author.id}`}>
-                {postAgeString}
-              </Link>
-            </div>
-            <div>
+    let commentsObject = this.props.comments;
+    let commentsArray = [];
+    let postAgeString = `~${this.props.post.age} ago`;
+    if (commentsObject) {
+      commentsArray = Object.keys(commentsObject).map(id => commentsObject[id]);
+    }
+
+    return (
+      <div className="inner-comments-container">
+        <button className="comment-delete-button" onClick={this.closeModal}>X</button>
+        <div className="post-header">
+          <div className="user-info">
+            <img className="profile-pic-prev" src={this.props.profile.profile_pic} /><Link
+            className="inner-post-author"
+            to={`users/${author.id}`}>
+            {author.username}
+          </Link>
+        </div><Link
+            className="inner-post-age"
+            to={`users/${author.id}`}>
+            {postAgeString}
+          </Link>
+        </div>
+        <div>
+          <div className="user-info">
+            <Link
+              className="comment-author"
+              to={`users/${this.props.profile.id}`}>
+              {this.props.profile.username }
+            </Link>
+            {` ${this.props.post.caption}`}
+          </div>
+          {commentsArray.map(comment => (
+            <div className="inner-comment" key={`comment${comment.id}`}>
               <div className="user-info">
                 <Link
                   className="comment-author"
-                  to={`users/${this.props.profile.id}`}>
-                  {this.props.profile.username }
+                  to={`users/${comment.user_id}`}>
+                  {comment.username }
                 </Link>
-                {` ${this.props.post.caption}`}
+                {` ${comment.body}`}
               </div>
-              {commentsArray.map(comment => (
-                <div className="inner-comment" key={`comment${comment.id}`}>
-                  <div className="user-info">
-                    <Link
-                      className="comment-author"
-                      to={`users/${comment.user_id}`}>
-                      {comment.username }
-                    </Link>
-                    {` ${comment.body}`}
-                  </div>
-                </div>
-            ))}
-            <div className="comment-section">
-
-              {this.renderLikeButton()}<form
-                className="comment-form">
-                  <input
-                    type="text"
-                    className="comment-input"
-                    placeholder="Add a comment..."
-                    onChange={this.update('body')}
-                    value={this.state.body}
-                  />
-                  <button
-                    type="submit" onClick={this.addComment}
-                    className='comment-submission'
-                    className="comment-submit-button">
-                  </button>
-                </form>
             </div>
-            <div className="clear"></div>
-          </div>
+        ))}
+        <div className="comment-section">
+
+          {this.renderLikeButton()}<form
+            className="comment-form">
+              <input
+                type="text"
+                className="comment-input"
+                placeholder="Add a comment..."
+                onChange={this.update('body')}
+                value={this.state.body}
+              />
+              <button
+                type="submit" onClick={this.addComment}
+                className='comment-submission'
+                className="comment-submit-button">
+              </button>
+            </form>
         </div>
-        );
-      }
-    } else {
-      return (<div></div>);
-    }
+        <div className="clear"></div>
+      </div>
+    </div>
+    );
   }
 
   renderDelete(comment, commentAuthorId) {
@@ -189,11 +187,6 @@ class ProfilePostItem extends React.Component {
             src={post.image_url}
             alt={profile.username + post.id + post.caption}
           />
-        <div className="photo-overlay">
-            {post.like_count} Likes
-
-            {commentCount} Comments
-          </div>
         </div>
 
         <Modal
