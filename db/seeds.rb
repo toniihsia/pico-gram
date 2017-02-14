@@ -29,7 +29,7 @@ lance = User.create(username: "sirlancelot", password: "password", email: "lance
 kiki_jiji = User.create(username: "kiki+jiji", password: "password", email: "kiki+jiji@email.com", image_url: "http://res.cloudinary.com/dfrrpfeus/image/upload/v1487040434/p20_rnd9ly.jpg")
 parametra = User.create(username: "parametra", password: "password", email: "parametra@email.com", image_url: "http://res.cloudinary.com/dfrrpfeus/image/upload/v1487040432/p7_jah0w1.jpg")
 igor_oussenko = User.create(username: "igor_o", password: "password", email: "igor@email.com", image_url: "http://res.cloudinary.com/dfrrpfeus/image/upload/v1487040432/p2_zsogzs.jpg")
-tania_kezha = User.create(username: "tania", password: "password", email: "tania@email.com", image_url: "http://res.cloudinary.com/dfrrpfeus/image/upload/v1487039541/prof_23_k1wnr3.jpg")
+tania_kezha = User.create(username: "tania", password: "password", email: "tania@email.com", image_url: "http://res.cloudinary.com/dfrrpfeus/image/upload/v1487040488/prof_23_ewk26a.jpg")
 
 # Photos
 photo_1 = Post.create(image_url: "https://res.cloudinary.com/dfrrpfeus/image/upload/v1478216466/seed_photo_1_k3agfk.jpg", caption: "pool lighting at dusk", user_id: 3)

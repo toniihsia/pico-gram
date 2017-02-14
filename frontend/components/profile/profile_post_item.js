@@ -23,14 +23,28 @@ class ProfilePostItem extends React.Component {
   }
 
   renderComments() {
+    let author = this.props.profile;
     if (this.props.post.comments) {
+      let postAgeString = `~${this.props.post.age} ago`;
       let commentsObject = this.props.post.comments;
       let commentsArray = Object.keys(commentsObject).map(id => commentsObject[id]);
       if (commentsObject) {
         return (
-          <div className="comments-container">
+          <div className="inner-comments-container">
+            <div className="post-header">
+              <div className="user-info"><Link
+                className="post-author"
+                to={`users/${author.id}`}>
+                {author.username}
+              </Link>
+            </div><Link
+                className="post-age"
+                to={`users/${author.id}`}>
+                {postAgeString}
+              </Link>
+            </div>
             {commentsArray.map(comment => (
-              <div className="comment" key={`comment${comment.id}`}>
+              <div className="inner-comment" key={`comment${comment.id}`}>
                 <div className="user-info">
                   <Link
                     className="comment-author"
@@ -42,6 +56,8 @@ class ProfilePostItem extends React.Component {
                 <div className="delete-container">{this.renderDelete(comment, comment.user_id)}</div>
               </div>
             ))}
+            <button className="just-wait" onClick={this.closeModal}>Get me out.</button>
+            <div className="clear"></div>
           </div>
         );
       }
@@ -68,6 +84,29 @@ class ProfilePostItem extends React.Component {
   render() {
     let post = this.props.post;
     let profile = this.props.profile;
+    const style = {
+      overlay : {
+        position          : 'fixed',
+        top               : 0,
+        left              : 0,
+        right             : 0,
+        bottom            : 0,
+        backgroundColor   : 'rgba(62, 62, 62, 0.6)',
+        zIndex            : 11
+      },
+      content : {
+        position                   : 'fixed',
+        top                        : '20%',
+        bottom                        : '20%',
+        left                       : '16%',
+        right                       : '16%',
+        border                     : '1px solid #ccc',
+        background                 : '#fff',
+        overflow                   : 'auto',
+        outline                    : 'none',
+        zIndex                     : 11
+      }
+    };
 
     return (
       <li className="user-post-li">
@@ -87,11 +126,12 @@ class ProfilePostItem extends React.Component {
           isOpen={this.state.openModal}
           overlayClassName="overlay"
           className="post-modal"
+          style={style}
           >
-          <img className="modal-photo" src={post.image_url} alt="modal-photo" />
+          <div className="photo-container">
+            <img className="inner-post-photo" src={post.image_url} alt="modal-photo" />
+          </div>
           {this.renderComments()}
-          <button onClick={this.closeModal}>Get me out.</button>
-
         </Modal>
       </li>
     );

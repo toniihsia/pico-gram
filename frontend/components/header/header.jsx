@@ -69,21 +69,19 @@ class Header extends React.Component {
         left              : 0,
         right             : 0,
         bottom            : 0,
-        backgroundColor   : 'rgba(62, 62, 62, 0.6)'
+        backgroundColor   : 'rgba(62, 62, 62, 0.6)',
+        zIndex            : 11
       },
       content : {
         position                   : 'fixed',
-        top                        : '5%',
-        left                       : '5%',
-        right                      : '20%',
-        bottom                     : '20%',
+        top                        : '40%',
+        left                       : '40%',
         border                     : '1px solid #ccc',
         background                 : '#fff',
         overflow                   : 'auto',
-        WebkitOverflowScrolling    : 'touch',
-        borderRadius               : '4px',
         outline                    : 'none',
-        padding                    : '20px'
+        translate                  : 'translate(-50%, -50%)',
+        zIndex                     : 11
       }
     };
 
@@ -118,19 +116,21 @@ class Header extends React.Component {
             <div className="upload-modal">
               <img className="photo-preview" src={this.state.cloudinaryUrl} alt="photo-preview"/>
               <br />
-              <input type="text" value={this.state.caption} placeholder="Insert caption here..." onChange={this.update('caption')}
-              className="comment-input"
-              />
-              <button
-                onClick={this.handleSubmit}
-                className="upload">
-                Upload
-              </button>
-              <button
-                onClick={this.closeModal}
-                className="cancel">
-                Cancel
-              </button>
+              <div className="upload-content">
+                <input type="text" value={this.state.caption} placeholder="Insert caption here..." onChange={this.update('caption')}
+                className="caption-input"
+                />
+                <button
+                  onClick={this.handleSubmit}
+                  className="modal-button">
+                  Upload
+                </button>
+                <button
+                  onClick={this.closeModal}
+                  className="modal-button">
+                  Cancel
+                </button>
+              </div>
             </div>
         </Modal>
       </div>

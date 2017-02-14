@@ -228,7 +228,30 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   padding-right: 5px;
 }
 
+.modal {
+text-align: center;
+margin: 0 auto;
+min-width: 500px;
+max-width: 600px;
+max-height: 450px;
+}
 
+.upload-content {
+  display: flex;
+}
+
+.caption-input {
+  outline: solid #ccc 0.1px;
+  background: white;
+  width: 62%;
+  margin-right: 5px;
+  height: 25px;
+  border: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+  resize: none;
+}
 .index-photo {
   width: 800px;
   height: auto;
@@ -236,13 +259,30 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
 }
 
 .photo-preview {
-  width: 450px;
+  width: inherit;
   height: auto;
   margin: auto;
 }
 
 .upload-modal {
-  text-align: center;
+  padding: 45px;
+  margin: auto;
+  width: 400px;
+}
+
+.modal-button {
+  width: 17%;
+  margin-right: 5px;
+  height: 26px;
+  background: white;
+  border: solid #ccc 0.1px;
+}
+
+.modal-button:hover {
+  background: #3e3e3e;
+  color: white;
+  border: solid #3e3e3e.0.1px;
+  transition: 0.3s;
 }
 
 .user-info {
@@ -554,4 +594,45 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   font-weight: 500;
   color: white;
   background-color: #383838;
+}
+
+.post-modal {
+  margin: 0 auto;
+  min-width: 800px;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+}
+
+.inner-post-photo {
+  height: 500px;
+}
+
+.clear {
+  clear: both;
+}
+
+.inner-post-modal {
+  display: flex;
+  height: 500px;
+}
+
+.photo-container {
+  height: 500px;
+}
+
+.inner-comments-container {
+  height: 500px;
+  width: 500px;
+  padding: 15px;
+}
+
+.inner-comment {
+  width: 500px;
+}
+
+.inner-profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
