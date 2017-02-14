@@ -102,6 +102,7 @@ class Profile extends React.Component {
                 post={post}
                 profile={this.props.profile}
                 currentUser={this.props.currentUser}
+                fetchPost={this.props.fetchPost}
                 createComment={this.props.createComment}
                 deleteComment={this.props.deleteComment}
                 createLike={this.props.createLike}

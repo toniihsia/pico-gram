@@ -3,7 +3,7 @@ import { fetchProfile } from '../../actions/user_actions';
 import { createComment, deleteComment } from '../../actions/comment_actions';
 import { createLike, deleteLike } from '../../actions/like_actions';
 import { createFollow, deleteFollow } from '../../actions/follow_actions';
-import { fetchPosts } from '../../actions/post_actions';
+import { fetchPosts, fetchPost } from '../../actions/post_actions';
 import { _childUpdatesIndex } from '../posts/post_index';
 
 import Profile from './profile';
@@ -20,6 +20,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   fetchPosts: () => dispatch(fetchPosts()),
+  fetchPost: (id) => dispatch(fetchPost(id)),
   createComment: (comment) => dispatch(createComment(comment)),
   deleteComment: (id) => dispatch(deleteComment(id)),
   createLike: (postId) => dispatch(createLike(postId)),

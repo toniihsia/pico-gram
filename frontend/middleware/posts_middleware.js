@@ -24,6 +24,7 @@ const PostsMiddleware = ({getState, dispatch}) => next => action => {
   // let receiveFollowSuccess = (follow) => dispatch(receiveFollow(follow));
   // let receiveDeleteSuccess = (follow) => dispatch(removeFollow(follow));
 
+  console.log(action);
   switch(action.type) {
     case FETCH_POSTS:
       fetchPosts(receiveAllPostsSuccess, error);
