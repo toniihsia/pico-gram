@@ -4,6 +4,7 @@ json.age post.age
 json.user do
   json.username post.user.username
   json.user_id post.user.id
+  json.followers post.user.followers.map(&:id)
 end
 
 json.comments do

@@ -3,6 +3,7 @@ json.extract! post, :id, :caption, :image_url
 json.user do
   json.id post.user.id
   json.username post.user.username
+  json.followers post.user.followers.map(&:id)
 end
 
 json.like_count post.like_count

@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch) => ({
   createLike: (postId) => dispatch(createLike(postId)),
   deleteLike: (postId) => dispatch(deleteLike(postId)),
   createFollow: (follow) => dispatch(createFollow(follow)),
-  deleteFollow: (id) => dispatch(deleteLike(id))
+  deleteFollow: (id) => dispatch(deleteFollow(id))
 });
 
 export default connect(

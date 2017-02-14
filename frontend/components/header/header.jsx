@@ -39,7 +39,6 @@ class Header extends React.Component {
   redirectToIndex(e) {
     e.preventDefault();
     this.props.fetchPosts();
-    this.props.updateIndex();
     hashHistory.replace('/');
   }
   closeModal() {
