@@ -104,24 +104,6 @@ class ProfilePostItem extends React.Component {
               </div>
             </div>
         ))}
-        <div className="comment-section">
-
-          {this.renderLikeButton()}<form
-            className="comment-form">
-              <input
-                type="text"
-                className="comment-input"
-                placeholder="Add a comment..."
-                onChange={this.update('body')}
-                value={this.state.body}
-              />
-              <button
-                type="submit" onClick={this.addComment}
-                className='comment-submission'
-                className="comment-submit-button">
-              </button>
-            </form>
-        </div>
         <div className="clear"></div>
       </div>
     </div>
