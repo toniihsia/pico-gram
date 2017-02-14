@@ -223,6 +223,7 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
 }
 
 .post-author {
+  flex: left;
   font-weight: bolder;
   padding-right: 5px;
 }
@@ -283,10 +284,6 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   font-weight: 500;
   color: white;
   background-color: #383838;
-}
-
-.post-author {
-  flex: left;
 }
 
 .follow-button:hover {
