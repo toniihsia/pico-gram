@@ -73,9 +73,9 @@ class Header extends React.Component {
         zIndex            : 11
       },
       content : {
-        position                   : 'fixed',
-        top                        : '40%',
-        left                       : '40%',
+        // position                   : 'fixed',
+        // top                        : '0%',
+        // left                       : '0%',
         border                     : '1px solid #ccc',
         background                 : '#fff',
         overflow                   : 'auto',

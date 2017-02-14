@@ -135,19 +135,20 @@ class ProfilePostItem extends React.Component {
         left              : 0,
         right             : 0,
         bottom            : 0,
-        backgroundColor   : 'rgba(62, 62, 62, 0.6)',
+        backgroundColor   : 'rgba(62, 62, 62, 0.9)',
         zIndex            : 11
       },
       content : {
-        position                   : 'fixed',
-        top                        : '20%',
-        bottom                        : '20%',
-        left                       : '16%',
-        right                       : '16%',
+        // position                   : 'fixed',
+        // top                        : '30%',
+        // bottom                        : '30%',
+        // left                       : '30%',
+        // right                       : '30%',
         border                     : '1px solid #ccc',
         background                 : '#fff',
         overflow                   : 'auto',
         outline                    : 'none',
+        translate                  : 'translate(-50%, -50%)',
         zIndex                     : 11
       }
     };
@@ -177,10 +178,12 @@ class ProfilePostItem extends React.Component {
           className="post-modal"
           style={style}
           >
-          <div className="photo-container">
-            <img className="inner-post-photo" src={post.image_url} alt="modal-photo" />
+          <div className="inner-post-modal">
+            <div className="photo-container">
+              <img className="inner-post-photo" src={post.image_url} alt="modal-photo" />
+            </div>
+            {this.renderComments()}
           </div>
-          {this.renderComments()}
         </Modal>
       </li>
     );
