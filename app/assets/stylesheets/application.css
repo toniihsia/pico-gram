@@ -234,7 +234,6 @@ text-align: center;
 margin: 0 auto;
 min-width: 500px;
 max-width: 600px;
-margin-top: 300px;
 /*max-height: 450px;*/
 border-radius: 5px;
 }
@@ -618,11 +617,9 @@ border-radius: 5px;
 .post-modal {
   text-align: center;
   margin: 0 auto;
-  /*margin-top: 300px;*/
   min-width: 500px;
   max-width: 1000px;
   height: 500px;
-  margin-top: 300px;
   border-radius: 5px;
   /*display: flex;*/
   /*flex-direction: row;*/
@@ -642,7 +639,6 @@ border-radius: 5px;
 
 .inner-post-modal {
   display: flex;
-  width: 1000px;
   margin: auto;
   /*width: 800px;*/
 }
@@ -654,7 +650,7 @@ border-radius: 5px;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  width: 500px;
+  max-width: 500px;
 }
 
 .inner-comments-container {
@@ -687,4 +683,10 @@ border-radius: 5px;
 
 .just-wait {
   float: right;
+}
+
+.inner-user-info {
+  display: flex;
+  padding-bottom: 5px;
+  padding-left: 10px;
 }

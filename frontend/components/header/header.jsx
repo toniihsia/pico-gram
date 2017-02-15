@@ -65,6 +65,7 @@ class Header extends React.Component {
     const style = {
       overlay : {
         position          : 'fixed',
+        textAlign         : 'center',
         top               : 0,
         left              : 0,
         right             : 0,
@@ -76,12 +77,16 @@ class Header extends React.Component {
         // position                   : 'fixed',
         // top                        : '0%',
         // left                       : '0%',
+        display                    : "inline-block",
         border                     : '1px solid #ccc',
         background                 : '#fff',
         overflow                   : 'auto',
         outline                    : 'none',
         translate                  : 'translate(-50%, -50%)',
-        zIndex                     : 11
+        zIndex                     : 11,
+        verticalAlign              : 'middle',
+        top                        : '50%',
+        transform                  : 'translateY(50%)'
       }
     };
 

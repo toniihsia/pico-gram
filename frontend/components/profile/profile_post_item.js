@@ -84,7 +84,7 @@ class ProfilePostItem extends React.Component {
           </Link>
         </div>
         <div>
-          <div className="user-info">
+          <div className="inner-user-info">
             <Link
               className="comment-author"
               to={`users/${this.props.profile.id}`}>
@@ -131,25 +131,28 @@ class ProfilePostItem extends React.Component {
     const style = {
       overlay : {
         position          : 'fixed',
+        textAlign         : 'center',
         top               : 0,
         left              : 0,
         right             : 0,
         bottom            : 0,
-        backgroundColor   : 'rgba(62, 62, 62, 0.9)',
+        backgroundColor   : 'rgba(62, 62, 62, 0.6)',
         zIndex            : 11
       },
       content : {
         // position                   : 'fixed',
-        // top                        : '30%',
-        // bottom                        : '30%',
-        // left                       : '30%',
-        // right                       : '30%',
+        // top                        : '0%',
+        // left                       : '0%',
+        display                    : "inline-block",
         border                     : '1px solid #ccc',
         background                 : '#fff',
         overflow                   : 'auto',
         outline                    : 'none',
         translate                  : 'translate(-50%, -50%)',
-        zIndex                     : 11
+        zIndex                     : 11,
+        verticalAlign              : 'middle',
+        top                        : '50%',
+        transform                  : 'translateY(50%)'
       }
     };
 
