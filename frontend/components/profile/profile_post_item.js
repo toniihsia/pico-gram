@@ -26,7 +26,7 @@ class ProfilePostItem extends React.Component {
     this.renderComments = this.renderComments.bind(this);
     this.renderLikeButton = this.renderLikeButton.bind(this);
     this.renderDelete = this.renderDelete.bind(this);
-    // this.deleteComment = this.deleteComment.bind(this);
+    this.likeToggler = this.likeToggler.bind(this);
   }
 
   openModal() {
@@ -53,20 +53,24 @@ class ProfilePostItem extends React.Component {
   }
 
   likeToggler() {
+    let currentUser = this.props.currentUser;
     let post = this.props.post;
     let userIdLikes = post.user_likes;
     let likesArray = post.likes ? Object.keys(post.likes).map(id => post.likes[id]) : [];
 
+    console.log(this.props.currentUser.id);
     if (userIdLikes.includes(this.props.currentUser.id)) {
+      console.log('should delete');
       const likeId = this.findLikeId(likesArray);
       // debugger
       this.props.deleteLike(likeId);
-      this.props.fetchProfile();
-      this.setState(this.state.deletedLike = likeId)
+      this.props.fetchProfile(currentUser.id);
+      this.setState.deletedLike = likeId;
     } else {
+      console.log('should make');
       this.props.createLike({user_id: this.props.currentUser.id, post_id: post.id});
-      this.props.fetchProfile();
-      this.setState(this.state.newLike = !this.state.newLikeId)
+      this.props.fetchProfile(currentUser.id);
+      this.setState.newLike = !this.state.newLikeId;
     }
   }
 

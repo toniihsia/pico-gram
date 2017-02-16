@@ -400,8 +400,8 @@ border-radius: 5px;
 .unfilled-like-button {
   margin-right: 10px;
   background-image: url('https://res.cloudinary.com/dfrrpfeus/image/upload/v1478756528/unfilled-heart-icon_tcxcze.png');
-  width: 30px;
-  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
   background-color: transparent;
   background-repeat: no-repeat;
   background-size: contain;
@@ -417,8 +417,8 @@ border-radius: 5px;
   margin-right: 10px;
   background-image: url('https://res.cloudinary.com/dfrrpfeus/image/upload/v1478756523/filled-heart-icon_umf3hi.png');
 
-  width: 30px;
-  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
   background-color: transparent;
   background-repeat: no-repeat;
   background-size: contain;
