@@ -64,12 +64,12 @@ class ProfilePostItem extends React.Component {
       const likeId = this.findLikeId(likesArray);
       // debugger
       this.props.deleteLike(likeId);
-      this.props.fetchProfile(currentUser.id);
+      this.props.fetchProfile(this.props.profile.id);
       this.setState.deletedLike = likeId;
     } else {
       console.log('should make');
       this.props.createLike({user_id: this.props.currentUser.id, post_id: post.id});
-      this.props.fetchProfile(currentUser.id);
+      this.props.fetchProfile(this.props.profile.id);
       this.setState.newLike = !this.state.newLikeId;
     }
   }
@@ -107,8 +107,8 @@ class ProfilePostItem extends React.Component {
     // console.log(this.state);
     return (
       <div className="inner-comments-container">
-        <button className="inner-close-modal" onClick={this.closeModal}>X</button>
-        <div className="post-header">
+        <div className="inner-close-modal" onClick={this.closeModal}>X</div>
+        <div className="inner-post-header">
           <div className="user-info">
             <img className="profile-pic-prev" src={this.props.profile.profile_pic} /><Link
             className="inner-post-author"
@@ -132,16 +132,16 @@ class ProfilePostItem extends React.Component {
           </div>
           {commentsArray.map(comment => (
             <div className="inner-comment" key={`comment${comment.id}`}>
-              <div className="user-info">
+              <div className="inner-user-info">
                 <Link
                   className="comment-author"
                   to={`users/${comment.user_id}`}>
                   {comment.username }
                 </Link>
                 {` ${comment.body}`}
-                <div className="delete-container">{this.renderDelete(comment, comment.user_id)}</div>
               </div>
-            </div>
+              <div className="inner-delete-container">{this.renderDelete(comment, comment.user_id)}</div>
+          </div>
         ))}
         <div className="comment-section">
           {this.renderLikeButton()}<form

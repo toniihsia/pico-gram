@@ -649,11 +649,16 @@ border-radius: 5px;
 
 .inner-comments-container {
   width: 500px;
-  padding: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  /*display: flex;*/
 }
 
 .inner-comment {
   width: 500px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .profile-pic-prev {
@@ -689,6 +694,24 @@ border-radius: 5px;
   box-shadow: none;
   outline: none;
   background: none;
-  margin: 3px;
-  float: right;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 12px;
+}
+.inner-close-modal:hover {
+  cursor: pointer;
+}
+
+.inner-post-header {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 0;
+  margin-top: 25px;
+}
+
+.inner-delete-container {
+  /*padding-right: 10px;*/
 }
