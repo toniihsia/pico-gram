@@ -2,7 +2,6 @@ import React from 'react';
 import { hashHistory, Link } from 'react-router';
 import Comment from '../comments/comment';
 import Modal from 'react-modal';
-import { renderDelete } from '../posts/profile_post_item';
 
 class ProfilePostItem extends React.Component {
   constructor(props) {
@@ -12,7 +11,10 @@ class ProfilePostItem extends React.Component {
       openModal: false,
       comment: {
         body: '',
-        post_id: this.props.post.id
+        post_id: this.props.post.id,
+      deletedCommentId: 0,
+      newLike: false,
+      deletedLike: 0
       }
     };
 
@@ -24,6 +26,7 @@ class ProfilePostItem extends React.Component {
     this.renderComments = this.renderComments.bind(this);
     this.renderLikeButton = this.renderLikeButton.bind(this);
     this.renderDelete = this.renderDelete.bind(this);
+    // this.deleteComment = this.deleteComment.bind(this);
   }
 
   openModal() {
@@ -49,9 +52,34 @@ class ProfilePostItem extends React.Component {
     return (<button className={likeFill} onClick={this.likeToggler}></button>);
   }
 
+  likeToggler() {
+    let post = this.props.post;
+    let userIdLikes = post.user_likes;
+    let likesArray = post.likes ? Object.keys(post.likes).map(id => post.likes[id]) : [];
+
+    if (userIdLikes.includes(this.props.currentUser.id)) {
+      const likeId = this.findLikeId(likesArray);
+      // debugger
+      this.props.deleteLike(likeId);
+      this.props.fetchProfile();
+      this.setState(this.state.deletedLike = likeId)
+    } else {
+      this.props.createLike({user_id: this.props.currentUser.id, post_id: post.id});
+      this.props.fetchProfile();
+      this.setState(this.state.newLike = !this.state.newLikeId)
+    }
+  }
+
+  findLikeId(likesArray) {
+    for (var i = 0; i < likesArray.length; i++) {
+      if (likesArray[i].user_id === this.props.currentUser.id) {
+        return likesArray[i].id;
+      }
+    }
+  }
+
   addComment(e) {
     e.preventDefault();
-    console.log(this.propsprofile);
     this.props.createComment(this.state.comment);
     this.props.fetchProfile(this.props.profile.id);
     this.setState( {
@@ -75,6 +103,7 @@ class ProfilePostItem extends React.Component {
     // console.log(this.state);
     return (
       <div className="inner-comments-container">
+        <button className="inner-close-modal" onClick={this.closeModal}>X</button>
         <div className="post-header">
           <div className="user-info">
             <img className="profile-pic-prev" src={this.props.profile.profile_pic} /><Link
@@ -106,11 +135,12 @@ class ProfilePostItem extends React.Component {
                   {comment.username }
                 </Link>
                 {` ${comment.body}`}
+                <div className="delete-container">{this.renderDelete(comment, comment.user_id)}</div>
               </div>
             </div>
         ))}
         <div className="comment-section">
-          <form
+          {this.renderLikeButton()}<form
             className="comment-form">
               <input
                 type="text"
@@ -134,11 +164,20 @@ class ProfilePostItem extends React.Component {
   renderDelete(comment, commentAuthorId) {
     if (this.props.currentUser.id === commentAuthorId) {
       return (
-        <button className="comment-delete-button"onClick={this.props.deleteComment.bind(this, comment.id)}>
+        <button
+          id={comment.id}
+          className="comment-delete-button"
+          onClick={this.deleteComment.bind(this, comment.id)}>
           X
         </button>
       );
     }
+  }
+
+  deleteComment(commentId) {
+    this.props.deleteComment(commentId);
+    this.props.fetchProfile(this.props.profile.id);
+    this.setState.deletedCommentId = commentId;
   }
 
 // destructuring assignment:
@@ -147,6 +186,7 @@ class ProfilePostItem extends React.Component {
 //  ES6 you can do that
 
   render() {
+    console.log(this.props);
     let post = this.props.post;
     let profile = this.props.profile;
     const style = {
@@ -185,7 +225,6 @@ class ProfilePostItem extends React.Component {
       commentCount = commentsArray.length;
     }
 
-    console.log(this.props);
     return (
       <li className="user-post-li">
         <div className="user-post" onClick={this.openModal}>
@@ -202,7 +241,6 @@ class ProfilePostItem extends React.Component {
           className="post-modal"
           style={style}
           >
-          <button className="inner-close-modal" onClick={this.closeModal}>X</button>
           <div className="inner-post-modal">
             <div className="photo-container">
               <img className="inner-post-photo" src={post.image_url} alt="modal-photo" />

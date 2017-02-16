@@ -221,6 +221,7 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   justify-content: space-between;
   padding: 10px;
   margin: 0;
+  /*margin-top: 20px;*/
 }
 
 .post-author {

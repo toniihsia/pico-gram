@@ -203,7 +203,6 @@ class PostIndexItem extends React.Component {
             {this.renderComments()}
 
             <div className="comment-section">
-
               {this.renderLikeButton()}<form
                 className="comment-form">
                   <input
