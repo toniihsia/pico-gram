@@ -29,6 +29,14 @@ class ProfilePostItem extends React.Component {
     this.likeToggler = this.likeToggler.bind(this);
   }
 
+  shouldComponentUpdate(newProps, oldProps) {
+    if (!newProps.currentUser) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   openModal() {
     this.setState({ openModal: true });
   }

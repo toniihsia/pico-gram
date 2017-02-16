@@ -58,7 +58,6 @@ class Profile extends React.Component {
   }
 
   followToggler() {
-    console.log('hello');
     let currentUser = this.props.currentUser;
     let authorId = this.props.profile.id;
     if (currentUser.followees.includes(authorId)) {
@@ -71,7 +70,6 @@ class Profile extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     let userProfile = this.props.profile;
     let userPosts = this.userPostsObjToArray(this.props.profile.posts);
     let numUserPosts = userPosts.length;

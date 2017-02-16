@@ -27,7 +27,7 @@ const Root = ({ store }) => {
     }
   };
 
-  const _fetchProfile = (nextState) => (
+  const _fetchProfile = (nextState, replace) => (
     store.dispatch(fetchProfile(nextState.params.userId))
   );
 
