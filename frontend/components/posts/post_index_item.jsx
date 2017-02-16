@@ -187,7 +187,7 @@ class PostIndexItem extends React.Component {
             </div>
             <img className="index-photo" src={post.image_url} alt={`${post.user}${post.id}`} />
             <br/>
-            <div className="like-count">{`${post.like_count} likes`}</div>
+            <div className="like-count"><img className="like-count-photo" src="http://res.cloudinary.com/dfrrpfeus/image/upload/v1487229088/like_1_gpfhio.png" />{`${post.like_count} likes`}</div>
 
             <div className="caption-box">
               <Link
