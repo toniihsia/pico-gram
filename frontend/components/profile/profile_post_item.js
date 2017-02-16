@@ -58,16 +58,13 @@ class ProfilePostItem extends React.Component {
     let userIdLikes = post.user_likes;
     let likesArray = post.likes ? Object.keys(post.likes).map(id => post.likes[id]) : [];
 
-    console.log(this.props.currentUser.id);
     if (userIdLikes.includes(this.props.currentUser.id)) {
-      console.log('should delete');
       const likeId = this.findLikeId(likesArray);
       // debugger
       this.props.deleteLike(likeId);
       this.props.fetchProfile(this.props.profile.id);
       this.setState.deletedLike = likeId;
     } else {
-      console.log('should make');
       this.props.createLike({user_id: this.props.currentUser.id, post_id: post.id});
       this.props.fetchProfile(this.props.profile.id);
       this.setState.newLike = !this.state.newLikeId;
@@ -104,7 +101,6 @@ class ProfilePostItem extends React.Component {
     if (commentsObject) {
       commentsArray = Object.keys(commentsObject).map(id => commentsObject[id]);
     }
-    // console.log(this.state);
     return (
       <div className="inner-comments-container">
         <div className="inner-close-modal" onClick={this.closeModal}>X</div>
@@ -190,7 +186,6 @@ class ProfilePostItem extends React.Component {
 //  ES6 you can do that
 
   render() {
-    console.log(this.props);
     let post = this.props.post;
     let profile = this.props.profile;
     const style = {
