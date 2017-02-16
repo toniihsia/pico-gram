@@ -6,8 +6,8 @@ class Profile extends React.Component {
   constructor(props){
     super(props);
 
-    this.renderFollowButton = this.renderFollowButton.bind(this);
-    this.followToggler = this.followToggler.bind(this);
+    this.numUserFollowees = this.numUserFollowees.bind(this);
+    this.numUserFollowers = this.numUserFollowers.bind(this);
   }
 
   userPostsObjToArray(posts) {
@@ -107,6 +107,7 @@ class Profile extends React.Component {
                 deleteComment={this.props.deleteComment}
                 createLike={this.props.createLike}
                 deleteLike={this.props.deleteLike}
+                fetchProfile={this.props.fetchProfile}
               /> )
             }
           </ul>

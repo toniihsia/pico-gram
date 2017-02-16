@@ -20,13 +20,13 @@ class PostIndexItem extends React.Component {
     this.followToggler = this.followToggler.bind(this);
   }
 
-  shouldComponentUpdate(newProps, oldProps) {
-    if (!newProps.currentUser) {
-      return false;
-    } else {
-      return true;
-    }
-  }
+  // shouldComponentUpdate(newProps, oldProps) {
+  //   if (!newProps.currentUser) {
+  //     return false;
+  //   } else {
+  //     return true;
+  //   }
+  // }
 
   redirectUser(e) {
     let userId = this.props.user.id;
@@ -215,7 +215,6 @@ class PostIndexItem extends React.Component {
                   />
                   <button
                     type="submit" onClick={this.addComment}
-                    className='comment-submission'
                     className="comment-submit-button">
                   </button>
                 </form>

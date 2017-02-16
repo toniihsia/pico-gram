@@ -233,7 +233,7 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
 text-align: center;
 margin: 0 auto;
 min-width: 500px;
-max-width: 600px;
+/*max-width: 600px;*/
 /*max-height: 450px;*/
 border-radius: 5px;
 }
@@ -618,16 +618,13 @@ border-radius: 5px;
   text-align: center;
   margin: 0 auto;
   min-width: 500px;
-  max-width: 1000px;
-  height: 500px;
+  height: 550px;
   border-radius: 5px;
-  /*display: flex;*/
-  /*flex-direction: row;*/
 }
 
 .inner-post-photo {
   /*flex-shrink: 0;*/
-  height: 500px;
+  height: 550px;
   display: block;
   margin: auto;
   /*min-height: 100%;*/
@@ -640,21 +637,16 @@ border-radius: 5px;
 .inner-post-modal {
   display: flex;
   margin: auto;
-  /*width: 800px;*/
 }
 
 .photo-container {
-  /*display: flex;*/
-  /*background: #3e3e3e;*/
   border-right: solid #ccc 0.1px;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  max-width: 500px;
 }
 
 .inner-comments-container {
-  width: 500px;
   width: 500px;
   padding: 15px;
 }
@@ -689,4 +681,13 @@ border-radius: 5px;
   display: flex;
   padding-bottom: 5px;
   padding-left: 10px;
+}
+
+.inner-close-modal {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background: none;
+  margin: 3px;
+  float: right;
 }

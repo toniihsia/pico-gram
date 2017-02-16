@@ -2,6 +2,7 @@ import React from 'react';
 import { hashHistory, Link } from 'react-router';
 import Comment from '../comments/comment';
 import Modal from 'react-modal';
+import { renderDelete } from '../posts/profile_post_item';
 
 class ProfilePostItem extends React.Component {
   constructor(props) {
@@ -50,8 +51,13 @@ class ProfilePostItem extends React.Component {
 
   addComment(e) {
     e.preventDefault();
+    console.log(this.propsprofile);
     this.props.createComment(this.state.comment);
-    this.setState( {comment: {body: '', post_id: this.props.post.id}});
+    this.props.fetchProfile(this.props.profile.id);
+    this.setState( {
+      comment: {body: '', post_id: this.props.post.id},
+      openModal: true
+    });
   }
 
   update(field) {
@@ -60,16 +66,15 @@ class ProfilePostItem extends React.Component {
 
   renderComments() {
     let author = this.props.profile;
-    let commentsObject = this.props.comments;
+    let commentsObject = this.props.post.comments;
     let commentsArray = [];
     let postAgeString = `~${this.props.post.age} ago`;
     if (commentsObject) {
       commentsArray = Object.keys(commentsObject).map(id => commentsObject[id]);
     }
-
+    // console.log(this.state);
     return (
       <div className="inner-comments-container">
-        <button className="comment-delete-button" onClick={this.closeModal}>X</button>
         <div className="post-header">
           <div className="user-info">
             <img className="profile-pic-prev" src={this.props.profile.profile_pic} /><Link
@@ -104,6 +109,22 @@ class ProfilePostItem extends React.Component {
               </div>
             </div>
         ))}
+        <div className="comment-section">
+          <form
+            className="comment-form">
+              <input
+                type="text"
+                className="comment-input"
+                placeholder="Add a comment..."
+                onChange={this.update('body')}
+                value={this.state.comment.body}
+              />
+              <button
+                type="submit" onClick={this.addComment}
+                className="comment-submit-button">
+              </button>
+            </form>
+        </div>
         <div className="clear"></div>
       </div>
     </div>
@@ -181,6 +202,7 @@ class ProfilePostItem extends React.Component {
           className="post-modal"
           style={style}
           >
+          <button className="inner-close-modal" onClick={this.closeModal}>X</button>
           <div className="inner-post-modal">
             <div className="photo-container">
               <img className="inner-post-photo" src={post.image_url} alt="modal-photo" />
