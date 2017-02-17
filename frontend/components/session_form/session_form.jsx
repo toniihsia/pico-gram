@@ -139,7 +139,7 @@ class SessionForm extends React.Component {
 	renderGuestLogIn() {
 		if (this.props.formType === "login") {
 			return (<button
-				className="auth-button"
+				className="guest-auth-button"
 				id="button"
 				type="button"
 				name="button"

@@ -102,6 +102,29 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   background-color: white;
 }
 
+@keyframes mypush {
+    0%   {transform: scale(1);}
+    25%  {transform: scale(1.2); background-color: #3e3e3e; color: white; }
+    50% {transform: scale(1);}
+    75%  {transform: scale(1.2); background-color: #3e3e3e; color: white;  }
+    100% {transform: scale(1);}
+}
+
+.guest-auth-button {
+  outline: 0;
+  width: 80%;
+  padding: 10px;
+  border: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 10px;
+  color: #383838;
+  background-color: white;
+  animation: mypush 2s;
+}
+
 .auth-button:hover {
   cursor: pointer;
   background-color: #3e3e3e;
