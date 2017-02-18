@@ -104,9 +104,9 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
 
 @keyframes mypush {
     0%   {transform: scale(1);}
-    25%  {transform: scale(1.2); background-color: #3e3e3e; color: white; }
+    25%  {transform: scale(1.2); background-color: #0aaccc; color: white; }
     50% {transform: scale(1);}
-    75%  {transform: scale(1.2); background-color: #3e3e3e; color: white;  }
+    75%  {transform: scale(1.2); background-color: #0aaccc; color: white;  }
     100% {transform: scale(1);}
 }
 
@@ -122,7 +122,14 @@ html, section, article, label, h1, h2, p, strong, em, a, li{
   margin-top: 10px;
   color: #383838;
   background-color: white;
-  animation: mypush 2s;
+  animation: mypush 1.5s;
+}
+
+.guest-auth-button:hover {
+  cursor: pointer;
+  background-color: #3e3e3e;
+  transition: 0.3s;
+  color: white;
 }
 
 .auth-button:hover {
